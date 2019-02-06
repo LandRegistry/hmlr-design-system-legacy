@@ -1,0 +1,11 @@
+{% extends "app/layout.html" %}
+
+{% block title %}An error has occured{% endblock %}
+
+{% block inner_content %}
+  <h1 class="govuk-heading-l">An error has occured</h1>
+  {% if code %}
+    <p class="govuk-body"><strong>Error code:</strong> {{code}}</p>
+  {% endif %}
+  <p class="govuk-body">{{description}}</p>
+{% endblock %}

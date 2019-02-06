@@ -1,0 +1,51 @@
+{% from "app/vendor/.govuk-frontend/components/skip-link/macro.html" import govukSkipLink %}
+{% from "app/vendor/.govuk-frontend/components/header/macro.html" import govukHeader %}
+{% from "app/vendor/.govuk-frontend/components/phase-banner/macro.html" import govukPhaseBanner %}
+{% from "app/vendor/.govuk-frontend/components/footer/macro.html" import govukFooter %}
+{% from "app/vendor/.govuk-frontend/components/error-summary/macro.html" import govukErrorSummary %}
+
+{% extends "app/vendor/.govuk-frontend/template.html" %}
+
+{% set assetPath = url_for('static', filename='.govuk-frontend').rstrip('/') %}
+
+{% block head %}
+  <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main.css') }}" /><!--<![endif]-->
+  <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main-ie8.css') }}" /><![endif]-->
+{% endblock %}
+
+{% block pageTitle %}{% block title %}{% endblock %}{%if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
+
+{% block bodyEnd %}
+  <!--[if gt IE 8]><!-->
+  <script src="{{ url_for('static', filename='javascripts/main.js') }}"> </script>
+  <!--<![endif]-->
+{% endblock %}
+
+{% block bodyStart %}
+  <div class="app-cookie-banner js-cookie-banner">
+    <p class="app-cookie-banner__message">HM Land Registry uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies" class="govuk-link">Find out more about cookies</a></p>
+  </div>
+{% endblock %}
+
+{% block skipLink %}
+  {{ govukSkipLink({
+    'href': "#main-content",
+    'text': "Skip to main content"
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    'homepageUrl': "/",
+    'serviceName': "HMLR Design System",
+    'serviceUrl': "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  {% block inner_content %}{% endblock %}
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({}) }}
+{% endblock %}

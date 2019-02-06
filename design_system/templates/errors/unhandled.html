@@ -1,0 +1,23 @@
+{% extends "app/layout.html" %}
+
+{% if http_code == 404 %}
+  {% set title="Page not found" %}
+{% elif http_code == 403 %}
+  {% set title="Access denied" %}
+{% else %}
+  {% set title="Sorry, we are experiencing technical difficulties." %}
+{% endif %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block inner_content %}
+  <h1 class="govuk-heading-l">{{title}}</h1>
+
+  {% if http_code == 404 %}
+    <p class="govuk-body">If you entered a web address please check it was correct.</p>
+  {% elif http_code == 403 %}
+    <p class="govuk-body">You do not have permission to access the requested resource.</p>
+  {% else %}
+    <p class="govuk-body">Please try again in a few moments.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% from 'app/vendor/.govuk-frontend/components/error-summary/macro.html' import govukErrorSummary %}
+{% from 'app/vendor/.govuk-frontend/components/warning-text/macro.html' import govukWarningText %}
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+  {% for group in messages|groupby(0) %}
+    {% if group.grouper == 'error' %}
+
+      {% set errors = [] %}
+
+      {% for category, message in group.list %}
+        {% set _dummy = errors.append({'text': message}) %}
+      {% endfor %}
+
+      {{ govukErrorSummary({
+        'titleText': 'There is a problem',
+        'errorList': errors
+      }) }}
+
+    {% else %}
+
+      {% for category, message in group.list %}
+        {{ govukWarningText({
+          'text': message,
+          'iconFallbackText': "Warning"
+        }) }}
+      {% endfor %}
+
+    {% endif %}
+  {% endfor %}
+{% endwith %}
