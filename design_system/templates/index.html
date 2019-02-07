@@ -1,9 +1,9 @@
 {% extends "app/layout.html" %}
 
 {% block inner_content %}
-  <h1 class="heading-large">HMLR Design System</h1>
+  <h1 class="govuk-heading-l">HMLR Design System</h1>
 
-  <ul class="list list-bullet">
+  <ul class="govuk-list govuk-list--bullet">
     {% for demo in demos %}
       <li><a href="{{demo}}">{{demo}}</a></li>
     {% endfor %}
