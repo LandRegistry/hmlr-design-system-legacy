@@ -1,11 +1,16 @@
 // GOV.UK design system
 $govuk-images-path: '/ui/.govuk-frontend/images/';
 $govuk-fonts-path: '/ui/.govuk-frontend/fonts/';
-$govuk-font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+
+// HMLR design system settings
+// Must come before govuk-frontend import since it contains variable overrides
+@import '../../../../src/settings/all';
+
 @import 'govuk-frontend/all';  // Feel free to be more selective than this
 
 // App specific code
 @import 'partials/cookie-banner';
 
-// Components
+// Design system components
 @import '../../../../src/components/header/style';
+@import '../../../../src/components/footer/style';

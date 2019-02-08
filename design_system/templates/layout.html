@@ -1,6 +1,6 @@
 {% from "app/vendor/.govuk-frontend/components/skip-link/macro.html" import govukSkipLink %}
 {% from "components/header/template.html" import header %}
-{% from "app/vendor/.govuk-frontend/components/footer/macro.html" import govukFooter %}
+{% from "components/footer/template.html" import footer %}
 
 {% extends "app/vendor/.govuk-frontend/template.html" %}
 
@@ -43,5 +43,5 @@
 {% endblock %}
 
 {% block footer %}
-  {{ govukFooter({}) }}
+  {{ footer({}) }}
 {% endblock %}

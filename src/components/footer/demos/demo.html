@@ -1,0 +1,9 @@
+{% from 'components/footer/template.html' import footer %}
+{% extends 'app/layout.html' %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
+  {{ footer() }}
+
+{% endblock %}
