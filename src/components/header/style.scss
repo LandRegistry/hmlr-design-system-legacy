@@ -1,0 +1,33 @@
+@import '../settings/colours';
+
+.hmlr-header {
+  @include govuk-width-container();
+}
+
+.hmlr-header__inner {
+  @include govuk-clearfix;
+  position: relative;
+  padding: govuk-spacing(5) govuk-spacing(3);
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 7px;
+    background: $hmlr-green-1 linear-gradient(-60deg, $hmlr-green-1 0%, $hmlr-green-1 50%, $hmlr-green-2 50%, $hmlr-green-2 100%);
+  }
+
+}
+
+.hmlr-header__link {
+  float: left;
+}
+
+.hmlr-header__logo {
+  width: 225px;
+  max-width: 100%;
+  display: block;
+}

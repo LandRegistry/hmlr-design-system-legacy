@@ -1,10 +1,11 @@
 // GOV.UK design system
 $govuk-images-path: '/ui/.govuk-frontend/images/';
 $govuk-fonts-path: '/ui/.govuk-frontend/fonts/';
+$govuk-font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 @import 'govuk-frontend/all';  // Feel free to be more selective than this
 
 // App specific code
 @import 'partials/cookie-banner';
 
 // Components
-@import '../../../../components/header/style';
+@import '../../../../src/components/header/style';

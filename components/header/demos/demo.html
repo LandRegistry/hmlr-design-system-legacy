@@ -1,8 +1,0 @@
-{% from 'components/header/template.html' import header %}
-{% extends 'app/layout.html' %}
-
-{% block inner_content %}
-  {{ readme|markdown }}
-
-  {{ header() }}
-{% endblock %}

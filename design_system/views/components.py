@@ -24,11 +24,11 @@ components = Blueprint('components', __name__)
 @components.route("/")
 def index():
     def parse_path(demo_path):
-        demo_path = path.relpath(demo_path, 'components').replace('/demos', '').replace('.html', '')
+        demo_path = path.relpath(demo_path, 'src/components').replace('/demos', '').replace('.html', '')
         path_parts = demo_path.split('/')
         return url_for('components.component_demo', component_name=path_parts[0], demo_name=path_parts[1])
 
-    demos = glob('components/**/demos/*.html')
+    demos = glob('src/components/**/demos/*.html')
     parsed_demos = sorted(list(map(parse_path, demos)))
     print(parsed_demos)
 
@@ -38,7 +38,7 @@ def index():
 @components.route('/<component_name>/<demo_name>')
 def component_demo(component_name, demo_name):
 
-    readme = open('components/{}/README.md'.format(component_name))
+    readme = open('src/components/{}/README.md'.format(component_name))
 
     return render_template('components/{}/demos/{}.html'.format(component_name, demo_name),
                            readme=readme.read()

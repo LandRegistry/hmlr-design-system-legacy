@@ -1,8 +1,6 @@
 {% from "app/vendor/.govuk-frontend/components/skip-link/macro.html" import govukSkipLink %}
-{% from "app/vendor/.govuk-frontend/components/header/macro.html" import govukHeader %}
-{% from "app/vendor/.govuk-frontend/components/phase-banner/macro.html" import govukPhaseBanner %}
+{% from "components/header/template.html" import header %}
 {% from "app/vendor/.govuk-frontend/components/footer/macro.html" import govukFooter %}
-{% from "app/vendor/.govuk-frontend/components/error-summary/macro.html" import govukErrorSummary %}
 
 {% extends "app/vendor/.govuk-frontend/template.html" %}
 
@@ -35,10 +33,8 @@
 {% endblock %}
 
 {% block header %}
-  {{ govukHeader({
-    'homepageUrl': "/",
-    'serviceName': "HMLR Design System",
-    'serviceUrl': "/"
+  {{ header({
+    'homepageUrl': '/'
   }) }}
 {% endblock %}
 
