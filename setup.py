@@ -16,5 +16,5 @@ setuptools.setup(name='hmlr-design-system',
                  description='HMLR Design System',
                  packages=['hmlr_design_system'],
                  package_dir={'': 'src'},
-                 package_data={'hmlr_design_system': ['**/template.html']}
+                 package_data={'components': ['**/template.html']}
                  )
