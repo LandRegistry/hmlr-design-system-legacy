@@ -14,6 +14,10 @@
 .hmlr-header__link {
   @include govuk-focusable;
   float: left;
+
+  &:focus {
+    outline-offset: govuk-spacing(3) - $govuk-focus-width;
+  }
 }
 
 .hmlr-header__logo {
