@@ -8,8 +8,7 @@
     "build": "gulp build",
     "dev": "gulp watch",
     "pretest": "npm run check-node-version --silent",
-    "prebuild": "npm run check-node-version --silent",
-    "preinstall": "bash ./preinstall.sh"
+    "prebuild": "npm run check-node-version --silent"
   },
   "engines": {
     "npm": "5.x",
