@@ -1,5 +1,20 @@
 {% macro footer(params={}) %}
   <footer class="hmlr-footer">
-    Footer
+    <div class="hmlr-footer__inner">
+      {% if params.meta %}
+        {% if params.meta['items'] %}
+          <h2 class="govuk-visually-hidden">Support links</h2>
+          <ul class="hmlr-footer__links">
+            {% for item in params.meta['items'] %}
+              <li class="hmlr-footer__item">
+                <a class="hmlr-footer__link" href="{{ item.href }}"{% for attribute, value in (item.attributes.items() if item.attributes else {}.items()) %} {{attribute}}="{{value}}"{% endfor %}>
+                  {{ item.text }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endif %}
+    </div>
   </footer>
 {% endmacro %}

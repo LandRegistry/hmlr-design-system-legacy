@@ -1,0 +1,23 @@
+%hexaborder {
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 7px;
+    background: $hmlr-green-1 linear-gradient(-60deg, $hmlr-green-1 0%, $hmlr-green-1 50%, $hmlr-green-2 50%, $hmlr-green-2 100%);
+  }
+}
+
+%hexaborder--top {
+  @extend %hexaborder;
+
+  &:before {
+    bottom: auto;
+    top: 0;
+  }
+}
