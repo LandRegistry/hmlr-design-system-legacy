@@ -1,9 +1,9 @@
 version: '2'
 services:
   # Notice how the service name, container name and repo directory (where the Dockerfile lives) all match.
-  design-system:
-    container_name: design-system
-    build: ./design-system
+  hmlr-design-system:
+    container_name: hmlr-design-system
+    build: ./hmlr-design-system
     restart: on-failure
     ports:
       # The base Flask Dockerfile tells gunicorn to use 8080 by default, we expose it here and map it to a unique
@@ -11,7 +11,7 @@ services:
       - "3001:8080"
     volumes:
       # Our convention is (for python) to always map the app files to /src within the container
-      - ./design-system:/src
+      - ./hmlr-design-system:/src
     # Redirect all the logs to a logstash server. Logstash is set up to parse RFC5424 format messages.
     logging:
       driver: syslog

@@ -1,4 +1,4 @@
-from design_system.custom_extensions.wtforms_helpers.wtforms_widgets import (GovCheckboxesInput,
+from hmlr_design_system.custom_extensions.wtforms_helpers.wtforms_widgets import (GovCheckboxesInput,
                                                                                  GovCheckboxInput,
                                                                                  GovFileInput,
                                                                                  GovPasswordInput,

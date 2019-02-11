@@ -1,6 +1,6 @@
 # Import every blueprint file
-from design_system.views import general
-from design_system.views import components
+from hmlr_design_system.views import general
+from hmlr_design_system.views import components
 
 
 def register_blueprints(app):

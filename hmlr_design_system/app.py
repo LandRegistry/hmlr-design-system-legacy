@@ -1,4 +1,4 @@
-from design_system.landregistry_flask import LandRegistryFlask
+from hmlr_design_system.landregistry_flask import LandRegistryFlask
 from jinja2 import PackageLoader, FileSystemLoader, PrefixLoader
 
 
@@ -11,9 +11,9 @@ app = LandRegistryFlask(__name__,
 
 # Set Jinja up to be able to load templates from packages (See gadget-govuk-ui for a full example)
 app.jinja_loader = PrefixLoader({
-    'app': PackageLoader('design_system'),
+    'app': PackageLoader('hmlr_design_system'),
     'components': FileSystemLoader('src/components'),
-    'wtforms_gov': PackageLoader('design_system.custom_extensions.wtforms_helpers')
+    'wtforms_gov': PackageLoader('hmlr_design_system.custom_extensions.wtforms_helpers')
 })
 
 app.config.from_pyfile("config.py")

@@ -1,6 +1,6 @@
 import misaka
 from jinja2 import Markup
-from design_system.custom_extensions.jinja_markdown_filter.gov_renderer import GovRenderer
+from hmlr_design_system.custom_extensions.jinja_markdown_filter.gov_renderer import GovRenderer
 
 
 class JinjaMarkdownFilter(object):

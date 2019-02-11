@@ -5,10 +5,10 @@ import gzip
 from werkzeug import Headers
 from flask_compress import Compress
 
-from design_system.main import app
-from design_system.custom_extensions.gzip_static_assets.main import GzipStaticAssets
-from design_system.custom_extensions.gzip_static_assets.main import gzip_cache
-from design_system.custom_extensions.gzip_static_assets.main import gzip_cache_key
+from hmlr_design_system.main import app
+from hmlr_design_system.custom_extensions.gzip_static_assets.main import GzipStaticAssets
+from hmlr_design_system.custom_extensions.gzip_static_assets.main import gzip_cache
+from hmlr_design_system.custom_extensions.gzip_static_assets.main import gzip_cache_key
 
 
 class TestGzipStaticAssets(unittest.TestCase):
@@ -16,7 +16,7 @@ class TestGzipStaticAssets(unittest.TestCase):
     def setUp(self):
         self.client = app.test_client()
 
-    @mock.patch('design_system.custom_extensions.gzip_static_assets.main.GzipStaticAssets.init_app')
+    @mock.patch('hmlr_design_system.custom_extensions.gzip_static_assets.main.GzipStaticAssets.init_app')
     def test_extension_alternative_init(self, mock_init_app):
         GzipStaticAssets('foo')
         mock_init_app.assert_called_once_with('foo')
@@ -42,7 +42,7 @@ class TestGzipStaticAssets(unittest.TestCase):
 
     def test_gzipped_response(self):
         # Create test file
-        filename = 'design_system/assets/dist/gzip-test.css'
+        filename = 'hmlr_design_system/assets/dist/gzip-test.css'
         file_contents = "* { content: 'Test. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip.'; }"   # noqa: E501
         with open(filename, 'w+') as test_file:
             test_file.write(file_contents)
@@ -74,7 +74,7 @@ class TestGzipStaticAssets(unittest.TestCase):
         cache.clear()
 
         # Create test file
-        filename = 'design_system/assets/dist/gzip-test.css'
+        filename = 'hmlr_design_system/assets/dist/gzip-test.css'
         file_contents = "* { content: 'Test. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip. Padded out to trigger gzip.'; }"   # noqa: E501
         with open(filename, 'w+') as test_file:
             test_file.write(file_contents)

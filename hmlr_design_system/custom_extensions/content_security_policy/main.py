@@ -1,4 +1,4 @@
-from design_system.custom_extensions.content_security_policy import reporting
+from hmlr_design_system.custom_extensions.content_security_policy import reporting
 from flask import url_for
 from flask import g
 from flask.wrappers import Response

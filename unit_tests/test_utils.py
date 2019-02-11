@@ -1,5 +1,5 @@
-from design_system.main import app
-from design_system.utils.content_negotiation_utils import request_wants_json
+from hmlr_design_system.main import app
+from hmlr_design_system.utils.content_negotiation_utils import request_wants_json
 import unittest
 
 

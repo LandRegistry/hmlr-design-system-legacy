@@ -44,7 +44,7 @@ RUN pip3 install -q -r requirements.txt && \
 
 # Put your app-specific stuff here (extra yum installs etc).
 # Any unique environment variables your config.py needs should also be added as ENV entries here
-ENV APP_NAME=design-system \
+ENV APP_NAME=hmlr-design-system \
   MAX_HEALTH_CASCADE=6 \
   LOG_LEVEL=DEBUG \
   SECRET_KEY='ABC' \

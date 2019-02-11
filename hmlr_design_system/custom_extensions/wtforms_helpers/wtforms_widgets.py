@@ -1,6 +1,6 @@
-from design_system.custom_extensions.wtforms_helpers.gov_form_base import (GovFormBase,
+from hmlr_design_system.custom_extensions.wtforms_helpers.gov_form_base import (GovFormBase,
                                                                                GovIterableBase)
-from design_system.exceptions import ApplicationError
+from hmlr_design_system.exceptions import ApplicationError
 from wtforms.widgets.core import (FileInput, Input, PasswordInput, Select,
                                   SubmitInput, TextArea, TextInput)
 

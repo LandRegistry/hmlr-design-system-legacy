@@ -1,7 +1,7 @@
 import unittest
 import yaml
 from flask import render_template_string
-from design_system.main import app
+from hmlr_design_system.main import app
 from unit_tests.fixtures.wtf_macros_example_form import ExampleForm
 
 
