@@ -13,7 +13,7 @@ _(Excerpt from [unit_tests/fixtures/wtf_macros_example_form.py](unit_tests/fixtu
 from flask_wtf import FlaskForm
 from wtforms.fields import StringField
 from wtforms.validators import InputRequired
-from hmlr_design_system.custom_extensions.wtforms_helpers.wtforms_widgets import GovTextInput
+from demo.custom_extensions.wtforms_helpers.wtforms_widgets import GovTextInput
 
 
 class ExampleForm(FlaskForm):
@@ -47,7 +47,7 @@ By passing a dict in via the `params` argument, this will be passed along to the
 
 The available widgets and their corresponding Flask-WTF field types are as follows:
 
-| WTForms field type<br><small>wtforms.fields.[TYPE]</small> | GOV.​UK styled widget<br><small>hmlr_design_system.custom_extensions.wtforms_helpers.wtforms_widgets.[WIDGET]</small> | Notes |
+| WTForms field type<br><small>wtforms.fields.[TYPE]</small> | GOV.​UK styled widget<br><small>demo.custom_extensions.wtforms_helpers.wtforms_widgets.[WIDGET]</small> | Notes |
 | -------------------- | --------------------------- | ---------- |
 | StringField          | GovTextInput                |            |
 | FloatField           | GovTextInput                |            |

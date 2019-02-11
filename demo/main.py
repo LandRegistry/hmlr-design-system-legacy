@@ -1,9 +1,9 @@
 # This file is the entry point.
 # First we import the app object, which will get initialised as we do it. Then import methods we're about to use.
-from hmlr_design_system.app import app
-from hmlr_design_system.blueprints import register_blueprints
-from hmlr_design_system.exceptions import register_exception_handlers
-from hmlr_design_system.extensions import register_extensions
+from demo.app import app
+from demo.blueprints import register_blueprints
+from demo.exceptions import register_exception_handlers
+from demo.extensions import register_extensions
 
 # Now we register any extensions we use into the app
 register_extensions(app)

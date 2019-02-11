@@ -11,7 +11,7 @@ module.exports = (gulp, config) => {
     const patternLibraryPath = '.'
 
     return gulp
-      .src(path.join(patternLibraryPath, 'src/components/**/*.{gif,png,jpg,jpeg,svg}'))
+      .src(path.join(patternLibraryPath, 'hmlr_design_system/components/**/*.{gif,png,jpg,jpeg,svg}'))
       .pipe(gulp.dest(path.join(config.destinationPath, 'images/hmlr-hmlr-design-system')))
   })
 

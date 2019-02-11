@@ -2,7 +2,7 @@ from flask import current_app, jsonify, render_template, request
 from jinja2 import TemplateNotFound
 from werkzeug.exceptions import HTTPException, default_exceptions
 
-from hmlr_design_system.utils.content_negotiation_utils import request_wants_json
+from demo.utils.content_negotiation_utils import request_wants_json
 
 
 class ApplicationError(Exception):

@@ -1,7 +1,7 @@
 var config = {
-  'applicationPath': './hmlr_design_system',
-  'sourcePath': './hmlr_design_system/assets/src',
-  'destinationPath': './hmlr_design_system/assets/dist',
+  'applicationPath': './demo',
+  'sourcePath': './demo/assets/src',
+  'destinationPath': './demo/assets/dist',
   'sassPath': 'scss/*.scss',
   'sassIncludePaths': [
     'node_modules'

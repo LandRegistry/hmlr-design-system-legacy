@@ -1,5 +1,5 @@
 from flask import render_template
-from hmlr_design_system.custom_extensions.wtforms_helpers.main import merger
+from demo.custom_extensions.wtforms_helpers.main import merger
 from jinja2 import Markup
 
 

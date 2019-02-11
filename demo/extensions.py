@@ -1,12 +1,12 @@
-from hmlr_design_system import config
-from hmlr_design_system.custom_extensions.cachebust_static_assets.main import CachebustStaticAssets
-from hmlr_design_system.custom_extensions.enhanced_logging.main import EnhancedLogging
-from hmlr_design_system.custom_extensions.gzip_static_assets.main import GzipStaticAssets
-from hmlr_design_system.custom_extensions.security_headers.main import SecurityHeaders
-from hmlr_design_system.custom_extensions.jinja_markdown_filter.main import JinjaMarkdownFilter
-from hmlr_design_system.custom_extensions.csrf.main import CSRF
-from hmlr_design_system.custom_extensions.content_security_policy.main import ContentSecurityPolicy
-from hmlr_design_system.custom_extensions.wtforms_helpers.main import WTFormsHelpers
+from demo import config
+from demo.custom_extensions.cachebust_static_assets.main import CachebustStaticAssets
+from demo.custom_extensions.enhanced_logging.main import EnhancedLogging
+from demo.custom_extensions.gzip_static_assets.main import GzipStaticAssets
+from demo.custom_extensions.security_headers.main import SecurityHeaders
+from demo.custom_extensions.jinja_markdown_filter.main import JinjaMarkdownFilter
+from demo.custom_extensions.csrf.main import CSRF
+from demo.custom_extensions.content_security_policy.main import ContentSecurityPolicy
+from demo.custom_extensions.wtforms_helpers.main import WTFormsHelpers
 
 
 # Create empty extension objects here

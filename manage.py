@@ -1,5 +1,5 @@
 from flask_script import Manager
-from hmlr_design_system.main import app
+from demo.main import app
 import os
 
 

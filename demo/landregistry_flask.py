@@ -1,6 +1,6 @@
 from flask import Flask
 import os
-from hmlr_design_system import config
+from demo import config
 
 
 class LandRegistryFlask(Flask):

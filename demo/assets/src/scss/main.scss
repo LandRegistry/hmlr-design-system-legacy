@@ -5,7 +5,7 @@ $govuk-font-family: "Arial", sans-serif;
 
 // HMLR design system settings
 // Must come before govuk-frontend import since it contains variable overrides
-@import '../../../../src/settings/all';
+@import '../../../../hmlr_design_system/settings/all';
 
 @import 'govuk-frontend/all';  // Feel free to be more selective than this
 
@@ -13,5 +13,5 @@ $govuk-font-family: "Arial", sans-serif;
 @import 'partials/cookie-banner';
 
 // Design system components
-@import '../../../../src/components/header/style';
-@import '../../../../src/components/footer/style';
+@import '../../../../hmlr_design_system/components/header/style';
+@import '../../../../hmlr_design_system/components/footer/style';
