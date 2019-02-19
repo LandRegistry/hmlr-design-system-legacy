@@ -1,6 +1,6 @@
 {
   "name": "hmlr-design-system",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "This repository contains a flask application structured in the way that all Land Registry flask user interfaces should be structured going forwards.",
   "scripts": {
     "check-node-version": "node check-node-version.js",
