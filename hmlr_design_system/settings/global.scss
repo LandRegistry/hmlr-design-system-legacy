@@ -1,0 +1,38 @@
+html {
+  box-sizing: border-box;
+
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.hmlr-heading-l {
+  @extend %govuk-heading-l;
+  font-size: 28px;
+}
+
+.hmlr-heading-m {
+    @extend %govuk-heading-m;
+    font-size: 24px;
+}
+
+.hmlr-heading-s {
+    @extend %govuk-heading-s;
+    font-size: 19px;
+}
+
+.hmlr-body {
+    font-size: $font-size;
+}
+
+.hmlr-meta {
+    font-size: $meta-font-size;
+}
+
+.hmlr-list {
+    font-size: $font-size;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}

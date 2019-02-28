@@ -1,0 +1,20 @@
+.hmlr-button__alt {
+  @extend %hmlr-button;
+  background-color: $alt-button;
+
+  &[disabled] {
+    background-color: $alt-button__disabled;
+
+    &:hover {
+      background-color: $alt-button__disabled;
+    }
+  }
+
+  &:hover {
+    background-color: $alt-button__hover;
+  }
+
+  &:focus {
+    background-color: $alt-button__hover;
+  }
+}

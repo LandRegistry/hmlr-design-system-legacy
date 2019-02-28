@@ -1,0 +1,6 @@
+{% from "app/vendor/.govuk-frontend/components/button/macro.html" import govukButton %}
+
+{% macro hmlrAltButton(params={}) %}
+  {% set _ = params.update({'classes': ['hmlr-button__alt', params.classes]|join(" ") }) %}
+  {{ govukButton(params) }}
+{% endmacro %}
