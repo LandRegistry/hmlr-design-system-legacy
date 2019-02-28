@@ -3,7 +3,13 @@ services:
   # Notice how the service name, container name and repo directory (where the Dockerfile lives) all match.
   hmlr-design-system:
     container_name: hmlr-design-system
-    build: ./hmlr-design-system
+    build:
+      context: ./hmlr-design-system
+      # To allow a matching user to the user running the dev env to be created for running the container
+      args:
+        - OUTSIDE_UID=${OUTSIDE_UID}
+        - OUTSIDE_GID=${OUTSIDE_GID}
+
     restart: on-failure
     ports:
       # The base Flask Dockerfile tells gunicorn to use 8080 by default, we expose it here and map it to a unique
