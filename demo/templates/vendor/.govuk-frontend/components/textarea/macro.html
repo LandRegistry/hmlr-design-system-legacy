@@ -32,12 +32,14 @@
   {{ govukErrorMessage({
     'id': errorId,
     'classes': params.errorMessage.classes,
+    'attributes': params.errorMessage.attributes,
     'html': params.errorMessage.html,
     'text': params.errorMessage.text
   }) }}
 {% endif %}
   <textarea class="govuk-textarea {{- ' govuk-textarea--error' if params.errorMessage else '' }} {{- ' ' + params.classes if params.classes else ''}}" id="{{ params.id }}" name="{{ params.name }}" rows="{%if params.rows %} {{- params.rows -}} {% else %}5{%endif %}"
   {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
+  {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
   {%- for attribute, value in (params.attributes.items() if params.attributes else {}.items()) %} {{attribute}}="{{value}}"{% endfor %}>{{ params.value }}</textarea>
 </div>
 
