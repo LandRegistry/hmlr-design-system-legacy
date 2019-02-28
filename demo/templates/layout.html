@@ -7,8 +7,8 @@
 {% set assetPath = url_for('static', filename='.govuk-frontend').rstrip('/') %}
 
 {% block head %}
-  <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main.css') }}" /><!--<![endif]-->
-  <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main-ie8.css') }}" /><![endif]-->
+  <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" /><!--<![endif]-->
+  <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main-ie8.css') }}" /><![endif]-->
 {% endblock %}
 
 {% block pageTitle %}{% block title %}{% endblock %}{%if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
