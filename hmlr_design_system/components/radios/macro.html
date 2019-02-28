@@ -1,0 +1,6 @@
+{% from "app/vendor/.govuk-frontend/components/radios/macro.html" import govukradios %}
+
+{% macro hmlrRadios(params={}) %}
+  {% set _ = params.update({'classes': ['hmlr-radios', params.classes]|join(" ") }) %}
+  {{ govukRadios(params) }}
+{% endmacro %}

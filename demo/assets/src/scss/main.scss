@@ -13,7 +13,7 @@ $govuk-font-family: "Arial", sans-serif;
 @import 'partials/cookie-banner';
 
 // Design system components
-@import '../../../../hmlr_design_system/settings/colours.scss';
+@import '../../../../hmlr_design_system/settings/all';
 @import '../../../../hmlr_design_system/components/header/style';
 @import '../../../../hmlr_design_system/components/button/style';
 @import '../../../../hmlr_design_system/components/altButton/style';
