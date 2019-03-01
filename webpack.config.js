@@ -80,10 +80,19 @@ var jsWebpackConfig = {
           loader: 'babel-loader',
           options: {
             presets: [
-              require('@babel/preset-env').default
+              require('@babel/preset-env').default,
+              require('@babel/preset-react').default
             ]
           }
         }
+      },
+      {
+        test: require.resolve('react'),
+        loader: 'expose-loader?React'
+      },
+      {
+        test: require.resolve('react-dom'),
+        loader: 'expose-loader?ReactDOM'
       }
     ]
   }

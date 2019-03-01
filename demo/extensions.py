@@ -26,7 +26,7 @@ def register_extensions(app):
     security_headers.init_app(app)
     jinja_markdown_filter.init_app(app)
     csrf.init_app(app)
-    content_security_policy.init_app(app)
+    # content_security_policy.init_app(app)
     wtforms_helpers.init_app(app)
 
     if config.STATIC_ASSETS_MODE == 'production':
