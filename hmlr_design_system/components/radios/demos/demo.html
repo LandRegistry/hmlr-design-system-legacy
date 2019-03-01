@@ -1,0 +1,37 @@
+{% from 'components/radios/macro.html' import hmlrRadios %}
+{% extends 'app/layout.html' %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {{ hmlrRadios({
+        "classes": "govuk-radios--inline",
+        "idPrefix": "changed-name",
+        "name": "changed-name",
+        "fieldset": {
+          "legend": {
+            "text": "Have you changed your name?",
+            "isPageHeading": True,
+            "classes": "govuk-fieldset__legend--l"
+          }
+        },
+        "hint": {
+          "classes": "hmlr-hint",
+          "text": "This includes changing your last name or spelling your name differently."
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}

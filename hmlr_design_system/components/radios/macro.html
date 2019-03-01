@@ -1,8 +1,6 @@
-{% from "app/vendor/.govuk-frontend/components/radios/macro.html" import govukradios %}
+{% from "app/vendor/.govuk-frontend/components/radios/macro.html" import govukRadios %}
 
 {% macro hmlrRadios(params={}) %}
   {% set _ = params.update({'classes': ['hmlr-radios', params.classes]|join(" ") }) %}
-  {{ govukRadios(params)
-
-  }}
+  {{ govukRadios(params)}}
 {% endmacro %}
