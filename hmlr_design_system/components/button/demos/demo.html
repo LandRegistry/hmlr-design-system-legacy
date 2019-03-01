@@ -1,5 +1,5 @@
 {% from 'components/button/macro.html' import hmlrButton %}
-{% from 'components/altButton/macro.html' import hmlrAltButton %}
+{% from 'components/button-alt/macro.html' import hmlrButtonAlt %}
 {% extends 'app/layout.html' %}
 
 {% block inner_content %}
@@ -24,12 +24,12 @@
     <div class="govuk-grid-column-one-half">
       <h2 class="hmlr-heading-l">Secondary</h2>
       <h3 class="hmlr-heading-m">Default</h3>
-       {{ hmlrAltButton({
+       {{ hmlrButtonAlt({
         "type": "button",
         "text": "Label"
       }) }}
       <h3 class="hmlr-heading-m">Disabled</h3>
-      {{ hmlrAltButton({
+      {{ hmlrButtonAlt({
         "type": "button",
         "value": "Label",
         "disabled": "disabled",
