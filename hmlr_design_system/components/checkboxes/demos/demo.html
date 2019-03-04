@@ -13,7 +13,7 @@
         "legend": {
           "text": "Which types of waste do you transport?",
           "isPageHeading": False,
-          "classes": "govuk-fieldset__legend--xl"
+          "classes": "hmlr-fieldset__legend--l"
         }
       },
       "hint": {
@@ -31,6 +31,43 @@
         {
           "value": "farm",
           "text": "Farm or agricultural waste"
+        }
+      ]
+    }) }}
+
+    <h2 class="hmlr-heading-l">Checkbox items with hints</h2>
+
+    {{ hmlrCheckboxes({
+      "idPrefix": "nationality",
+      "name": "nationality",
+      "fieldset": {
+        "legend": {
+          "text": "What is your nationality?",
+          "isPageHeading": False,
+          "classes": "hmlr-fieldset__legend--l"
+        }
+      },
+      "hint": {
+        "text": "If you have dual nationality, select all options that are relevant to you."
+      },
+      "items": [
+        {
+          "value": "british",
+          "text": "British",
+          "hint": {
+            "text": "including English, Scottish, Welsh and Northern Irish"
+          }
+        },
+        {
+          "value": "irish",
+          "text": "Irish",
+          "label": {
+            "classes": "hmlr-checkboxes__label"
+          }
+        },
+        {
+          "value": "other",
+          "text": "Citizen of another country"
         }
       ]
     }) }}

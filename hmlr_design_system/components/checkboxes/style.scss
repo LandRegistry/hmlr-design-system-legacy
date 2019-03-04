@@ -1,0 +1,36 @@
+.hmlr-checkboxes {
+
+  .govuk-checkboxes__item {
+    min-height: 26px;
+    padding: 0 0 0 26px;
+
+    .govuk-checkboxes__input {
+      width: 26px;
+      height: 26px;
+
+      +.govuk-checkboxes__label {
+
+        &:before {
+          width: 26px !important;
+          height: 26px !important;
+        }
+
+        &:after {
+          top: 7px !important;
+          left: 6px !important;
+          border-width: 0 0 3px 3px !important;
+        }
+      }
+    }
+  }
+
+  .govuk-checkboxes__label {
+    font-size: $font-size;
+    padding: 0px 10px;
+  }
+}
+
+.govuk-checkboxes__input+.govuk-checkboxes__label:before {
+  width: 26px !important;
+  height: 26px !important;
+}
