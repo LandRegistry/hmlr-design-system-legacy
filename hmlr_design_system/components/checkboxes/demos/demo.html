@@ -1,4 +1,5 @@
 {% from 'components/checkboxes/macro.html' import hmlrCheckboxes %}
+{% from "components/input/macro.html" import hmlrInput %}
 {% extends 'app/layout.html' %}
 
 {% block inner_content %}
@@ -55,7 +56,8 @@
           "value": "british",
           "text": "British",
           "hint": {
-            "text": "including English, Scottish, Welsh and Northern Irish"
+            "text": "including English, Scottish, Welsh and Northern Irish",
+            "classes": "hmlr-hint"
           }
         },
         {
@@ -71,6 +73,95 @@
         }
       ]
     }) }}
+
+    <h2 class="hmlr-heading-m">Conditionally revealing content</h2>
+
+    {% set EmailHtml %}
+      {{ hmlrInput({
+        "id": "contact-by-email",
+        "name": "contact-by-email",
+        "type": "email",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Email address"
+        },
+        "attributes": {
+          "spellcheck": "false"
+        }
+      }) }}
+    {% endset -%}
+
+    {% set PhoneHtml %}
+      {{ hmlrInput({
+        "id": "contact-by-phone",
+        "name": "contact-by-phone",
+        "type": "tel",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Phone number"
+        }
+      }) }}
+    {% endset -%}
+
+    {% set TextHtml %}
+      {{ hmlrInput({
+        "id": "contact-by-text",
+        "name": "contact-by-text",
+        "type": "tel",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Mobile phone number"
+        }
+      }) }}
+    {% endset -%}
+
+    {{ hmlrCheckboxes({
+      "idPrefix": "citizenship-conditional",
+      "name": "citizen",
+      "fieldset": {
+        "legend": {
+          "text": "How would you like to be contacted?",
+          "isPageHeading": False,
+          "classes": "hmlr-fieldset__legend--l"
+        }
+      },
+      "hint": {
+        "text": "Select all options that are relevant to you."
+      },
+      "items": [
+        {
+          "value": "email",
+          "text": "Email",
+          "conditional": {
+            "html": EmailHtml
+          }
+        },
+        {
+          "value": "phone",
+          "text": "Phone",
+          "conditional": {
+            "html": PhoneHtml
+          }
+        },
+        {
+          "value": "text message",
+          "text": "Text message",
+          "conditional": {
+            "html": TextHtml
+          }
+        }
+      ]
+    }) }}
+
+    {{ hmlrInput({
+        "id": "contact-by-text",
+        "name": "contact-by-text",
+        "type": "tel",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Mobile phone number"
+        }
+      }) }}
     </div>
   </div>
 {% endblock %}

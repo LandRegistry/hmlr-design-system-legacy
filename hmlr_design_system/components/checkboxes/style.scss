@@ -9,28 +9,28 @@
       height: 26px;
 
       +.govuk-checkboxes__label {
+        font-size: $font-size;
+        padding: 0px 10px;
 
         &:before {
-          width: 26px !important;
-          height: 26px !important;
+          width: 26px;
+          height: 26px;
         }
 
         &:after {
-          top: 7px !important;
-          left: 6px !important;
-          border-width: 0 0 3px 3px !important;
+          top: 8px;
+          left: 6px;
+          border-width: 0 0 4px 4px;
+          width: 14px;
+          height: 7px;
         }
       }
     }
-  }
 
-  .govuk-checkboxes__label {
-    font-size: $font-size;
-    padding: 0px 10px;
+    .govuk-checkboxes__hint {
+      padding: 0 10px;
+    }
+
   }
 }
 
-.govuk-checkboxes__input+.govuk-checkboxes__label:before {
-  width: 26px !important;
-  height: 26px !important;
-}
