@@ -12,10 +12,6 @@ html {
   font-size: 28px;
 }
 
-.govuk-fieldset__heading {
-  font-size: 28px;
-}
-
 .hmlr-heading-m {
   @extend %govuk-heading-m;
   font-size: 24px;
@@ -47,6 +43,10 @@ html {
 
 .hmlr-hint {
   font-size: $font-size;
+}
+
+.govuk-fieldset__heading {
+  font-size: 28px;
 }
 
 .hmlr-fieldset__legend--l {
