@@ -1,0 +1,6 @@
+{% from "app/vendor/.govuk-frontend/components/checkboxes/macro.html" import govukCheckboxes %}
+
+{% macro hmlrCheckboxes(params={}) %}
+  {% set _ = params.update({'classes': ['hmlr-checkboxes', params.classes]|join(" ") }) %}
+  {{govukCheckboxes(params)}}
+{% endmacro %}

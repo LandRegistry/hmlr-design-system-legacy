@@ -1,0 +1,39 @@
+{% from 'components/checkboxes/macro.html' import hmlrCheckboxes %}
+{% extends 'app/layout.html' %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+     {{ hmlrCheckboxes({
+      "idPrefix": "waste",
+      "name": "waste",
+      "fieldset": {
+        "legend": {
+          "text": "Which types of waste do you transport?",
+          "isPageHeading": False,
+          "classes": "govuk-fieldset__legend--xl"
+        }
+      },
+      "hint": {
+        "text": "Select all that apply."
+      },
+      "items": [
+        {
+          "value": "carcasses",
+          "text": "Waste from animal carcasses"
+        },
+        {
+          "value": "mines",
+          "text": "Waste from mines or quarries"
+        },
+        {
+          "value": "farm",
+          "text": "Farm or agricultural waste"
+        }
+      ]
+    }) }}
+    </div>
+  </div>
+{% endblock %}
