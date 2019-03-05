@@ -1,0 +1,74 @@
+{% from 'components/text-input/macro.html' import hmlrInput %}
+{% from 'components/textarea/macro.html' import hmlrTextarea %}
+{% extends 'app/layout.html' %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h2 class="hmlr-heading-m">Text input</h2>
+      {{ hmlrInput({
+        "attributes": {
+          "placeholder": "Start typing here"
+        },
+        "label": {
+          "text": "Label",
+          "classes": "hmlr-label",
+        },
+        "id": "label",
+        "classes": "govuk-!-width-three-quarters",
+        "name": "label"
+      }) }}
+      <h2 class="hmlr-heading-m">Text input with error message</h2>
+      {{ hmlrInput({
+        "attributes": {
+          "placeholder": "Start typing here"
+        },
+        "label": {
+          "text": "Label",
+          "classes": "hmlr-label",
+        },
+        "errorMessage": {
+          "text": "This field is required",
+          "classes": "hmlr-error-message govuk-!-width-three-quarters"
+        },
+        "id": "label",
+        "classes": "govuk-!-width-three-quarters",
+        "name": "label"
+      }) }}
+      <h2 class="hmlr-heading-m">Textarea</h2>
+      {{ hmlrTextarea({
+        "name": "more-detail",
+        "id": "more-detail",
+        "label": {
+          "text": "Can you provide more detail?",
+          "classes": "hmlr-label"
+        },
+        "classes": "govuk-!-width-three-quarters",
+        "hint": {
+          "classes": "govuk-!-width-three-quarters",
+          "text": "Do not include personal or financial information, like your National Insurance number or credit card details."
+        }
+      }) }}
+      <h2 class="hmlr-heading-m">Textarea with error message</h2>
+      {{ hmlrTextarea({
+        "name": "more-detail",
+        "id": "more-detail",
+        "label": {
+          "text": "Can you provide more detail?",
+          "classes": "hmlr-label"
+        },
+        "hint": {
+          "classes": "govuk-!-width-three-quarters",
+          "text": "Do not include personal or financial information, like your National Insurance number or credit card details."
+        },
+        "classes": "govuk-!-width-three-quarters",
+        "errorMessage": {
+          "text": "Enter more detail",
+          "classes": "hmlr-error-message"
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}
