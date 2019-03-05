@@ -77,18 +77,7 @@
     <h2 class="hmlr-heading-m">Conditionally revealing content</h2>
 
     {% set EmailHtml %}
-      {{ hmlrInput({
-        "id": "contact-by-email",
-        "name": "contact-by-email",
-        "type": "email",
-        "classes": "govuk-!-width-one-third",
-        "label": {
-          "text": "Email address"
-        },
-        "attributes": {
-          "spellcheck": "false"
-        }
-      }) }}
+      <p>test</p>
     {% endset -%}
 
     {% set PhoneHtml %}
@@ -147,7 +136,7 @@
           "value": "text message",
           "text": "Text message",
           "conditional": {
-            "html": TextHtml
+            Html: TextHtml
           }
         }
       ]
@@ -162,6 +151,8 @@
           "text": "Mobile phone number"
         }
       }) }}
+
+      {{ TextHtml }}
     </div>
   </div>
 {% endblock %}
