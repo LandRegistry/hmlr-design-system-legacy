@@ -1,0 +1,33 @@
+{% from 'components/system-messages/macro.html' import hmlrPanel %}
+{% extends 'app/layout.html' %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="hmlr-heading-m">System notification</h2>
+      {{ hmlrPanel({
+        'classes': 'hmlr-notification',
+        'text': 'This is a new notification.'
+      }) }}
+      <h2 class="hmlr-heading-m">Success message</h2>
+      {{ hmlrPanel({
+        'classes': 'hmlr-success',
+        'text': 'System updated something successfully.'
+      }) }}
+      <h2 class="hmlr-heading-m">Failure message</h2>
+      {{ hmlrPanel({
+        'classes': 'hmlr-error',
+        'text': 'Something failed. You need to try again.'
+      }) }}
+      <h2 class="hmlr-heading-m">Important message</h2>
+      {{ hmlrPanel({
+        'classes': 'hmlr-important',
+        'text': 'This is important.'
+      }) }}
+    </div>
+    <div class="govuk-grid-column-one-third">
+    </div>
+  </div>
+{% endblock %}

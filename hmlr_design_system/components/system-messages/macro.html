@@ -1,0 +1,6 @@
+{% macro hmlrPanel(params={}) %}
+  <div class="hmlr-panel {{params.classes}}">
+    <p class="hmlr-body panel-content">{{ params.html | safe if params.html else params.text }}</p>
+    <a class="hmlr-link--secondary" onclick="close">Close</a>
+  </div>
+{% endmacro %}
