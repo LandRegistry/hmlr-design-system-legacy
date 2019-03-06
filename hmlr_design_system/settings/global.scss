@@ -7,6 +7,10 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  font-family: $font;
+}
+
 .hmlr-heading-l {
   @extend %govuk-heading-l;
   font-size: 28px;

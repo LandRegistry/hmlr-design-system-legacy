@@ -1,12 +1,27 @@
-.hmlr-status {
+%hmlr-status-flag {
+  width: 20px;
+  height: 20px;
+  margin-bottom: -4px;
+  margin-right: 10px;
+  display: inline-block;
+  border-radius: 50%;
+}
 
-  %hmlr-status-flag {
-    font-size: $font-size;
-    display: block;
-    border-radius: 50%;
+.hmlr-status {
+  font-size: $font-size;
+
+  .error{
+    @extend %hmlr-status-flag;
+    background-color: $error;
   }
 
-  &.error{
-    background-color: $error;
+  .warning{
+    @extend %hmlr-status-flag;
+    background-color: $warning;
+  }
+
+  .success{
+    @extend %hmlr-status-flag;
+    background-color: $success;
   }
 }
