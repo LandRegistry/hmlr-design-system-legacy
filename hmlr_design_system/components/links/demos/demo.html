@@ -1,0 +1,16 @@
+{% extends 'app/layout.html' %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+        <h2 class="hmlr-heading-l">Primary</h2>
+        <a class="hmlr-link" href="#">This is some sort of link</a>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <h2 class="hmlr-heading-l">Secondary</h2>
+      <a class="hmlr-link--secondary" href="#">This is some sort of link</a>
+    </div>
+  </div>
+{% endblock %}
