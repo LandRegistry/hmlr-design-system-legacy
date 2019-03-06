@@ -1,0 +1,12 @@
+.hmlr-status {
+
+  %hmlr-status-flag {
+    font-size: $font-size;
+    display: block;
+    border-radius: 50%;
+  }
+
+  &.error{
+    background-color: $error;
+  }
+}

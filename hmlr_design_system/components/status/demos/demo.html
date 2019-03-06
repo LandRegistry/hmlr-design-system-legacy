@@ -1,0 +1,23 @@
+{% from 'components/status/macro.html' import hmlrStatus %}
+{% extends 'app/layout.html' %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {{ hmlrStatus ({
+        "type": "error",
+        "text" "Error message"
+      }) }}
+      {{ hmlrStatus ({
+        "type": "warning",
+        "text" "Not started"
+      }) }}
+      {{ hmlrStatus ({
+        "type": "success",
+        "text" "Completed"
+      }) }}
+    </div>
+  </div>
+{% endblock %}
