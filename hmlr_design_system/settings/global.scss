@@ -20,14 +20,19 @@ body {
   color: $font-color;
   text-decoration: underline;
   cursor: pointer;
+  
+  &:visited {
+    color: $font-color;
+  }
 
   &:hover {
     color: $font-color--secondary;
   }
+}
 
-  &:visited {
-    color: $font-color;
-  }
+.hmlr-heading-xl {
+  @extend %govuk-heading-xl;
+  font-size: 32px;
 }
 
 .hmlr-heading-l {
