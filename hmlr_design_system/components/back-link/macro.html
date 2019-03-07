@@ -1,0 +1,6 @@
+{% from "app/vendor/.govuk-frontend/components/back-link/macro.html" import govukBackLink %}
+
+{% macro hmlrBackLink(params={}) %}
+  {% set _ = params.update({'classes': ['hmlr-back-link', params.classes]|join(" ") }) %}
+  {{ govukBackLink(params) }}
+{% endmacro %}
