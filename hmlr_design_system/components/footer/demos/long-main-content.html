@@ -1,9 +1,17 @@
+{% from 'components/back-link/macro.html' import hmlrBackLink %}
 {% from 'components/footer/macro.html' import footer %}
 {% extends 'app/layout.html' %}
 
 {% block inner_content %}
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+      {{ hmlrBackLink({
+        "text": "Back",
+          "href": "/"
+        }) }}
+      </div>
+  </div>
   {{ readme|markdown }}
-
   {% filter markdown %}
 Lots of content added to this page to force the page to show a scrollbar.
 

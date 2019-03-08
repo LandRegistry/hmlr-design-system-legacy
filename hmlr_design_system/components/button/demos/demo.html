@@ -1,10 +1,18 @@
+{% from 'components/back-link/macro.html' import hmlrBackLink %}
 {% from 'components/button/macro.html' import hmlrButton %}
 {% from 'components/button-alt/macro.html' import hmlrButtonAlt %}
 {% extends 'app/layout.html' %}
 
 {% block inner_content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+     {{ hmlrBackLink({
+       "text": "Back",
+        "href": "/"
+      }) }}
+    </div>
+</div>
   {{ readme|markdown }}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half">
       <h2 class="hmlr-heading-l">Primary</h2>
