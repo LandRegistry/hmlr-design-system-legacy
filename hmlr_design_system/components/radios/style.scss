@@ -42,6 +42,10 @@
 .govuk-radios__input:focus+.govuk-radios__label:before {
   outline: 3px solid transparent;
   outline-offset: 3px;
-  -webkit-box-shadow: 0 0 0 3px #ffbf47;
   box-shadow: 0 0 0 3px #ffbf47;
+}
+
+.govuk-radios__hint {
+  padding-right: 10px;
+  padding-left: 10px;
 }
