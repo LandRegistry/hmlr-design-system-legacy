@@ -7,6 +7,24 @@ html {
   box-sizing: inherit;
 }
 
+.hmlr-link {
+  @extend %govuk-link;
+}
+
+.hmlr-link--secondary {
+  color: $font-color;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:visited {
+    color: $font-color;
+  }
+
+  &:hover {
+    color: $font-color--secondary;
+  }
+}
+
 .hmlr-heading-xl {
   @extend %govuk-heading-xl;
   font-size: 32px;
