@@ -12,7 +12,7 @@ module.exports = (gulp, config) => {
 
     return gulp
       .src(path.join(patternLibraryPath, 'hmlr_design_system/components/**/*.{gif,png,jpg,jpeg,svg}'))
-      .pipe(gulp.dest(path.join(config.destinationPath, 'images/hmlr-hmlr-design-system')))
+      .pipe(gulp.dest(path.join(config.destinationPath, 'images/hmlr-design-system')))
   })
 
   gulp.task('images', gulp.parallel(['appImages', 'patternLibraryImages']))

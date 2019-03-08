@@ -1,31 +1,26 @@
 import React from 'react'
+import logoImage from './logo.svg'
 
 function Header (props) {
   const Logo = (
-
-    // TODO: Consider paths to images. React way would be to use file-loader
-    // Just do it twice?!
-
     <img className='hmlr-header__logo'
-      src={`${window.application_config.static_path}images/hmlr-hmlr-design-system/header/logo.svg`}
+      src={logoImage}
       alt='HM Land Registry' />
   )
 
-  return <>
-    <header className='hmlr-header'>
-      <div className='hmlr-header__inner'>
-        { props.homepageUrl
-          ? (
-            <a href={props.homepageUrl} className='hmlr-header__link'>
-              Logo
-            </a>
-          ) : (
+  return <header className='hmlr-header'>
+    <div className='hmlr-header__inner'>
+      { props.homepageUrl
+        ? (
+          <a href={props.homepageUrl} className='hmlr-header__link'>
             Logo
-          )
-        }
-      </div>
-    </header>
-  </>
+          </a>
+        ) : (
+          Logo
+        )
+      }
+    </div>
+  </header>
 }
 
 export default Header

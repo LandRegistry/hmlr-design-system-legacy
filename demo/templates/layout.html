@@ -14,12 +14,6 @@
 {% block pageTitle %}{% block title %}{% endblock %}{%if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
 
 {% block bodyEnd %}
-  <script type="application/json" id="application_config">
-    {
-      "static_path": "{{ url_for('static', filename='') }}"
-    }
-  </script>
-
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   <script src="{{ url_for('static', filename='js/react-components.js') }}"></script>
 {% endblock %}

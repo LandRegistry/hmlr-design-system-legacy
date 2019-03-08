@@ -93,6 +93,21 @@ var jsWebpackConfig = {
       {
         test: require.resolve('react-dom'),
         loader: 'expose-loader?ReactDOM'
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name (file) {
+                const componentName = path.dirname(file).split(path.sep).pop()
+                return `images/hmlr-design-system/${componentName}/[name].[ext]`
+              },
+              publicPath: '/ui'
+            }
+          }
+        ]
       }
     ]
   }
