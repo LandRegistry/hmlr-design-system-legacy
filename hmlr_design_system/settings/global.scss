@@ -49,6 +49,10 @@ html {
   font-size: $font-size;
 }
 
+.govuk-hint {
+  font-size: $font-size;
+}
+
 .hmlr-meta {
   font-size: $meta-font-size;
 }
@@ -58,4 +62,27 @@ html {
   list-style-position: inside;
   margin: 0;
   padding: 0;
+}
+
+.hmlr-hint {
+  font-size: $font-size;
+}
+
+.govuk-fieldset__heading {
+  font-size: 28px;
+}
+
+.hmlr-fieldset__legend--l {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.hmlr-fieldset__legend--m {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.hmlr-fieldset__legend--s {
+  font-size: 19px;
+  font-weight: 600;
 }
