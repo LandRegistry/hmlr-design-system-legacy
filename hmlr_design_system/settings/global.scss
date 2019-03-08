@@ -65,7 +65,7 @@ html {
 }
 
 .hmlr-hint {
-  font-size: $font-size;
+  font-size: $meta-font-size;
 }
 
 .govuk-fieldset__heading {
@@ -85,4 +85,12 @@ html {
 .hmlr-fieldset__legend--s {
   font-size: 19px;
   font-weight: 600;
+}
+
+.hmlr-label {
+  font-size: $font-size;
+}
+
+.hmlr-error-message {
+  font-size: $font-size;
 }
