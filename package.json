@@ -6,7 +6,7 @@
     "check-node-version": "node check-node-version.js",
     "test": "gulp test",
     "build": "gulp build && webpack",
-    "dev": "npm run build && webpack --watch",
+    "dev": "npm run build && webpack --watch -d",
     "pretest": "npm run check-node-version --silent",
     "prebuild": "npm run check-node-version --silent"
   },
