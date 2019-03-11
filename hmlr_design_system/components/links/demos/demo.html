@@ -1,5 +1,14 @@
 {% extends 'app/layout.html' %}
-
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+     {{ hmlrBackLink({
+       "text": "Back",
+        "href": "/"
+      }) }}
+    </div>
+  </div>
+{% endblock %}
 {% block inner_content %}
   {{ readme|markdown }}
 
