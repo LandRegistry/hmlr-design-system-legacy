@@ -19,9 +19,9 @@
     }
 
     &:after {
-      border: 7px solid;
-      top: 5px;
-      left: 5px;
+      border: 6px solid;
+      top: 6px;
+      left: 6px;
     }
   }
 }
@@ -48,4 +48,10 @@
 .govuk-radios__hint {
   padding-right: 10px;
   padding-left: 10px;
+}
+
+.govuk-radios__conditional {
+  margin-left: 11px;
+  border-width: 3px;
+  padding-left: 20px;
 }
