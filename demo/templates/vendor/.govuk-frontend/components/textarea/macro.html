@@ -34,7 +34,8 @@
     'classes': params.errorMessage.classes,
     'attributes': params.errorMessage.attributes,
     'html': params.errorMessage.html,
-    'text': params.errorMessage.text
+    'text': params.errorMessage.text,
+    'visuallyHiddenText': params.errorMessage.visuallyHiddenText
   }) }}
 {% endif %}
   <textarea class="govuk-textarea {{- ' govuk-textarea--error' if params.errorMessage else '' }} {{- ' ' + params.classes if params.classes else ''}}" id="{{ params.id }}" name="{{ params.name }}" rows="{%if params.rows %} {{- params.rows -}} {% else %}5{%endif %}"

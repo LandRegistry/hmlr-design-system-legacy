@@ -48,7 +48,8 @@
     'classes': params.errorMessage.classes,
     'attributes': params.errorMessage.attributes,
     'html': params.errorMessage.html,
-    'text': params.errorMessage.text
+    'text': params.errorMessage.text,
+    'visuallyHiddenText': params.errorMessage.visuallyHiddenText
   }) }}
 {% endif %}
   <div class="govuk-date-input {%- if params.classes %} {{ params.classes }}{% endif %}"
@@ -67,9 +68,8 @@
         'value': item.value,
         'type': "number",
         'autocomplete': item.autocomplete,
-        'attributes': {
-          'pattern': "[0-9]*"
-        }
+        'pattern': item.pattern if item.pattern else "[0-9]*",
+        'attributes': item.attributes
       }) }}
     </div>
   {% endfor %}
