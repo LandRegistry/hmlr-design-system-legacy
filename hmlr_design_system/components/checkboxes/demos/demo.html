@@ -2,6 +2,8 @@
 {% from "components/input/macro.html" import hmlrInput %}
 {% extends 'app/layout.html' %}
 
+{% set backurl = "/" %}
+
 {% block inner_content %}
   {{ readme|markdown }}
 
@@ -77,7 +79,16 @@
     <h2 class="hmlr-heading-m">Conditionally revealing content</h2>
 
     {% set EmailHtml %}
-      <p>test</p>
+       {{ hmlrInput({
+        "id": "contact-by-email",
+        "name": "contact-by-email",
+        "type": "email",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Email",
+          "classes": "hmlr-label"
+        }
+      }) }}
     {% endset -%}
 
     {% set PhoneHtml %}
@@ -87,7 +98,8 @@
         "type": "tel",
         "classes": "govuk-!-width-one-third",
         "label": {
-          "text": "Phone number"
+          "text": "Phone number",
+          "classes": "hmlr-label"
         }
       }) }}
     {% endset -%}
@@ -99,12 +111,17 @@
         "type": "tel",
         "classes": "govuk-!-width-one-third",
         "label": {
-          "text": "Mobile phone number"
+          "text": "Mobile phone number",
+          "classes": "hmlr-label"
         }
       }) }}
     {% endset -%}
 
     {{ hmlrCheckboxes({
+      "classes": "govuk-checkboxes--conditional",
+      "attributes": {
+        "data-module": "checkboxes"
+      },
       "idPrefix": "citizenship-conditional",
       "name": "citizen",
       "fieldset": {
@@ -136,21 +153,11 @@
           "value": "text message",
           "text": "Text message",
           "conditional": {
-            Html: TextHtml
+            "html": TextHtml
           }
         }
       ]
     }) }}
-
-    {{ hmlrInput({
-        "id": "contact-by-text",
-        "name": "contact-by-text",
-        "type": "tel",
-        "classes": "govuk-!-width-one-third",
-        "label": {
-          "text": "Mobile phone number"
-        }
-      }) }}
     </div>
   </div>
 {% endblock %}

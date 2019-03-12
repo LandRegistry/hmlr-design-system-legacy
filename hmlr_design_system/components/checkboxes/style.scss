@@ -30,7 +30,12 @@
     .govuk-checkboxes__hint {
       padding: 0 10px;
     }
+  }
 
+  .govuk-checkboxes__conditional {
+    margin-left: 11px;
+    padding-left: 22px;
+    border-left: 3px solid $border;
   }
 }
 
