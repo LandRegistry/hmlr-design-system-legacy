@@ -19,7 +19,7 @@
     "url": "git@192.168.249.38:skeletons/hmlr-design-system.git"
   },
   "dependencies": {
-    "govuk-frontend": "2.4.0"
+    "govuk-frontend": "2.8.0"
   },
   "devDependencies": {
     "semver": "^5.6.0",
