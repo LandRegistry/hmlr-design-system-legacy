@@ -1,6 +1,17 @@
 {% from 'components/radios/macro.html' import hmlrRadios %}
+{% from 'components/back-link/macro.html' import hmlrBackLink %}
+{% from 'components/text-input/macro.html' import hmlrInput %}
 {% extends 'app/layout.html' %}
-
+{% block beforeContent %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+     {{ hmlrBackLink({
+       "text": "Back",
+        "href": "/"
+      }) }}
+    </div>
+  </div>
+{% endblock %}
 {% block inner_content %}
   {{ readme|markdown }}
 
@@ -38,7 +49,7 @@
         "fieldset": {
         "legend": {
         "text": "Where do you live?",
-        "isPageHeading": True,
+        "isPageHeading": False,
         "classes": "hmlr-fieldset__legend--l"
         }
       },
@@ -68,7 +79,7 @@
       "fieldset": {
         "legend": {
           "text": "How do you want to sign in?",
-          "isPageHeading": True,
+          "isPageHeading": False,
           "classes": "hmlr-fieldset__legend--l"
         }
       },
@@ -94,6 +105,90 @@
           },
           "hint": {
             "text": "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
+          }
+        }
+      ]
+    }) }}
+
+    {% set emailHtml %}
+      {{ hmlrInput({
+        "id": "contact-by-email",
+        "name": "contact-by-email",
+        "type": "email",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Email address",
+          "classes": "hmlr-label"
+        },
+        "attributes": {
+          "spellcheck": "false"
+        }
+      }) }}
+    {% endset -%}
+
+    {% set phoneHtml %}
+      {{ hmlrInput({
+        "id": "contact-by-phone",
+        "name": "contact-by-phone",
+        "type": "tel",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Phone number",
+          "classes": "hmlr-label"
+        }
+      }) }}
+    {% endset -%}
+
+    {% set textHtml %}
+      {{ hmlrInput({
+        "id": "contact-by-text",
+        "name": "contact-by-text",
+        "type": "tel",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Mobile phone number",
+          "classes": "hmlr-label"
+        }
+      }) }}
+    {% endset -%}
+
+    {{ hmlrRadios({
+      "attributes": {
+        "data-module": "radios"
+      },
+      "classes": "govuk-radios--conditional",
+      "idPrefix": "how-contacted-conditional",
+      "name": "how-contacted",
+      "fieldset": {
+        "legend": {
+         "text": "How would you prefer to be contacted?",
+          "isPageHeading": False,
+          "classes": "hmlr-fieldset__legend--l"
+        }
+      },
+      "hint": {
+        "text": "Select one option."
+      },
+      "items": [
+        {
+          "value": "email",
+          "text": "Email",
+          "conditional": {
+            "html": emailHtml
+          }
+        },
+        {
+          "value": "phone",
+          "text": "Phone",
+          "conditional": {
+            "html": phoneHtml
+          }
+        },
+        {
+          "value": "text",
+          "text": "Text message",
+          "conditional": {
+            "html": textHtml
           }
         }
       ]

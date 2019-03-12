@@ -1,15 +1,15 @@
-{% from 'components/footer/macro.html' import footer %}
+{% from 'components/back-link/macro.html' import hmlrBackLink %}
 {% extends 'app/layout.html' %}
-{% block beforeContent %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
      {{ hmlrBackLink({
        "text": "Back",
-        "href": "/"
+        "href": "#"
       }) }}
     </div>
   </div>
-{% endblock %}
-{% block inner_content %}
-  {{ readme|markdown }}
 {% endblock %}
