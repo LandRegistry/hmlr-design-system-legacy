@@ -7,6 +7,24 @@ html {
   box-sizing: inherit;
 }
 
+.hmlr-link {
+  @extend %govuk-link;
+}
+
+.hmlr-link--secondary {
+  color: $font-color;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:visited {
+    color: $font-color;
+  }
+
+  &:hover {
+    color: $font-color--secondary;
+  }
+}
+
 .hmlr-heading-xl {
   @extend %govuk-heading-xl;
   font-size: 32px;
@@ -31,6 +49,10 @@ html {
   font-size: $font-size;
 }
 
+.govuk-hint {
+  font-size: $font-size;
+}
+
 .hmlr-meta {
   font-size: $meta-font-size;
 }
@@ -40,4 +62,35 @@ html {
   list-style-position: inside;
   margin: 0;
   padding: 0;
+}
+
+.hmlr-hint {
+  font-size: $meta-font-size;
+}
+
+.govuk-fieldset__heading {
+  font-size: 28px;
+}
+
+.hmlr-fieldset__legend--l {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.hmlr-fieldset__legend--m {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.hmlr-fieldset__legend--s {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.hmlr-label {
+  font-size: $font-size;
+}
+
+.hmlr-error-message {
+  font-size: $font-size;
 }
