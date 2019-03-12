@@ -13,11 +13,18 @@
 
 {% block pageTitle %}{% block title %}{% endblock %}{%if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
 
-{% block bodyEnd %}
-  <!--[if gt IE 8]><!-->
-  <script src="{{ url_for('static', filename='javascripts/main.js') }}"> </script>
-  <!--<![endif]-->
-{% endblock %}
+{% block beforeContent %}
+  {% if backurl %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+      {{ hmlrBackLink({
+        "text": "Back",
+          "href": backurl
+        }) }}
+      </div>
+    </div>
+  {% endif %}
+{% endblock%}
 
 {% block bodyStart %}
   <div class="app-cookie-banner js-cookie-banner">
@@ -61,4 +68,10 @@
       ],
     }
   }) }}
+{% endblock %}
+
+{% block bodyEnd %}
+  <!--[if gt IE 8]><!-->
+  <script src="{{ url_for('static', filename='javascripts/main.js') }}"> </script>
+  <!--<![endif]-->
 {% endblock %}
