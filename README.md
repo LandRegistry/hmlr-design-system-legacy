@@ -19,6 +19,6 @@ Broadly propose that we follow a similar process to https://hmlr-design-system.s
 
 ## Technical approach
 
-- Target platforms. Python/flask (Jinja) and React? Any others?  And how do we handle this?
+- Target platforms. Python/flask (Jinja) and React? Any others? And how do we handle this?
 - Prototype kit
 - Axure
