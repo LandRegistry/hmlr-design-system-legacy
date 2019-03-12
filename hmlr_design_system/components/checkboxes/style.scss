@@ -8,7 +8,7 @@
       width: 26px;
       height: 26px;
 
-      +.govuk-checkboxes__label {
+      + .govuk-checkboxes__label {
         font-size: $font-size;
         padding: 0px 10px;
 
@@ -35,7 +35,7 @@
   .govuk-checkboxes__conditional {
     margin-left: 11px;
     padding-left: 22px;
-    border-left: 3px solid $border;
+    border-width: 3px;
   }
 }
 
