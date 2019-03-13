@@ -29,6 +29,9 @@
       },
       "SECRET_KEY": {
         "required": true
+      },
+      "COMMIT": {
+        "required": true
       }
     },
     "addons": [
