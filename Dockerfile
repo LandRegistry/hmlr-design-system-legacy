@@ -23,10 +23,10 @@ RUN mkdir -p /supporting-files && \
     -keyout ssl.key \
     -out ssl.cert
 
-RUN cd /supporting-files && curl -SLO "https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz" && \
-tar -xJf "node-v8.11.3-linux-x64.tar.xz" -C /usr/local --strip-components=1 && \
+RUN cd /supporting-files && curl -SLO "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" && \
+tar -xJf "node-v11.10.0-linux-x64.tar.xz" -C /usr/local --strip-components=1 && \
 ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
-rm "node-v8.11.3-linux-x64.tar.xz"
+rm "node-v11.10.0-linux-x64.tar.xz"
 
 
 # Install node modules
