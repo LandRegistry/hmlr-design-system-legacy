@@ -2,6 +2,12 @@
 
 FROM hmlandregistry/dev_base_python_flask:4
 
+ARG OUTSIDE_UID
+ARG OUTSIDE_GID
+
+RUN groupadd --force --gid $OUTSIDE_GID containergroup && \
+ useradd --uid $OUTSIDE_UID --gid $OUTSIDE_GID containeruser
+
 RUN yum install -y -q libffi-devel openssl
 
 # HTTPS cert
@@ -17,10 +23,10 @@ RUN mkdir -p /supporting-files && \
     -keyout ssl.key \
     -out ssl.cert
 
-RUN cd /supporting-files && curl -SLO "https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz" && \
-tar -xJf "node-v8.11.3-linux-x64.tar.xz" -C /usr/local --strip-components=1 && \
+RUN cd /supporting-files && curl -SLO "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" && \
+tar -xJf "node-v11.10.0-linux-x64.tar.xz" -C /usr/local --strip-components=1 && \
 ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
-rm "node-v8.11.3-linux-x64.tar.xz"
+rm "node-v11.10.0-linux-x64.tar.xz"
 
 
 # Install node modules
@@ -51,6 +57,10 @@ ENV APP_NAME=hmlr-design-system \
   FLASK_DEBUG=1 \
   CONTENT_SECURITY_POLICY_MODE='full' \
   STATIC_ASSETS_MODE='development'
+
+# When creating files inside the docker container, this prevents the files being created
+# as the root user on linux hosts
+USER containeruser
 
 CMD ["./run.sh"]
 

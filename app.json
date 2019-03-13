@@ -1,0 +1,48 @@
+{
+    "name": "hmlr-design-system",
+    "scripts": {
+    },
+    "env": {
+      "APP_NAME": {
+        "required": true
+      },
+      "MAX_HEALTH_CASCADE": {
+        "required": true
+      },
+      "CONTENT_SECURITY_POLICY_MODE": {
+        "required": true
+      },
+      "STATIC_ASSETS_MODE": {
+        "required": true
+      },
+      "LOG_LEVEL": {
+        "required": true
+      },
+      "NODE_ENV": {
+        "required": true
+      },
+      "NODE_MODULES_CACHE": {
+        "required": true
+      },
+      "NPM_CONFIG_PRODUCTION": {
+        "required": true
+      },
+      "SECRET_KEY": {
+        "required": true
+      },
+      "COMMIT": {
+        "required": true
+      }
+    },
+    "addons": [
+
+    ],
+    "buildpacks": [
+      {
+        "url": "urn:buildpack:heroku/nodejs"
+      },
+      {
+        "url": "urn:buildpack:heroku/python"
+      }
+    ]
+  }
