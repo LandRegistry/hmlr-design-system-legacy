@@ -20,12 +20,12 @@ class GovRenderer(misaka.HtmlRenderer):
         on what methods are available to override
         """
         heading_levels = {
-            1: 'hmlr-heading-xl',
-            2: 'hmlr-heading-l',
-            3: 'hmlr-heading-m',
-            4: 'hmlr-heading-s',
-            5: 'hmlr-heading-s',
-            6: 'hmlr-heading-s'
+            1: 'govuk-heading-xl',
+            2: 'govuk-heading-l',
+            3: 'govuk-heading-m',
+            4: 'govuk-heading-s',
+            5: 'govuk-heading-s',
+            6: 'govuk-heading-s'
         }
 
         return '<h{0} class="{1}">{2}</h{0}>'.format(level, heading_levels.get(level), content)

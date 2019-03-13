@@ -1,5 +1,4 @@
-{% from 'components/button/macro.html' import hmlrButton %}
-{% from 'components/button-alt/macro.html' import hmlrButtonAlt %}
+{% from "app/vendor/.govuk-frontend/components/button/macro.html" import govukButton %}
 {% extends 'app/layout.html' %}
 
 {% block inner_content %}
@@ -7,14 +6,14 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half">
-      <h2 class="hmlr-heading-l">Primary</h2>
-      <h3 class="hmlr-heading-m">Default</h3>
-      {{ hmlrButton({
+      <h2 class="govuk-heading-l">Primary</h2>
+      <h3 class="govuk-heading-m">Default</h3>
+      {{ govukButton({
         "type": "button",
         "text": "Label"
       }) }}
-      <h3 class="hmlr-heading-m">Disabled</h3>
-      {{ hmlrButton({
+      <h3 class="govuk-heading-m">Disabled</h3>
+      {{ govukButton({
         "type": "button",
         "value": "Label",
         "disabled": "disabled",
@@ -22,18 +21,20 @@
       }) }}
     </div>
     <div class="govuk-grid-column-one-half">
-      <h2 class="hmlr-heading-l">Secondary</h2>
-      <h3 class="hmlr-heading-m">Default</h3>
-       {{ hmlrButtonAlt({
+      <h2 class="govuk-heading-l">Secondary</h2>
+      <h3 class="govuk-heading-m">Default</h3>
+       {{ govukButton({
         "type": "button",
-        "text": "Label"
+        "text": "Label",
+        "classes": "hmlr-button--alt"
       }) }}
-      <h3 class="hmlr-heading-m">Disabled</h3>
-      {{ hmlrButtonAlt({
+      <h3 class="govuk-heading-m">Disabled</h3>
+      {{ govukButton({
         "type": "button",
         "value": "Label",
         "disabled": "disabled",
-        "text": "Label"
+        "text": "Label",
+        "classes": "hmlr-button--alt"
       }) }}
     </div>
   </div>
