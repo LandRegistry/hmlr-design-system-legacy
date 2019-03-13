@@ -1,0 +1,163 @@
+{% from 'components/checkboxes/macro.html' import hmlrCheckboxes %}
+{% from "components/input/macro.html" import hmlrInput %}
+{% extends 'app/layout.html' %}
+
+{% set backurl = "/" %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+     {{ hmlrCheckboxes({
+      "idPrefix": "waste",
+      "name": "waste",
+      "fieldset": {
+        "legend": {
+          "text": "Which types of waste do you transport?",
+          "isPageHeading": False,
+          "classes": "hmlr-fieldset__legend--l"
+        }
+      },
+      "hint": {
+        "text": "Select all that apply."
+      },
+      "items": [
+        {
+          "value": "carcasses",
+          "text": "Waste from animal carcasses"
+        },
+        {
+          "value": "mines",
+          "text": "Waste from mines or quarries"
+        },
+        {
+          "value": "farm",
+          "text": "Farm or agricultural waste"
+        }
+      ]
+    }) }}
+
+    <h2 class="hmlr-heading-l">Checkbox items with hints</h2>
+
+    {{ hmlrCheckboxes({
+      "idPrefix": "nationality",
+      "name": "nationality",
+      "fieldset": {
+        "legend": {
+          "text": "What is your nationality?",
+          "isPageHeading": False,
+          "classes": "hmlr-fieldset__legend--l"
+        }
+      },
+      "hint": {
+        "text": "If you have dual nationality, select all options that are relevant to you."
+      },
+      "items": [
+        {
+          "value": "british",
+          "text": "British",
+          "hint": {
+            "text": "including English, Scottish, Welsh and Northern Irish",
+            "classes": "hmlr-hint"
+          }
+        },
+        {
+          "value": "irish",
+          "text": "Irish",
+          "label": {
+            "classes": "hmlr-checkboxes__label"
+          }
+        },
+        {
+          "value": "other",
+          "text": "Citizen of another country"
+        }
+      ]
+    }) }}
+
+    <h2 class="hmlr-heading-m">Conditionally revealing content</h2>
+
+    {% set EmailHtml %}
+       {{ hmlrInput({
+        "id": "contact-by-email",
+        "name": "contact-by-email",
+        "type": "email",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Email",
+          "classes": "hmlr-label"
+        }
+      }) }}
+    {% endset -%}
+
+    {% set PhoneHtml %}
+      {{ hmlrInput({
+        "id": "contact-by-phone",
+        "name": "contact-by-phone",
+        "type": "tel",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Phone number",
+          "classes": "hmlr-label"
+        }
+      }) }}
+    {% endset -%}
+
+    {% set TextHtml %}
+      {{ hmlrInput({
+        "id": "contact-by-text",
+        "name": "contact-by-text",
+        "type": "tel",
+        "classes": "govuk-!-width-one-third",
+        "label": {
+          "text": "Mobile phone number",
+          "classes": "hmlr-label"
+        }
+      }) }}
+    {% endset -%}
+
+    {{ hmlrCheckboxes({
+      "classes": "govuk-checkboxes--conditional",
+      "attributes": {
+        "data-module": "checkboxes"
+      },
+      "idPrefix": "citizenship-conditional",
+      "name": "citizen",
+      "fieldset": {
+        "legend": {
+          "text": "How would you like to be contacted?",
+          "isPageHeading": False,
+          "classes": "hmlr-fieldset__legend--l"
+        }
+      },
+      "hint": {
+        "text": "Select all options that are relevant to you."
+      },
+      "items": [
+        {
+          "value": "email",
+          "text": "Email",
+          "conditional": {
+            "html": EmailHtml
+          }
+        },
+        {
+          "value": "phone",
+          "text": "Phone",
+          "conditional": {
+            "html": PhoneHtml
+          }
+        },
+        {
+          "value": "text message",
+          "text": "Text message",
+          "conditional": {
+            "html": TextHtml
+          }
+        }
+      ]
+    }) }}
+    </div>
+  </div>
+{% endblock %}
