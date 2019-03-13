@@ -1,25 +1,11 @@
 {% from 'components/header/macro.html' import header %}
 {% from 'components/back-link/macro.html' import hmlrBackLink %}
 {% extends 'app/layout.html' %}
-{% block beforeContent %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-     {{ hmlrBackLink({
-       "text": "Back",
-        "href": "/"
-      }) }}
-    </div>
-  </div>
-{% endblock %}
+
+{% set backurl = "/" %}
+
 {% block inner_content %}
-  <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-      {{ hmlrBackLink({
-        "text": "Back",
-          "href": "/"
-        }) }}
-      </div>
-  </div>
+
   {{ readme|markdown }}
 
   <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">

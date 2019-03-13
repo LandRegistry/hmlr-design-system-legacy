@@ -3,15 +3,10 @@
 {% from 'components/button-alt/macro.html' import hmlrButtonAlt %}
 {% extends 'app/layout.html' %}
 
+{% set backurl = "/" %}
+
 {% block inner_content %}
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-     {{ hmlrBackLink({
-       "text": "Back",
-        "href": "/"
-      }) }}
-    </div>
-</div>
+
   {{ readme|markdown }}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half">
