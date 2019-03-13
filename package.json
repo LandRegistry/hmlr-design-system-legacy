@@ -11,8 +11,8 @@
     "prebuild": "npm run check-node-version --silent"
   },
   "engines": {
-    "npm": "5.x",
-    "node": "8.x"
+    "npm": "6.x",
+    "node": "11.x"
   },
   "repository": {
     "type": "git",
