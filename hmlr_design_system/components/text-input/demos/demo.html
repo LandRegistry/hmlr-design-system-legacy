@@ -2,6 +2,8 @@
 {% from 'components/textarea/macro.html' import hmlrTextarea %}
 {% extends 'app/layout.html' %}
 
+{% set backurl = "/" %}
+
 {% block inner_content %}
   {{ readme|markdown }}
 

@@ -7,6 +7,7 @@ html {
 }
 
 .hmlr-theme {
+  font-size: $font-size;
 
   .hmlr-link--secondary {
     @extend %govuk-link;
@@ -43,8 +44,8 @@ html {
     margin-bottom: 19px;
   }
 
-  .hmlr-theme {
-    font-size: $font-size;
+  .govuk-fieldset__heading {
+    font-size: 28px;
   }
 
   .govuk-hint {

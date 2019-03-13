@@ -1,1 +1,1 @@
-web: npm run build && gunicorn manage:manager.app
+web: gunicorn manage:manager.app
