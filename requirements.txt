@@ -14,6 +14,7 @@ flask-logconfig==0.4.2
 flask-script==2.0.6
 flask-wtf==0.14.2
 flask==1.0.2
+gunicorn==19.9.0
 idna==2.7                 # via requests
 itsdangerous==1.1.0       # via flask
 jinja2==2.10              # via flask
