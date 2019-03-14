@@ -1,0 +1,10 @@
+{% from "app/vendor/.govuk-frontend/components/input/macro.html" import govukInput %}
+{% extends 'app/layout.html' %}
+
+{% set backurl = "/" %}
+
+{% block inner_content %}
+
+  {{ readme|markdown }}
+
+{% endblock %}

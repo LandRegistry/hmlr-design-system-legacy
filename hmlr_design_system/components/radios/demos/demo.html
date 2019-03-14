@@ -1,17 +1,9 @@
 {% from 'components/radios/macro.html' import hmlrRadios %}
-{% from 'components/back-link/macro.html' import hmlrBackLink %}
 {% from 'components/text-input/macro.html' import hmlrInput %}
 {% extends 'app/layout.html' %}
-{% block beforeContent %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-     {{ hmlrBackLink({
-       "text": "Back",
-        "href": "/"
-      }) }}
-    </div>
-  </div>
-{% endblock %}
+
+{% set backurl = "/" %}
+
 {% block inner_content %}
   {{ readme|markdown }}
 

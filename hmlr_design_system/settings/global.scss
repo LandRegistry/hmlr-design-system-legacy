@@ -56,41 +56,37 @@ html {
     font-size: $meta-font-size;
   }
 
-  .hmlr-list {
+  .govuk-list {
     font-size: $font-size;
     list-style-position: inside;
     margin: 0;
     padding: 0;
   }
 
-  .hmlr-hint {
-    font-size: $meta-font-size;
-  }
-
   .govuk-fieldset__heading {
     font-size: 28px;
   }
 
-  .hmlr-fieldset__legend--l {
+  .govuk-fieldset__legend--l {
     font-size: 28px;
     font-weight: 600;
   }
 
-  .hmlr-fieldset__legend--m {
+  .govuk-fieldset__legend--m {
     font-size: 24px;
     font-weight: 600;
   }
 
-  .hmlr-fieldset__legend--s {
+  .govuk-fieldset__legend--s {
     font-size: 19px;
     font-weight: 600;
   }
 
-  .hmlr-label {
+  .govuk-label {
     font-size: $font-size;
   }
 
-  .hmlr-error-message {
+  .govuk-error-message {
     font-size: $font-size;
   }
 }
