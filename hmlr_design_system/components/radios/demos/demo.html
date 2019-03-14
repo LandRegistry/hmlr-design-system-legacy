@@ -1,5 +1,5 @@
-{% from 'components/radios/macro.html' import hmlrRadios %}
-{% from 'components/text-input/macro.html' import hmlrInput %}
+{% from "app/vendor/.govuk-frontend/components/radios/macro.html" import govukRadios %}
+{% from "app/vendor/.govuk-frontend/components/input/macro.html" import govukInput %}
 {% extends 'app/layout.html' %}
 
 {% set backurl = "/" %}
@@ -9,19 +9,19 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      {{ hmlrRadios({
-        "classes": "hmlr-radios--inline",
+      {{ govukRadios({
+        "classes": "govuk-radios--inline",
         "idPrefix": "changed-name",
         "name": "changed-name",
         "fieldset": {
           "legend": {
             "text": "Have you changed your name?",
             "isPageHeading": False,
-            "classes": "hmlr-fieldset__legend--l"
+            "classes": "govuk-fieldset__legend--l"
           }
         },
         "hint": {
-          "classes": "hmlr-hint",
+          "classes": "govuk-hint",
           "text": "This includes changing your last name or spelling your name differently."
         },
         "items": [
@@ -36,13 +36,13 @@
         ]
       }) }}
 
-      {{ hmlrRadios({ idPrefix: "where-do-you-live",
+      {{ govukRadios({ idPrefix: "where-do-you-live",
         "name": "where-do-you-live",
         "fieldset": {
         "legend": {
         "text": "Where do you live?",
         "isPageHeading": False,
-        "classes": "hmlr-fieldset__legend--l"
+        "classes": "govuk-fieldset__legend--l"
         }
       },
       "items": [
@@ -65,14 +65,14 @@
       ]
     }) }}
 
-    {{ hmlrRadios({
+    {{ govukRadios({
       "idPrefix": "sign-in",
       "name": "sign-in",
       "fieldset": {
         "legend": {
           "text": "How do you want to sign in?",
           "isPageHeading": False,
-          "classes": "hmlr-fieldset__legend--l"
+          "classes": "govuk-fieldset__legend--l"
         }
       },
       "hint": {
@@ -83,7 +83,7 @@
           "value": "government-gateway",
           "text": "Sign in with Government Gateway",
           "label": {
-            "classes": "hmlr-label--s"
+            "classes": "govuk-label--s"
           },
           "hint": {
             "text": "You'll have a user ID if you've registered for Self Assessment or filed a tax return online before."
@@ -93,7 +93,7 @@
           "value": "govuk-verify",
           "text": "Sign in with GOV.UK Verify",
           "label": {
-            "classes": "hmlr-label--s"
+            "classes": "govuk-label--s"
           },
           "hint": {
             "text": "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
@@ -103,14 +103,13 @@
     }) }}
 
     {% set emailHtml %}
-      {{ hmlrInput({
+      {{ govukInput({
         "id": "contact-by-email",
         "name": "contact-by-email",
         "type": "email",
         "classes": "govuk-!-width-one-third",
         "label": {
-          "text": "Email address",
-          "classes": "hmlr-label"
+          "text": "Email address"
         },
         "attributes": {
           "spellcheck": "false"
@@ -119,32 +118,30 @@
     {% endset -%}
 
     {% set phoneHtml %}
-      {{ hmlrInput({
+      {{ govukInput({
         "id": "contact-by-phone",
         "name": "contact-by-phone",
         "type": "tel",
         "classes": "govuk-!-width-one-third",
         "label": {
-          "text": "Phone number",
-          "classes": "hmlr-label"
+          "text": "Phone number"
         }
       }) }}
     {% endset -%}
 
     {% set textHtml %}
-      {{ hmlrInput({
+      {{ govukInput({
         "id": "contact-by-text",
         "name": "contact-by-text",
         "type": "tel",
         "classes": "govuk-!-width-one-third",
         "label": {
-          "text": "Mobile phone number",
-          "classes": "hmlr-label"
+          "text": "Mobile phone number"
         }
       }) }}
     {% endset -%}
 
-    {{ hmlrRadios({
+    {{ govukRadios({
       "attributes": {
         "data-module": "radios"
       },
@@ -155,7 +152,7 @@
         "legend": {
          "text": "How would you prefer to be contacted?",
           "isPageHeading": False,
-          "classes": "hmlr-fieldset__legend--l"
+          "classes": "govuk-fieldset__legend--l"
         }
       },
       "hint": {

@@ -12,8 +12,6 @@ html {
   .hmlr-link--secondary {
     @extend %govuk-link;
     color: $font-color;
-    text-decoration: underline;
-    cursor: pointer;
 
     &:visited {
       color: $font-color;
