@@ -9,6 +9,7 @@
     width: 24px;
     height: 24px;
   }
+
   .govuk-radios__label {
     font-size: $font-size;
     padding: 3px 10px 5px;
@@ -30,7 +31,7 @@
     padding: 0 0 0 24px;
   }
 
-  .govuk-radios__input:focus+.govuk-radios__label:before {
+  .govuk-radios__input:focus + .govuk-radios__label:before {
     outline: 3px solid transparent;
     outline-offset: 3px;
     box-shadow: 0 0 0 3px #ffbf47;
