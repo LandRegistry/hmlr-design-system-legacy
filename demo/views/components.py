@@ -30,7 +30,6 @@ def index():
 
     demos = glob('hmlr_design_system/components/**/demos/*.html')
     parsed_demos = sorted(list(map(parse_path, demos)))
-    print(parsed_demos)
 
     return render_template('app/index.html', demos=parsed_demos)
 

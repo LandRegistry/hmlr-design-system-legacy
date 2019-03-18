@@ -18,4 +18,16 @@
   {{ header({
     'homepageUrl': '/'
   }) }}
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+  <h2 class="govuk-heading-s">As a React component</h2>
+  <div id="demo"></div>
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script>
+    ReactDOM.render(React.createElement(window.Header, null), document.getElementById('demo'))
+  </script>
 {% endblock %}
