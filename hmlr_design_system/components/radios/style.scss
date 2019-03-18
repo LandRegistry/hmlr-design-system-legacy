@@ -1,6 +1,6 @@
-.hmlr-radios {
+.hmlr-theme {
 
-  .hmlr-radios__item {
+  .govuk-radios__item {
     min-height: 24px;
     padding: 0 0 0 24px;
   }
@@ -9,6 +9,7 @@
     width: 24px;
     height: 24px;
   }
+
   .govuk-radios__label {
     font-size: $font-size;
     padding: 3px 10px 5px;
@@ -24,34 +25,26 @@
       left: 6px;
     }
   }
-}
-
-.hmlr-radios--inline {
 
   .govuk-radios__item {
-    float: left;
-    clear: none;
+    min-height: 24px;
+    padding: 0 0 0 24px;
   }
-}
 
-.govuk-radios__item {
-  min-height: 24px;
-  padding: 0 0 0 24px;
-}
+  .govuk-radios__input:focus + .govuk-radios__label:before {
+    outline: 3px solid transparent;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px #ffbf47;
+  }
 
-.govuk-radios__input:focus+.govuk-radios__label:before {
-  outline: 3px solid transparent;
-  outline-offset: 3px;
-  box-shadow: 0 0 0 3px #ffbf47;
-}
+  .govuk-radios__hint {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 
-.govuk-radios__hint {
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.govuk-radios__conditional {
-  margin-left: 11px;
-  border-width: 3px;
-  padding-left: 20px;
+  .govuk-radios__conditional {
+    margin-left: 11px;
+    border-width: 3px;
+    padding-left: 20px;
+  }
 }

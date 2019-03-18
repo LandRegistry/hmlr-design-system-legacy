@@ -1,24 +1,24 @@
+{% from "app/vendor/.govuk-frontend/components/back-link/macro.html" import govukBackLink %}
 {% from "app/vendor/.govuk-frontend/components/skip-link/macro.html" import govukSkipLink %}
 {% from "components/header/macro.html" import header %}
-{% from "components/back-link/macro.html" import hmlrBackLink %}
 {% from "components/footer/macro.html" import footer %}
 
 {% extends "app/vendor/.govuk-frontend/template.html" %}
 
 {% set assetPath = url_for('static', filename='.govuk-frontend').rstrip('/') %}
-
+{% set bodyClasses = "hmlr-theme" %}
 {% block head %}
   <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" /><!--<![endif]-->
   <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main-ie8.css') }}" /><![endif]-->
 {% endblock %}
 
-{% block pageTitle %}{% block title %}{% endblock %}{%if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
+{% block pageTitle %}{% block title %}{% endblock %}{% if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
 
 {% block beforeContent %}
   {% if backurl %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-      {{ hmlrBackLink({
+      {{ govukBackLink({
         "text": "Back",
           "href": backurl
         }) }}

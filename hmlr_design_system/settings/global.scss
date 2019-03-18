@@ -1,100 +1,90 @@
 html {
   box-sizing: border-box;
-
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-.hmlr-link {
-  @extend %govuk-link;
-}
+.hmlr-theme {
+  font-size: $font-size;
 
-.hmlr-link--secondary {
-  color: $font-color;
-  text-decoration: underline;
-  cursor: pointer;
-
-  &:visited {
+  .hmlr-link--secondary {
+    @extend %govuk-link;
     color: $font-color;
+
+    &:visited {
+      color: $font-color;
+    }
+
+    &:hover {
+      color: $font-color--secondary;
+    }
   }
 
-  &:hover {
-    color: $font-color--secondary;
+  .govuk-heading-xl {
+    font-size: 32px;
+    margin-bottom: 32px;
   }
-}
 
-.hmlr-heading-xl {
-  @extend %govuk-heading-xl;
-  font-size: 32px;
-}
+  .govuk-heading-l {
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
 
-.hmlr-heading-l {
-  @extend %govuk-heading-l;
-  font-size: 28px;
-}
+  .govuk-heading-m{
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
 
-.hmlr-heading-m {
-  @extend %govuk-heading-m;
-  font-size: 24px;
-}
+  .govuk-heading-s {
+    font-size: 19px;
+    margin-bottom: 19px;
+  }
 
-.hmlr-heading-s {
-  @extend %govuk-heading-s;
-  font-size: 19px;
-}
+  .govuk-fieldset__heading {
+    font-size: 28px;
+  }
 
-.govuk-fieldset__heading {
-  font-size: 28px;
-}
+  .govuk-hint {
+    font-size: $font-size;
+  }
 
-.hmlr-body {
-  font-size: $font-size;
-}
+  .hmlr-meta {
+    font-size: $meta-font-size;
+  }
 
-.govuk-hint {
-  font-size: $font-size;
-}
+  .govuk-list {
+    font-size: $font-size;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+  }
 
-.hmlr-meta {
-  font-size: $meta-font-size;
-}
+  .govuk-fieldset__heading {
+    font-size: 28px;
+  }
 
-.hmlr-list {
-  font-size: $font-size;
-  list-style-position: inside;
-  margin: 0;
-  padding: 0;
-}
+  .govuk-fieldset__legend--l {
+    font-size: 28px;
+    font-weight: 600;
+  }
 
-.hmlr-hint {
-  font-size: $meta-font-size;
-}
+  .govuk-fieldset__legend--m {
+    font-size: 24px;
+    font-weight: 600;
+  }
 
-.govuk-fieldset__heading {
-  font-size: 28px;
-}
+  .govuk-fieldset__legend--s {
+    font-size: 19px;
+    font-weight: 600;
+  }
 
-.hmlr-fieldset__legend--l {
-  font-size: 28px;
-  font-weight: 600;
-}
+  .govuk-label {
+    font-size: $font-size;
+  }
 
-.hmlr-fieldset__legend--m {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.hmlr-fieldset__legend--s {
-  font-size: 19px;
-  font-weight: 600;
-}
-
-.hmlr-label {
-  font-size: $font-size;
-}
-
-.hmlr-error-message {
-  font-size: $font-size;
+  .govuk-error-message {
+    font-size: $font-size;
+  }
 }

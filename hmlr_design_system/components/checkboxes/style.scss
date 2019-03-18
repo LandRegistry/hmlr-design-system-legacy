@@ -1,4 +1,4 @@
-.hmlr-checkboxes {
+.hmlr-theme {
 
   .govuk-checkboxes__item {
     min-height: 26px;
@@ -28,7 +28,8 @@
     }
 
     .govuk-checkboxes__hint {
-      padding: 0 10px;
+      $font-size: $meta-font-size;
+      padding: 0 11px;
     }
   }
 

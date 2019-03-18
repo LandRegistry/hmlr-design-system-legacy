@@ -1,6 +1,0 @@
-{% from "app/vendor/.govuk-frontend/components/textarea/macro.html" import govukTextarea %}
-
-{% macro hmlrTextarea(params={}) %}
-  {% set _ = params.update({'classes': ['hmlr-textarea', params.classes]|join(" ") }) %}
-  {{govukTextarea(params)}}
-{% endmacro %}

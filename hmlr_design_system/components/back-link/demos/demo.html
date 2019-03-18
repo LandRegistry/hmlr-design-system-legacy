@@ -1,4 +1,4 @@
-{% from 'components/back-link/macro.html' import hmlrBackLink %}
+{% from "app/vendor/.govuk-frontend/components/back-link/macro.html" import govukBackLink %}
 {% extends 'app/layout.html' %}
 
 {% block inner_content %}
@@ -6,7 +6,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-     {{ hmlrBackLink({
+     {{ govukBackLink({
        "text": "Back",
         "href": "/"
       }) }}

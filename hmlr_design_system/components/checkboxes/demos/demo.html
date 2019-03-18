@@ -1,5 +1,6 @@
-{% from 'components/checkboxes/macro.html' import hmlrCheckboxes %}
-{% from "components/input/macro.html" import hmlrInput %}
+{% from "app/vendor/.govuk-frontend/components/checkboxes/macro.html" import govukCheckboxes %}
+{% from "app/vendor/.govuk-frontend/components/input/macro.html" import govukInput %}
+
 {% extends 'app/layout.html' %}
 
 {% set backurl = "/" %}
@@ -9,14 +10,14 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-     {{ hmlrCheckboxes({
+     {{ govukCheckboxes({
       "idPrefix": "waste",
       "name": "waste",
       "fieldset": {
         "legend": {
           "text": "Which types of waste do you transport?",
           "isPageHeading": False,
-          "classes": "hmlr-fieldset__legend--l"
+          "classes": "govuk-fieldset__legend--m"
         }
       },
       "hint": {
@@ -38,16 +39,16 @@
       ]
     }) }}
 
-    <h2 class="hmlr-heading-l">Checkbox items with hints</h2>
+    <h2 class="govuk-heading-l">Checkbox items with hints</h2>
 
-    {{ hmlrCheckboxes({
+    {{ govukCheckboxes({
       "idPrefix": "nationality",
       "name": "nationality",
       "fieldset": {
         "legend": {
           "text": "What is your nationality?",
           "isPageHeading": False,
-          "classes": "hmlr-fieldset__legend--l"
+          "classes": "govuk-fieldset__legend--m"
         }
       },
       "hint": {
@@ -59,14 +60,14 @@
           "text": "British",
           "hint": {
             "text": "including English, Scottish, Welsh and Northern Irish",
-            "classes": "hmlr-hint"
+            "classes": "govuk-hint"
           }
         },
         {
           "value": "irish",
           "text": "Irish",
           "label": {
-            "classes": "hmlr-checkboxes__label"
+            "classes": "govuk-checkboxes__label"
           }
         },
         {
@@ -76,48 +77,45 @@
       ]
     }) }}
 
-    <h2 class="hmlr-heading-m">Conditionally revealing content</h2>
+    <h2 class="govuk-heading-l">Conditionally revealing content</h2>
 
     {% set EmailHtml %}
-       {{ hmlrInput({
+       {{ govukInput({
         "id": "contact-by-email",
         "name": "contact-by-email",
         "type": "email",
         "classes": "govuk-!-width-one-third",
         "label": {
-          "text": "Email",
-          "classes": "hmlr-label"
+          "text": "Email"
         }
       }) }}
     {% endset -%}
 
     {% set PhoneHtml %}
-      {{ hmlrInput({
+      {{ govukInput({
         "id": "contact-by-phone",
         "name": "contact-by-phone",
         "type": "tel",
         "classes": "govuk-!-width-one-third",
         "label": {
-          "text": "Phone number",
-          "classes": "hmlr-label"
+          "text": "Phone number"
         }
       }) }}
     {% endset -%}
 
     {% set TextHtml %}
-      {{ hmlrInput({
+      {{ govukInput({
         "id": "contact-by-text",
         "name": "contact-by-text",
         "type": "tel",
         "classes": "govuk-!-width-one-third",
         "label": {
-          "text": "Mobile phone number",
-          "classes": "hmlr-label"
+          "text": "Mobile phone number"
         }
       }) }}
     {% endset -%}
 
-    {{ hmlrCheckboxes({
+    {{ govukCheckboxes({
       "classes": "govuk-checkboxes--conditional",
       "attributes": {
         "data-module": "checkboxes"
@@ -128,7 +126,7 @@
         "legend": {
           "text": "How would you like to be contacted?",
           "isPageHeading": False,
-          "classes": "hmlr-fieldset__legend--l"
+          "classes": "govuk-fieldset__legend--m"
         }
       },
       "hint": {

@@ -1,5 +1,5 @@
-{% from 'components/text-input/macro.html' import hmlrInput %}
-{% from 'components/textarea/macro.html' import hmlrTextarea %}
+{% from "app/vendor/.govuk-frontend/components/input/macro.html" import govukInput %}
+{% from "app/vendor/.govuk-frontend/components/textarea/macro.html" import govukTextarea %}
 {% extends 'app/layout.html' %}
 
 {% set backurl = "/" %}
@@ -9,37 +9,34 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <h2 class="hmlr-heading-m">Text input</h2>
-      {{ hmlrInput({
+      <h2 class="govuk-heading-m">Text input</h2>
+      {{ govukInput({
         "label": {
-          "text": "Label",
-          "classes": "hmlr-label",
+          "text": "Label"
         },
         "id": "label",
         "classes": "govuk-!-width-three-quarters",
         "name": "label"
       }) }}
-      <h2 class="hmlr-heading-m">Text input with error message</h2>
-      {{ hmlrInput({
+      <h2 class="govuk-heading-m">Text input with error message</h2>
+      {{ govukInput({
         "label": {
-          "text": "Label",
-          "classes": "hmlr-label",
+          "text": "Label"
         },
         "errorMessage": {
           "text": "This field is required",
-          "classes": "hmlr-error-message govuk-!-width-three-quarters"
+          "classes": "'govuk-error-message govuk-!-width-three-quarters"
         },
         "id": "label",
         "classes": "govuk-!-width-three-quarters",
         "name": "label"
       }) }}
-      <h2 class="hmlr-heading-m">Textarea</h2>
-      {{ hmlrTextarea({
+      <h2 class="govuk-heading-m">Textarea</h2>
+      {{ govukTextarea({
         "name": "more-detail",
         "id": "more-detail",
         "label": {
-          "text": "Can you provide more detail?",
-          "classes": "hmlr-label"
+          "text": "Can you provide more detail?"
         },
         "classes": "govuk-!-width-three-quarters",
         "hint": {
@@ -47,13 +44,12 @@
           "text": "Do not include personal or financial information, like your National Insurance number or credit card details."
         }
       }) }}
-      <h2 class="hmlr-heading-m">Textarea with error message</h2>
-      {{ hmlrTextarea({
+      <h2 class="govuk-heading-m">Textarea with error message</h2>
+      {{ govukTextarea({
         "name": "more-detail",
         "id": "more-detail",
         "label": {
-          "text": "Can you provide more detail?",
-          "classes": "hmlr-label"
+          "text": "Can you provide more detail?"
         },
         "hint": {
           "classes": "govuk-!-width-three-quarters",
@@ -61,8 +57,7 @@
         },
         "classes": "govuk-!-width-three-quarters",
         "errorMessage": {
-          "text": "Enter more detail",
-          "classes": "hmlr-error-message"
+          "text": "Enter more detail"
         }
       }) }}
     </div>
