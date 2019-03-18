@@ -7,4 +7,56 @@
 {% block inner_content %}
   {{ readme|markdown }}
 
+  <h2 class="govuk-heading-s">Empty, no links</h2>
+  {{ footer() }}
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  <h2 class="govuk-heading-s">With commonly used links</h2>
+  {{ footer({
+    'meta': {
+      'items': [
+        {
+          'text': 'Terms and conditions',
+          'href': '#'
+        },
+        {
+          'text': 'Accessibility statement',
+          'href': '#'
+        },
+        {
+          'text': 'Freedom of information',
+          'href': 'https://www.gov.uk/government/organisations/land-registry#freedom-of-information'
+        },
+        {
+          'text': '© Crown copyright',
+          'href': 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/'
+        }
+      ],
+    }
+  }) }}
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  <h2 class="govuk-heading-s">As a React component</h2>
+
+  <div id="demo"></div>
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script>
+    ReactDOM.render(React.createElement(window.Footer, {},
+      React.createElement('a', {
+        'href': '#'
+      }, 'Terms and conditions'),
+      React.createElement('a', {
+        'href': '#'
+      }, 'Accessibility statement'),
+      React.createElement('a', {
+        'href': '#'
+      }, 'Freedom of information'),
+      React.createElement('a', {
+        'href': '#'
+      }, '© Crown copyright')
+    ), document.getElementById('demo'))
+  </script>
 {% endblock %}
