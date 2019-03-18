@@ -8,8 +8,8 @@
 {% set assetPath = url_for('static', filename='.govuk-frontend').rstrip('/') %}
 {% set bodyClasses = "hmlr-theme" %}
 {% block head %}
-  <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main.css') }}" /><!--<![endif]-->
-  <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main-ie8.css') }}" /><![endif]-->
+  <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" /><!--<![endif]-->
+  <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main-ie8.css') }}" /><![endif]-->
 {% endblock %}
 
 {% block pageTitle %}{% block title %}{% endblock %}{% if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
@@ -56,24 +56,15 @@
     'meta': {
       'items': [
         {
-          'text': 'Terms and conditions',
-          'href': '#'
-        },
-        {
-          'text': 'Freedom of information',
-          'href': 'https://www.gov.uk/government/organisations/land-registry#freedom-of-information'
-        },
-        {
-          'text': '© Crown copyright',
-          'href': 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/'
+          'href': 'https://github.com/LandRegistry/hmlr-design-system',
+          'text': 'HMLR design system on Github'
         }
-      ],
+      ]
     }
   }) }}
 {% endblock %}
 
 {% block bodyEnd %}
-  <!--[if gt IE 8]><!-->
-  <script src="{{ url_for('static', filename='javascripts/main.js') }}"> </script>
-  <!--<![endif]-->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/react-components.js') }}"></script>
 {% endblock %}
