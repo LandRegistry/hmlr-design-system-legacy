@@ -1,9 +1,17 @@
 {% macro header(params={}) %}
-  <header class="hmlr-header">
+  <header class="hmlr-header {{params.classes}}">
     <div class="hmlr-header__inner">
-      {% if params.homepageUrl %}<a href="{{ params.homepageUrl }}" class="hmlr-header__link">{% endif %}
-        <img class="hmlr-header__logo" src="{{ url_for('static', filename='images/hmlr-hmlr-design-system/header/logo.svg') }}" alt="HM Land Registry">
-      {% if params.homepageUrl %}</a>{% endif %}
+      {% if params.headerTitle %}
+      <p class="hmlr-header__title">
+        {% if params.homepageUrl %}
+          <a href="{{ params.homepageUrl }}" class="hmlr-header__link">
+            {{params.headerTitle}}
+          </a>
+        {%- else -%}
+          {{params.headerTitle}}
+        {%- endif -%}
+       </p>
+      {% endif %}
     </div>
   </header>
 {% endmacro %}

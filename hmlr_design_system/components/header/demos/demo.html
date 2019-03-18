@@ -10,12 +10,15 @@
   <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
   <h2 class="govuk-heading-s">Without a homepage link</h2>
-  {{ header() }}
+  {{ header({
+    'headerTitle': 'Application processing'
+  }) }}
 
   <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
   <h2 class="govuk-heading-s">With a homepage link</h2>
   {{ header({
+    'headerTitle': 'Application processing',
     'homepageUrl': '/'
   }) }}
 {% endblock %}

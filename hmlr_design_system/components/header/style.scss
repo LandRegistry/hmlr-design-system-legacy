@@ -2,21 +2,41 @@
 @import '../../utilities/hexa-border';
 
 .hmlr-header {
-  @include govuk-width-container();
+  width: 100%;
+  background-color: $black;
+  color: $white;
+  border-bottom: 10px solid $hmlr-green-1;
 }
 
 .hmlr-header__inner {
   @include govuk-clearfix;
-  @extend %hexaborder;
-  padding: govuk-spacing(5) govuk-spacing(3);
+  padding: 10px 15px;
+}
+
+.hmlr-header__title {
+  @extend %govuk-heading-l;
+  font-size: 26px;
+  color: $white;
+  margin-bottom: 0;
+
+  @include tablet-portrait {
+    font-size: 30px;
+  }
 }
 
 .hmlr-header__link {
   @include govuk-focusable;
+  color: $white;
   float: left;
+  text-decoration: none;
 
   &:focus {
-    outline-offset: govuk-spacing(3) - $govuk-focus-width;
+    outline-offset: 0;
+  }
+
+  &:hover {
+    border-bottom: 2px solid $white;
+    margin-bottom: -2px;
   }
 }
 

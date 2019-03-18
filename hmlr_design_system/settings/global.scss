@@ -28,8 +28,13 @@ html {
   }
 
   .govuk-heading-l {
-    font-size: 28px;
-    margin-bottom: 28px;
+    font-size: 24px;
+    margin-bottom: 24px;
+
+    @include tablet-portrait {
+      font-size: 28px;
+      margin-bottom: 28px;
+    }
   }
 
   .govuk-heading-m{
