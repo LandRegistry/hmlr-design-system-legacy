@@ -1,5 +1,6 @@
 {% from "app/vendor/.govuk-frontend/components/skip-link/macro.html" import govukSkipLink %}
 {% from "components/header/macro.html" import header %}
+{% from "components/back-link/macro.html" import hmlrBackLink %}
 {% from "components/footer/macro.html" import footer %}
 
 {% extends "app/vendor/.govuk-frontend/template.html" %}
@@ -13,10 +14,18 @@
 
 {% block pageTitle %}{% block title %}{% endblock %}{%if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
 
-{% block bodyEnd %}
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/react-components.js') }}"></script>
-{% endblock %}
+{% block beforeContent %}
+  {% if backurl %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+      {{ hmlrBackLink({
+        "text": "Back",
+          "href": backurl
+        }) }}
+      </div>
+    </div>
+  {% endif %}
+{% endblock%}
 
 {% block bodyStart %}
   <div class="app-cookie-banner js-cookie-banner">
@@ -52,4 +61,9 @@
       ]
     }
   }) }}
+{% endblock %}
+
+{% block bodyEnd %}
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/react-components.js') }}"></script>
 {% endblock %}
