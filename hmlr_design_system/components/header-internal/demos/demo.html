@@ -1,4 +1,4 @@
-{% from 'components/header/macro.html' import header %}
+{% from 'components/header-internal/macro.html' import headerInternal %}
 {% extends 'app/layout.html' %}
 
 {% set backurl = "/" %}
@@ -10,14 +10,14 @@
   <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
   <h2 class="govuk-heading-s">Without a homepage link</h2>
-  {{ header({
+  {{ headerInternal({
     'headerTitle': 'Application processing'
   }) }}
 
   <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
   <h2 class="govuk-heading-s">With a homepage link</h2>
-  {{ header({
+  {{ headerInternal({
     'headerTitle': 'Application processing',
     'homepageUrl': '/'
   }) }}
