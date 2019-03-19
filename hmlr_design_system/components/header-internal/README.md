@@ -26,3 +26,7 @@ Header suitable for external facing services, particularly those that need to fa
 | headerTitle |  String | **Required**. String to used as the site heading |
 | homepageUrl |  String |  If set the header title will act as a link to the url specified |
 
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |

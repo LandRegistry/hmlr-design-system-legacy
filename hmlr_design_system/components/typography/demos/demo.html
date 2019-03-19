@@ -1,0 +1,35 @@
+{% extends 'app/layout.html' %}
+
+{% set backurl = "/" %}
+
+{% block inner_content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ readme|markdown }}
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-xl">Extra large heading (32px equivalent)</h2>
+    <h2 class="govuk-heading-l">Large heading (28px equivalent)</h2>
+    <h2 class="govuk-heading-m">Medium heading (24px equivalent)</h2>
+    <h2 class="govuk-heading-s">Small heading (19px equivalent)</h2>
+    <p class="govuk-body">Paragraph (16px equivalent)</p>
+    <p class="govuk-body hmlr-meta ">Meta text (14 px equivalent)</p>
+
+    <h2 class="govuk-heading-s">Ordered list</h2>
+    <ol class="govuk-list govuk-list--number">
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </ol>
+    <h2 class="govuk-heading-s">unordered list</h2>
+    <ul class="govuk-list">
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    </ul>
+    </div>
+  </div>
+
+{% endblock %}

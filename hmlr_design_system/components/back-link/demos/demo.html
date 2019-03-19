@@ -2,14 +2,15 @@
 {% extends 'app/layout.html' %}
 
 {% block inner_content %}
-  {{ readme|markdown }}
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-     {{ govukBackLink({
-       "text": "Back",
-        "href": "/"
-      }) }}
+  <div class="hmlr-main-column">
+    {{ readme|markdown }}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+      {{ govukBackLink({
+        "text": "Back",
+          "href": "/"
+        }) }}
+      </div>
     </div>
   </div>
 {% endblock %}

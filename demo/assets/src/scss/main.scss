@@ -13,10 +13,12 @@ $govuk-fonts-path: '/ui/.govuk-frontend/fonts/';
 
 // Design system components
 @import '../../../../hmlr_design_system/settings/all';
-@import '../../../../hmlr_design_system/components/header/style';
+@import '../../../../hmlr_design_system/components/header-internal/style';
 @import '../../../../hmlr_design_system/components/back-link/style';
 @import '../../../../hmlr_design_system/components/button/style';
 @import '../../../../hmlr_design_system/components/checkboxes/style';
+@import '../../../../hmlr_design_system/components/links/style';
 @import '../../../../hmlr_design_system/components/radios/style';
 @import '../../../../hmlr_design_system/components/text-input/style';
+@import '../../../../hmlr_design_system/components/typography/style';
 @import '../../../../hmlr_design_system/components/footer/style';

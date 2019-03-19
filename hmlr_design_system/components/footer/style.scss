@@ -1,14 +1,19 @@
 @import '../../utilities/hexa-border';
 
 .hmlr-footer {
-  @include govuk-width-container;
   @include govuk-typography-common;
   color: $govuk-secondary-text-colour;
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .hmlr-footer__inner {
   @extend %hexaborder--top;
-  padding: govuk-spacing(8) 0;
+  padding: govuk-spacing(8) 15px;
 }
 
 .hmlr-footer__links {

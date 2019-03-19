@@ -2,6 +2,7 @@ $hmlr-green-1: #87c426;
 $hmlr-green-2: #d7e900;
 $black: #0b0c0c;
 $white: #fff;
+$grey: #6f777b;
 
 // break points
 $tablet-portrait: 768px;
@@ -20,4 +21,6 @@ $font: arial, helvetica, sans-serif;
 $font-size: 16px;
 $meta-font-size: 14px;
 $font-color: $black;
-$font-color--secondary: #6f777b;
+$font-color--secondary: $grey;
+$border-color: $grey;
+

@@ -2,9 +2,8 @@ from flask import Blueprint
 from flask import flash
 from flask import render_template
 from flask import url_for
+from flask import current_app
 from flask_wtf import FlaskForm
-from glob import glob
-from os import path
 from wtforms import widgets
 from wtforms.fields import BooleanField
 from wtforms.fields import RadioField
@@ -23,15 +22,7 @@ components = Blueprint('components', __name__)
 
 @components.route("/")
 def index():
-    def parse_path(demo_path):
-        demo_path = path.relpath(demo_path, 'hmlr_design_system/components').replace('/demos', '').replace('.html', '')
-        path_parts = demo_path.split('/')
-        return url_for('components.component_demo', component_name=path_parts[0], demo_name=path_parts[1])
-
-    demos = glob('hmlr_design_system/components/**/demos/*.html')
-    parsed_demos = sorted(list(map(parse_path, demos)))
-
-    return render_template('app/index.html', demos=parsed_demos)
+    return render_template('app/index.html')
 
 
 @components.route('/<component_name>/<demo_name>')
