@@ -9,11 +9,7 @@
 
   .hmlr-header__inner {
     @include govuk-clearfix;
-    padding: 10px 15px;
-
-    @include tablet-landscape {
-      padding: 10px 15px 10px 330px;
-    }
+    padding: 10px 15px 10px 330px;
 
     &.left-aligned {
       padding: 10px 15px;

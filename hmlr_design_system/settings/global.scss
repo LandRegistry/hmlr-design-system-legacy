@@ -36,55 +36,19 @@ html {
     width: 100%;
   }
 
-  .menu-toggle {
-    left: -9999px;
-    position: absolute;
-
-  }
-
-  .menu-toggle--label {
-    position: absolute;
-    top: 16px;
-    right: 10px;
-    color: $white;
-
-    @include tablet-landscape {
-      display: none;
-    }
-  }
-
-  .menu-toggle:checked ~ .hmlr-column--left{
-    right: 0;
-    opacity: .9;
-  }
-
   .hmlr-column--left {
     min-width: 300px;
     padding: 30px;
     width: 300px;
-    position: absolute;
-    right: -300px;
-    transition: right .3s;
-    background-color: $white;
-    z-index: 10;
-
-    @include tablet-landscape {
-      position: relative;
-      right: auto;
-      min-height: 100%;
-      border-right: 1px solid $border-color;
-    }
+    border-right: 1px solid $border-color;
+    min-height: 100%;
   }
 
   .hmlr-column--main {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    padding: 15px;
+    padding: 15px 30px;
     width: 100%;
-
-    @include tablet-landscape {
-      padding: 15px 30px;
-    }
   }
 }
