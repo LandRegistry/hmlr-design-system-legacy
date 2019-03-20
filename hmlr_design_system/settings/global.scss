@@ -9,6 +9,7 @@ html {
 .hmlr-theme {
   display: flex;
   flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: $font-size;
   position: relative;
   min-height: 100vh;
@@ -58,10 +59,8 @@ html {
   }
 
   .hmlr-column--left {
-    border-right: 1px solid $border-color;
     min-width: 300px;
-    min-height: 100%;
-    padding: 15px 15px;
+    padding: 30px;
     width: 300px;
     position: absolute;
     right: -300px;
@@ -72,6 +71,8 @@ html {
     @include tablet-landscape {
       position: relative;
       right: auto;
+      min-height: 100%;
+      border-right: 1px solid $border-color;
     }
   }
 
@@ -79,7 +80,7 @@ html {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    padding: 0 15px;
+    padding: 15px 30px;
     width: 100%;
   }
 }

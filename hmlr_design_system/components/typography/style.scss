@@ -25,6 +25,10 @@
     margin-bottom: 19px;
   }
 
+  .govuk-body {
+    font-size: $font-size;
+  }
+
   .govuk-fieldset__heading {
     font-size: 28px;
   }
@@ -34,7 +38,8 @@
   }
 
   .hmlr-meta {
-    font-size: $meta-font-size;
+    font-size: $font-size--meta;
+    color: $font-color--meta;
   }
 
   .govuk-list {

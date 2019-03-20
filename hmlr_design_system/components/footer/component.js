@@ -12,7 +12,7 @@ function Footer(props) {
     </ul>
   </>
 
-  return <footer className='hmlr-footer'>
+  return <footer className={`hmlr-footer ${props.classes}`}>
     <div className='hmlr-footer__inner'>
       {links}
     </div>

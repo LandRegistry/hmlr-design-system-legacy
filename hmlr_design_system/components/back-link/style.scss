@@ -1,11 +1,11 @@
 .hmlr-theme {
 
   .govuk-back-link {
-    font-size: $meta-font-size;
+    font-size: $font-size--meta;
 
     &:hover {
-      color: $font-color--secondary;
-      border-color: $font-color--secondary;
+      color: $font-color--meta;
+      border-color: $font-color--meta;
     }
   }
 }

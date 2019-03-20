@@ -1,14 +1,15 @@
 {% from "app/vendor/.govuk-frontend/components/input/macro.html" import govukInput %}
 {% from "app/vendor/.govuk-frontend/components/textarea/macro.html" import govukTextarea %}
-{% extends 'app/layout.html' %}
+{% extends 'app/2-column-layout.html' %}
 
 {% set backurl = "/" %}
 
-{% block inner_content %}
-  {{ readme|markdown }}
 
+{% block inner_content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
+      {{ readme|markdown }}
+
       <h2 class="govuk-heading-m">Text input</h2>
       {{ govukInput({
         "label": {
