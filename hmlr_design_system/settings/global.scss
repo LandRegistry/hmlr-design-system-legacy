@@ -80,7 +80,11 @@ html {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    padding: 15px 30px;
+    padding: 15px;
     width: 100%;
+
+    @include tablet-landscape {
+      padding: 15px 30px;
+    }
   }
 }

@@ -13,7 +13,7 @@ function Header(props) {
     )
 
   return <header className='hmlr-header--internal'>
-    <div className='hmlr-header__inner'>
+    <div className={`hmlr-header__inner ${props.innerClasses}`}>
       {heading}
     </div>
   </header>

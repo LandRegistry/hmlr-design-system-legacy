@@ -12,7 +12,10 @@
 
       <h2 class="govuk-heading-s">Without a homepage link</h2>
       {{ headerInternal({
-        'headerTitle': 'Application processing'
+        'headerTitle': 'Application processing',
+        'inner': {
+          'classes': 'left-aligned'
+        }
       }) }}
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
@@ -20,7 +23,11 @@
       <h2 class="govuk-heading-s">With a homepage link</h2>
       {{ headerInternal({
         'headerTitle': 'Application processing',
-        'homepageUrl': '/'
+        'homepageUrl': '/',
+        'inner': {
+          'classes': 'left-aligned'
+        }
+
       }) }}
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
@@ -34,6 +41,6 @@
 {% block bodyEnd %}
   {{ super() }}
   <script>
-    ReactDOM.render(React.createElement(window.HeaderInternal, {headerTitle: 'Application processing', homepageUrl: '/'}), document.getElementById('demo'))
+    ReactDOM.render(React.createElement(window.HeaderInternal, {headerTitle: 'Application processing', homepageUrl: '/', innerClasses: 'left-aligned'}), document.getElementById('demo'))
   </script>
 {% endblock %}
