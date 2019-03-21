@@ -1,0 +1,11 @@
+{% extends "app/1-column-layout.html" %}
+
+{% set backurl = "/" %}
+
+{% block inner_content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ readme|markdown }}
+    </div>
+  </div>
+{% endblock %}
