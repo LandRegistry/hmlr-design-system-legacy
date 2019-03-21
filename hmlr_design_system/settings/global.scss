@@ -6,6 +6,11 @@ html {
   box-sizing: inherit;
 }
 
+pre {
+  padding: 20px;
+  background-color: $lightgrey
+}
+
 .hmlr-theme {
   display: flex;
   flex-direction: column;
