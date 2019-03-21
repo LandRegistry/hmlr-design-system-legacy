@@ -8,10 +8,10 @@ Header suitable for internal services.
 ## Jinja invocation
 
     {{ header({
-    'homepageUrl': '/',  
-    'headerTitle': 'Application processing',   
-    'inner': {   
-      'classes': 'left-aligned'   
+      'homepageUrl': '/',  
+      'headerTitle': 'Application processing',
+      'inner': {   
+        'classes': 'left-aligned'   
       }   
     }) }}   
  
