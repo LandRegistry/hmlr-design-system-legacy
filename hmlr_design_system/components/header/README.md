@@ -6,14 +6,15 @@ Header suitable for external facing services, particularly those that need to fa
 - Tweak React component to accept Router links instead of just string hrefs for the homepage URL
 
 ## Jinja invocation
-```
-{{ header({
-  'homepageUrl': '/'
-}) }}
-```
+
+    {% from 'components/header/macro.html' import header %}
+    
+    {{ header({
+      'homepageUrl': '/'
+    }) }}
+
 
 ## React invocation
 
-```
-<Header homepageUrl='/' />
-```
+    <Header homepageUrl='/' />
+
