@@ -3,7 +3,8 @@
 Footer suitable for external facing services, particularly those that need to fall in line with Portal styling.
 
 ## Jinja invocation
-
+    {% from 'components/footer/macro.html' import footer %}
+    
     {{ footer({
       'meta': {
         'items': [
