@@ -27,6 +27,10 @@
       padding: 10px 15px;
       text-align: right;
 
+      @include tablet-landscape {
+        padding: 10px 30px;
+      }
+
       .hmlr-header__link {
         float: none;
       }

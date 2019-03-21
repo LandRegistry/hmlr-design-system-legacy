@@ -6,18 +6,23 @@ Header suitable for internal services.
 - Tweak React component to accept Router links instead of just string hrefs for the homepage URL
 
 ## Jinja invocation
-```
-{{ header({
-  'homepageUrl': '/',
-  'headerTitle': 'Application processing'
-}) }}
-```
+
+    {{ header({
+    'homepageUrl': '/',  
+    'headerTitle': 'Application processing',   
+    'inner': {   
+      'classes': 'left-aligned'   
+      }   
+    }) }}   
+ 
+
+Align the text of the header by adding 'left-aligned' or 'right-aligned' classes to the inner options. By default the header will align to the content of main column an a two column layout
 
 ## React invocation
 
-```
-<Header homepageUrl='/', headerTitle='Application processing' />
-```
+
+    <Header homepageUrl='/', headerTitle='Application processing' />
+
 
 ## Full list of props/options
 
