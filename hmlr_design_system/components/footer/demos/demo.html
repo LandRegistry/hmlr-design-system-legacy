@@ -10,13 +10,13 @@
 
       <h2 class="govuk-heading-s">Empty, no links</h2>
       {{ footer({
-        'classes': 'demo'
+        'classes': 'hmlr-footer--static'
       }) }}
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
       <h2 class="govuk-heading-s">With commonly used links</h2>
       {{ footer({
-        'classes': 'demo',
+        'classes': 'hmlr-footer--static',
         'meta': {
           'items': [
             {
@@ -32,7 +32,7 @@
               'href': 'https://www.gov.uk/government/organisations/land-registry#freedom-of-information'
             },
             {
-              'text': '© Crown copyright',
+              'text': '&copy; Crown copyright',
               'href': 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/'
             }
           ],
@@ -50,7 +50,7 @@
 {% block bodyEnd %}
   {{ super() }}
   <script>
-    ReactDOM.render(React.createElement(window.Footer, {classes: 'demo'},
+    ReactDOM.render(React.createElement(window.Footer, {classes: 'hmlr-footer--static'},
       React.createElement('a', {
         'href': '#'
       }, 'Terms and conditions'),
