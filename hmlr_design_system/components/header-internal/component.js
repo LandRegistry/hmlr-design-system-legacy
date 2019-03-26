@@ -12,7 +12,7 @@ function HeaderInternal(props) {
       <p className="hmlr-header__title">{props.headerTitle}</p>
     )
 
-  return <header className='hmlr-header--internal'>
+  return <header className='hmlr-header-internal'>
     <div className={`hmlr-header__inner ${props.innerClasses}`}>
       {heading}
     </div>
