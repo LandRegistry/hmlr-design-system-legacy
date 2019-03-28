@@ -1,4 +1,4 @@
-{% from 'components/header/macro.html' import header %}
+{% from 'components/header-internal/macro.html' import headerInternal %}
 {% extends 'app/2-column-layout.html' %}
 
 {% set backurl = "/" %}
@@ -11,18 +11,28 @@
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
       <h2 class="govuk-heading-s">Without a homepage link</h2>
-      {{ header() }}
-
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-      <h2 class="govuk-heading-s">With a homepage link</h2>
-      {{ header({
-        'homepageUrl': '/'
+      {{ headerInternal({
+        'headerTitle': 'Application processing',
+        'inner': {
+          'classes': 'left-aligned'
+        }
       }) }}
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-      <h2 class="govuk-heading-s">As a React component</h2>
+      <h2 class="govuk-heading-s">With a homepage link</h2>
+      {{ headerInternal({
+        'headerTitle': 'Application processing',
+        'homepageUrl': '/',
+        'inner': {
+          'classes': 'left-aligned'
+        }
+
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-s">As a React component with link</h2>
       <div id="demo"></div>
     </div>
   </div>
@@ -31,6 +41,6 @@
 {% block bodyEnd %}
   {{ super() }}
   <script>
-    ReactDOM.render(React.createElement(window.Header, null), document.getElementById('demo'))
+    ReactDOM.render(React.createElement(window.HeaderInternal, {headerTitle: 'Application processing', homepageUrl: '/', innerClasses: 'left-aligned'}), document.getElementById('demo'))
   </script>
 {% endblock %}

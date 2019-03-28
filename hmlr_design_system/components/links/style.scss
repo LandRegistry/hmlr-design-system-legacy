@@ -1,0 +1,16 @@
+.hmlr-link--secondary {
+  @extend %govuk-link;
+  color: $font-color;
+
+  &:link {
+    color: $font-color
+  }
+
+  &:visited {
+    color: $font-color;
+  }
+
+  &:hover {
+    color: $font-color--meta;
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import logoImage from './logo.svg'
 
-function Header (props) {
+function Header(props) {
   const Logo = (
     <img className='hmlr-header__logo'
       src={logoImage}
@@ -10,7 +10,7 @@ function Header (props) {
 
   return <header className='hmlr-header'>
     <div className='hmlr-header__inner'>
-      { props.homepageUrl
+      {props.homepageUrl
         ? (
           <a href={props.homepageUrl} className='hmlr-header__link'>
             Logo

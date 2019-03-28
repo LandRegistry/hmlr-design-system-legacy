@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Footer (props) {
+function Footer(props) {
   const links = props.children && <>
     <h2 className='govuk-visually-hidden'>Support links</h2>
     <ul className='hmlr-footer__links'>
-      { React.Children.map(props.children, (item, index) => (
+      {React.Children.map(props.children, (item, index) => (
         <li className='hmlr-footer__item' key={index}>
           {React.cloneElement(item, { className: 'hmlr-footer__link' })}
         </li>
@@ -12,9 +12,9 @@ function Footer (props) {
     </ul>
   </>
 
-  return <footer className='hmlr-footer'>
+  return <footer className={`hmlr-footer ${props.classes}`}>
     <div className='hmlr-footer__inner'>
-      { links}
+      {links}
     </div>
   </footer>
 }

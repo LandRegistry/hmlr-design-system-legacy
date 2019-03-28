@@ -6,85 +6,51 @@ html {
   box-sizing: inherit;
 }
 
-.hmlr-theme {
+body {
+  display: flex;
+  flex-direction: column;
   font-size: $font-size;
+  position: relative;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
-  .hmlr-link--secondary {
-    @extend %govuk-link;
-    color: $font-color;
+.hmlr-theme {
 
-    &:visited {
-      color: $font-color;
+  .govuk-main-wrapper {
+    display: flex;
+    padding: 0 0 50px 0;
+    width: 100%;
+
+    @include tablet-portrait {
+      padding: 0 0 30px 0;
     }
-
-    &:hover {
-      color: $font-color--secondary;
-    }
   }
 
-  .govuk-heading-xl {
-    font-size: 32px;
-    margin-bottom: 32px;
-  }
-
-  .govuk-heading-l {
-    font-size: 28px;
-    margin-bottom: 28px;
-  }
-
-  .govuk-heading-m{
-    font-size: 24px;
-    margin-bottom: 24px;
-  }
-
-  .govuk-heading-s {
-    font-size: 19px;
-    margin-bottom: 19px;
-  }
-
-  .govuk-fieldset__heading {
-    font-size: 28px;
-  }
-
-  .govuk-hint {
-    font-size: $font-size;
-  }
-
-  .hmlr-meta {
-    font-size: $meta-font-size;
-  }
-
-  .govuk-list {
-    font-size: $font-size;
-    list-style-position: inside;
+  .govuk-width-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
     margin: 0;
-    padding: 0;
+    max-width: 100%;
+    padding-bottom: 90px;
+    width: 100%;
   }
 
-  .govuk-fieldset__heading {
-    font-size: 28px;
+  .hmlr-column--left {
+    min-width: 300px;
+    padding: 30px;
+    width: 300px;
+    border-right: 1px solid $border-color;
+    min-height: 100%;
   }
 
-  .govuk-fieldset__legend--l {
-    font-size: 28px;
-    font-weight: 600;
-  }
-
-  .govuk-fieldset__legend--m {
-    font-size: 24px;
-    font-weight: 600;
-  }
-
-  .govuk-fieldset__legend--s {
-    font-size: 19px;
-    font-weight: 600;
-  }
-
-  .govuk-label {
-    font-size: $font-size;
-  }
-
-  .govuk-error-message {
-    font-size: $font-size;
+  .hmlr-column--main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 15px 30px;
+    width: 100%;
   }
 }

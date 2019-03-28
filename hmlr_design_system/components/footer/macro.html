@@ -1,5 +1,5 @@
 {% macro footer(params={}) %}
-  <footer class="hmlr-footer">
+  <footer class="hmlr-footer {{params.classes}}">
     <div class="hmlr-footer__inner">
       {% if params.meta %}
         {% if params.meta['items'] %}

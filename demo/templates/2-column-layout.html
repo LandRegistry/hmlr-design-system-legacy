@@ -1,6 +1,6 @@
 {% from "app/vendor/.govuk-frontend/components/back-link/macro.html" import govukBackLink %}
 {% from "app/vendor/.govuk-frontend/components/skip-link/macro.html" import govukSkipLink %}
-{% from "components/header/macro.html" import header %}
+{% from "components/header-internal/macro.html" import headerInternal %}
 {% from "components/footer/macro.html" import footer %}
 
 {% extends "app/vendor/.govuk-frontend/template.html" %}
@@ -15,16 +15,7 @@
 {% block pageTitle %}{% block title %}{% endblock %}{% if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
 
 {% block beforeContent %}
-  {% if backurl %}
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-      {{ govukBackLink({
-        "text": "Back",
-          "href": backurl
-        }) }}
-      </div>
-    </div>
-  {% endif %}
+
 {% endblock%}
 
 {% block bodyStart %}
@@ -41,13 +32,37 @@
 {% endblock %}
 
 {% block header %}
-  {{ header({
+  {{ headerInternal({
+    'headerTitle': 'HMLR Design System',
     'homepageUrl': '/'
   }) }}
 {% endblock %}
 
 {% block content %}
-  {% block inner_content %}{% endblock %}
+  {% block nav_content %}
+    <div class="hmlr-column--left">
+      <ul class="govuk-list">
+        {% for demo in demos %}
+          <li><a class="govuk-link" href="{{demo}}">{{demo}}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endblock %}
+  <div class="hmlr-column--main">
+    {% block back_link%}
+      {% if backurl %}
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+          {{ govukBackLink({
+            "text": "Back",
+              "href": backurl
+            }) }}
+          </div>
+        </div>
+      {% endif %}
+      {% block inner_content %}{% endblock %}
+    {% endblock %}
+    </div>
 {% endblock %}
 
 {% block footer %}
