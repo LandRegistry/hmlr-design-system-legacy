@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Header(props) {
+function HeaderInternal(props) {
 
   const heading = props.homepageUrl ? (
     <p className="hmlr-header__title">
@@ -12,11 +12,11 @@ function Header(props) {
       <p className="hmlr-header__title">{props.headerTitle}</p>
     )
 
-  return <header className='hmlr-header--internal'>
+  return <header className='hmlr-header-internal'>
     <div className={`hmlr-header__inner ${props.innerClasses}`}>
       {heading}
     </div>
   </header>
 }
 
-export default Header
+export default HeaderInternal

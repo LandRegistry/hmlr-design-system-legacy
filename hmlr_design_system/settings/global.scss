@@ -16,15 +16,17 @@ pre {
   }
 }
 
-.hmlr-theme {
+body {
   display: flex;
   flex-direction: column;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: $font-size;
   position: relative;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+.hmlr-theme {
 
   .govuk-main-wrapper {
     display: flex;

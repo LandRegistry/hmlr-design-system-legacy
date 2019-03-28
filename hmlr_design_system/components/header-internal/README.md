@@ -7,7 +7,7 @@ Header suitable for internal services.
 
 ## Jinja invocation
 
-    {{ header({
+    {{ headerInternal({
       'homepageUrl': '/',  
       'headerTitle': 'Application processing',
       'inner': {   
@@ -20,8 +20,7 @@ Align the text of the header by adding 'left-aligned' or 'right-aligned' classes
 
 ## React invocation
 
-
-    <Header homepageUrl='/', headerTitle='Application processing' />
+    <HeaderInternal homepageUrl='/', headerTitle='Application processing' />
 
 
 ## Full list of props/options
