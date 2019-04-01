@@ -7,17 +7,29 @@
   border-bottom: 10px solid $hmlr-green-3;
 }
 
-.hmlr-header__inner {
+.hmlr-header-internal__inner {
   @include govuk-clearfix;
-  padding: 10px 15px 10px 330px;
+  padding: 10px 15px 10px 315px;
+
+  @include tablet-landscape {
+    padding: 10px 15px 10px 330px;
+  }
 
   &.left-aligned {
     padding: 10px 15px;
+
+    @include tablet-landscape {
+      padding: 10px 30px;
+    }
   }
 
   &.right-aligned {
     padding: 10px 15px;
     text-align: right;
+
+    @include tablet-landscape {
+      padding: 10px 30px;
+    }
 
     .hmlr-header__link {
       float: none;
@@ -25,7 +37,7 @@
   }
 }
 
-.hmlr-header__title {
+.hmlr-header-internal__title {
   @extend %govuk-heading-l;
   font-size: 26px;
   color: $white;

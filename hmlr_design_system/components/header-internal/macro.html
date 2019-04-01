@@ -1,8 +1,8 @@
 {% macro headerInternal(params={}) %}
   <header class="hmlr-header-internal {{params.classes}}">
-    <div class="hmlr-header__inner {{params.inner.classes if params.inner}}">
+    <div class="hmlr-header-internal__inner {{params.inner.classes if params.inner}}">
       {% if params.headerTitle %}
-      <p class="hmlr-header__title">
+      <p class="hmlr-header-internal__title">
         {%- if params.homepageUrl -%}
           <a href="{{ params.homepageUrl }}" class="hmlr-header__link">
             {{params.headerTitle}}

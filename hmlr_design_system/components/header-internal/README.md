@@ -8,10 +8,15 @@ Header suitable for internal services.
 ## Jinja invocation
 
     {{ headerInternal({
-      'homepageUrl': '/',
-      'headerTitle': 'Application processing'
-    }) }}
+      'homepageUrl': '/',  
+      'headerTitle': 'Application processing',
+      'inner': {   
+        'classes': 'left-aligned'   
+      }   
+    }) }}   
+ 
 
+Align the text of the header by adding 'left-aligned' or 'right-aligned' classes to the inner options. By default the header will align to the content of main column an a two column layout
 
 ## React invocation
 

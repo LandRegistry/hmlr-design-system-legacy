@@ -4,6 +4,8 @@ Footer suitable for external facing services, particularly those that need to fa
 
 ## Jinja invocation
 
+    {% from 'components/footer/macro.html' import footer %}
+
     {{ footer({
       'classes': 'hmlr-footer--static',
       'meta': {

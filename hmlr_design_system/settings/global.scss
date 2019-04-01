@@ -6,6 +6,16 @@ html {
   box-sizing: inherit;
 }
 
+pre {
+  background-color: $lightgrey;
+  code {
+    display: block;
+    padding: 20px;
+    background-color: $lightgrey;
+    overflow: auto;
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -50,7 +60,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    padding: 15px 30px;
+    padding: 15px;
     width: 100%;
+
+    @include tablet-landscape {
+      padding: 15px 30px;
+    }
   }
 }
