@@ -2,8 +2,8 @@
 
 .hmlr-header-internal {
   width: 100%;
-  background-color: $black;
-  color: $white;
+  background-color: govuk-colour("black");
+  color:  govuk-colour("white");
   border-bottom: 10px solid $hmlr-green-3;
 }
 
@@ -40,7 +40,7 @@
 .hmlr-header-internal__title {
   @extend %govuk-heading-l;
   font-size: 26px;
-  color: $white;
+  color: govuk-colour("white");
   margin-bottom: 0;
 
   @include govuk-media-query($from: desktop) {
@@ -50,7 +50,7 @@
 
 .hmlr-header__link {
   @include govuk-focusable;
-  color: $white;
+  color: govuk-colour("white");
   float: left;
   text-decoration: none;
 
@@ -59,7 +59,7 @@
   }
 
   &:hover {
-    border-bottom: 2px solid $white;
+    border-bottom: 2px solid govuk-colour("white");
     margin-bottom: -2px;
   }
 }

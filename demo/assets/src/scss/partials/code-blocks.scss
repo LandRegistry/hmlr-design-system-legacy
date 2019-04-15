@@ -1,10 +1,10 @@
 pre {
-  background-color: $lightgrey;
+  background-color: govuk-colour("grey-3");
 
   code {
     display: block;
     padding: 20px;
-    background-color: $lightgrey;
+    background-color: govuk-colour("grey-3");
     overflow: auto;
   }
 }

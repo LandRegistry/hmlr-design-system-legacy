@@ -1,16 +1,16 @@
 .hmlr-link--secondary {
   @extend %govuk-link;
-  color: $font-color;
+  color: $govuk-text-colour;
 
   &:link {
-    color: $font-color
+    color: $govuk-text-colour;
   }
 
   &:visited {
-    color: $font-color;
+    color: $govuk-text-colour;
   }
 
   &:hover {
-    color: $font-color--meta;
+    color: $govuk-secondary-text-colour;
   }
 }

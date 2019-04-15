@@ -32,7 +32,7 @@ body.hmlr-theme {
     padding: 30px;
     width: 300px;
     box-sizing: border-box;
-    border-right: 1px solid $border-color;
+    border-right: 1px solid govuk-colour("grey-1");
     min-height: 100%;
   }
 
