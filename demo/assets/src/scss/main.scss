@@ -9,10 +9,8 @@ $govuk-font-family: "Arial", sans-serif;
 
 @import 'govuk-frontend/all';  // Feel free to be more selective than this
 
-// App specific code
-@import 'partials/cookie-banner';
-
 // Design system components
+@import '../../../../hmlr_design_system/components/layout/style';
 @import '../../../../hmlr_design_system/components/header/style';
 @import '../../../../hmlr_design_system/components/header-internal/style';
 @import '../../../../hmlr_design_system/components/back-link/style';
@@ -24,3 +22,7 @@ $govuk-font-family: "Arial", sans-serif;
 @import '../../../../hmlr_design_system/components/typography/style';
 @import '../../../../hmlr_design_system/components/footer/style';
 
+
+// App specific code
+@import 'partials/cookie-banner';
+@import 'partials/code-blocks';

@@ -1,0 +1,10 @@
+pre {
+  background-color: $lightgrey;
+
+  code {
+    display: block;
+    padding: 20px;
+    background-color: $lightgrey;
+    overflow: auto;
+  }
+}

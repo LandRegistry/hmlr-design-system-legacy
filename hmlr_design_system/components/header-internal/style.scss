@@ -11,14 +11,14 @@
   @include govuk-clearfix;
   padding: 10px 15px 10px 315px;
 
-  @include tablet-landscape {
+  @include govuk-media-query($media-type: print) {
     padding: 10px 15px 10px 330px;
   }
 
   &.left-aligned {
     padding: 10px 15px;
 
-    @include tablet-landscape {
+    @include govuk-media-query(1024px) {
       padding: 10px 30px;
     }
   }
@@ -27,7 +27,7 @@
     padding: 10px 15px;
     text-align: right;
 
-    @include tablet-landscape {
+    @include govuk-media-query(1024px) {
       padding: 10px 30px;
     }
 
@@ -43,7 +43,7 @@
   color: $white;
   margin-bottom: 0;
 
-  @include tablet-portrait {
+  @include govuk-media-query($from: desktop) {
     font-size: 30px;
   }
 }
