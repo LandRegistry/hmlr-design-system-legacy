@@ -31,6 +31,7 @@ body.hmlr-theme {
     min-width: 300px;
     padding: 30px;
     width: 300px;
+    box-sizing: border-box;
     border-right: 1px solid $border-color;
     min-height: 100%;
   }
@@ -41,6 +42,7 @@ body.hmlr-theme {
     min-height: 100%;
     padding: 15px;
     width: 100%;
+    box-sizing: border-box;
 
     @include govuk-media-query(1024px) {
       padding: 15px 30px;
