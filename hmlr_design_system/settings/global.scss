@@ -8,6 +8,8 @@ html {
 
 pre {
   background-color: $lightgrey;
+  margin-bottom: 28px;
+
   code {
     display: block;
     padding: 20px;
@@ -53,6 +55,14 @@ body {
     padding: 30px;
     width: 300px;
     border-right: 1px solid $border-color;
+    min-height: 100%;
+  }
+
+  .hmlr-column--right {
+    min-width: 300px;
+    padding: 30px;
+    width: 300px;
+    border-left: 1px solid $border-color;
     min-height: 100%;
   }
 
