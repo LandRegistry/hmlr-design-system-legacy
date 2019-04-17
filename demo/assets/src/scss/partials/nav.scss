@@ -1,0 +1,17 @@
+.app-nav__item {
+  padding: 5px 0 5px 10px;
+  margin: 0 0 5px 0;
+  display: block;
+  width: 100%;
+
+  &:hover {
+    border-left: 4px solid $hmlr-green-3;
+    margin-left: -4px;
+
+  }
+
+  &:focus {
+    outline: 3px solid #ffbf47;
+    outline-offset: 0;
+  }
+}
