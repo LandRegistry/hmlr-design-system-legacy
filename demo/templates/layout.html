@@ -40,11 +40,14 @@
 {% endblock %}
 
 {% block content %}
-  {% block left_column %}
+  {% if self.left_column() %}
     <div class="hmlr-column--left">
-      {{ nav() }}
+      {% block left_column %}
+        {{ nav() }}
+      {% endblock %}
     </div>
-  {% endblock %}
+  {% endif %}
+
   <div class="hmlr-column--main">
     {% block back_link%}
       {% if backurl %}
@@ -60,6 +63,12 @@
       {% block inner_content %}{% endblock %}
     {% endblock %}
     </div>
+
+    {% if self.right_column() %}
+      <div class="hmlr-column--right">
+        {% block right_column %}{% endblock %}
+      </div>
+    {% endif %}
 {% endblock %}
 
 {% block footer %}
