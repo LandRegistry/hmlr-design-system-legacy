@@ -1,4 +1,4 @@
-{% extends 'app/3-column-layout.html' %}
+{% extends 'app/layout.html' %}
 
 {% set backurl = "/" %}
 
@@ -27,4 +27,12 @@
       </ul>
     </div>
   </div>
+{% endblock %}
+
+{% block right_column %}
+  <h2 class="govuk-heading-xl">Extra large heading</h2>
+  <h2 class="govuk-heading-l">Large heading</h2>
+  <h2 class="govuk-heading-m">Medium heading</h2>
+  <h2 class="govuk-heading-s">Small heading</h2>
+  <p class="govuk-body">Paragraph</p>
 {% endblock %}

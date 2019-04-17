@@ -1,28 +1,23 @@
 // GOV.UK design system
 $govuk-images-path: '/ui/.govuk-frontend/images/';
 $govuk-fonts-path: '/ui/.govuk-frontend/fonts/';
-
-// HMLR design system settings
-// Must come before govuk-frontend import since it contains variable overrides
-@import '../../../../hmlr_design_system/settings/all';
+$govuk-font-family: "Arial", sans-serif;
 
 @import 'govuk-frontend/all';  // Feel free to be more selective than this
 
-// App specific code
-@import 'partials/cookie-banner';
-
 // Design system components
-@import '../../../../hmlr_design_system/settings/all';
+@import '../../../../hmlr_design_system/components/layout/style';
 @import '../../../../hmlr_design_system/components/header/style';
 @import '../../../../hmlr_design_system/components/header-internal/style';
 @import '../../../../hmlr_design_system/components/back-link/style';
 @import '../../../../hmlr_design_system/components/button/style';
-@import '../../../../hmlr_design_system/components/checkboxes/style';
 @import '../../../../hmlr_design_system/components/links/style';
-@import '../../../../hmlr_design_system/components/nav/style';
-@import '../../../../hmlr_design_system/components/radios/style';
 @import '../../../../hmlr_design_system/components/text-input/style';
 @import '../../../../hmlr_design_system/components/typography/style';
 @import '../../../../hmlr_design_system/components/footer/style';
 
-$govuk-font-family: "Arial", sans-serif;
+
+// App specific code
+@import 'partials/cookie-banner';
+@import 'partials/code-blocks';
+@import 'partials/nav';

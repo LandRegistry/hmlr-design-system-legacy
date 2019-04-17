@@ -2,8 +2,8 @@
 
 .hmlr-header-internal {
   width: 100%;
-  background-color: $black;
-  color: $white;
+  background-color: govuk-colour("black");
+  color:  govuk-colour("white");
   border-bottom: 10px solid $hmlr-green-3;
 }
 
@@ -11,14 +11,14 @@
   @include govuk-clearfix;
   padding: 10px 15px 10px 315px;
 
-  @include tablet-landscape {
+  @include govuk-media-query($media-type: print) {
     padding: 10px 15px 10px 330px;
   }
 
   &.left-aligned {
     padding: 10px 15px;
 
-    @include tablet-landscape {
+    @include govuk-media-query(1024px) {
       padding: 10px 30px;
     }
   }
@@ -27,7 +27,7 @@
     padding: 10px 15px;
     text-align: right;
 
-    @include tablet-landscape {
+    @include govuk-media-query(1024px) {
       padding: 10px 30px;
     }
 
@@ -40,17 +40,17 @@
 .hmlr-header-internal__title {
   @extend %govuk-heading-l;
   font-size: 26px;
-  color: $white;
+  color: govuk-colour("white");
   margin-bottom: 0;
 
-  @include tablet-portrait {
+  @include govuk-media-query($from: desktop) {
     font-size: 30px;
   }
 }
 
 .hmlr-header__link {
   @include govuk-focusable;
-  color: $white;
+  color: govuk-colour("white");
   float: left;
   text-decoration: none;
 
@@ -59,7 +59,7 @@
   }
 
   &:hover {
-    border-bottom: 2px solid $white;
+    border-bottom: 2px solid govuk-colour("white");
     margin-bottom: -2px;
   }
 }
