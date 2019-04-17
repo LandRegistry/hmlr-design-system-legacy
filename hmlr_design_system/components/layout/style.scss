@@ -36,6 +36,14 @@ body.hmlr-theme {
     min-height: 100%;
   }
 
+  .hmlr-column--right {
+    min-width: 300px;
+    padding: 30px;
+    width: 300px;
+    border-left: 1px solid $border-color;
+    min-height: 100%;
+  }
+
   .hmlr-column--main {
     display: flex;
     flex-direction: column;

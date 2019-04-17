@@ -40,7 +40,7 @@
 {% endblock %}
 
 {% block content %}
-  {% block left_column %}
+  {% block nav_content %}
     <div class="hmlr-column--left">
       {{ nav() }}
     </div>
@@ -60,6 +60,11 @@
       {% block inner_content %}{% endblock %}
     {% endblock %}
     </div>
+    {% block right_column %}
+      <div class="hmlr-column--right">
+       {{ nav() }}
+      </div>
+    {% endblock %}
 {% endblock %}
 
 {% block footer %}
