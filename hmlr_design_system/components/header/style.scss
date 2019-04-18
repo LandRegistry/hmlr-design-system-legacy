@@ -5,7 +5,6 @@
  * Base styles
  */
 .hmlr-header {
-
   .hmlr-header__inner {
     @include govuk-width-container();
     @include govuk-clearfix;
@@ -69,7 +68,6 @@
   border-bottom: 10px solid $hmlr-green-3;
 
   .hmlr-header__inner {
-    // max-width: none;
     padding: govuk-spacing(2) 0;
   }
 
@@ -83,5 +81,9 @@
 
   .hmlr-header__link {
     color: govuk-colour("white");
+
+    &:focus {
+      outline-offset: govuk-spacing(2) - $govuk-focus-width;
+    }
   }
 }
