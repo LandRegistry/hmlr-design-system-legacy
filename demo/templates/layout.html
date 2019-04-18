@@ -7,7 +7,7 @@
 {% extends "app/vendor/.govuk-frontend/template.html" %}
 
 {% set assetPath = url_for('static', filename='.govuk-frontend').rstrip('/') %}
-{% set bodyClasses = "hmlr-theme " + bodyClasses %}
+{% set bodyClasses = "hmlr-theme " + bodyClasses if bodyClasses else '' %}
 {% block head %}
   <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" /><!--<![endif]-->
   <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main-ie8.css') }}" /><![endif]-->

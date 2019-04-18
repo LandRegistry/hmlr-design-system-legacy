@@ -1,5 +1,5 @@
 {% macro header(params={}) %}
-  <header class="hmlr-header {% if params.variant %}hmlr-header--{{params.variant}}{% else %}hmlr-header--white{% endif %}">
+  <header class="hmlr-header {{params.classes}} {% if params.variant %}hmlr-header--{{params.variant}}{% else %}hmlr-header--white{% endif %}">
     <div class="hmlr-header__inner">
       {% if params.homepageUrl %}<a href="{{ params.homepageUrl }}" class="hmlr-header__link">{% endif %}
 

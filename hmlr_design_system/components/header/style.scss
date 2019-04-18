@@ -87,3 +87,14 @@
     }
   }
 }
+
+/**
+ * Variant aligned to the custom hmlr 3 column grid
+ */
+.hmlr-header--align-grid {
+  .hmlr-header__inner {
+    max-width: none;
+    margin: 0;
+    padding-left: $hmlr-grid-column-width + $hmlr-grid-padding;
+  }
+}
