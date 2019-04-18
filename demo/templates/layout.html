@@ -1,7 +1,7 @@
 {% from "app/vendor/.govuk-frontend/components/back-link/macro.html" import govukBackLink %}
 {% from "app/vendor/.govuk-frontend/components/skip-link/macro.html" import govukSkipLink %}
 {% from "app/macros/nav.html" import nav with context %}
-{% from "components/header-internal/macro.html" import headerInternal %}
+{% from "components/header/macro.html" import header %}
 {% from "components/footer/macro.html" import footer %}
 
 {% extends "app/vendor/.govuk-frontend/template.html" %}
@@ -33,9 +33,11 @@
 {% endblock %}
 
 {% block header %}
-  {{ headerInternal({
+  {{ header({
+    'homepageUrl': '/',
     'headerTitle': 'HMLR Design System',
-    'homepageUrl': '/'
+    'variant': 'dark',
+    'logo': True
   }) }}
 {% endblock %}
 
@@ -60,15 +62,15 @@
           </div>
         </div>
       {% endif %}
-      {% block inner_content %}{% endblock %}
     {% endblock %}
-    </div>
+    {% block inner_content %}{% endblock %}
+  </div>
 
-    {% if self.right_column() %}
-      <div class="hmlr-column--right">
-        {% block right_column %}{% endblock %}
-      </div>
-    {% endif %}
+  {% if self.right_column() %}
+    <div class="hmlr-column--right">
+      {% block right_column %}{% endblock %}
+    </div>
+  {% endif %}
 {% endblock %}
 
 {% block footer %}

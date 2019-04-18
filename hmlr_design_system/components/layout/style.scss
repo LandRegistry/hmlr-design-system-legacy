@@ -1,60 +1,60 @@
-body.hmlr-theme {
-  /* TODO: Move to a different class */
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+// body.hmlr-theme {
+//   /* TODO: Move to a different class */
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+//   min-height: 100vh;
+//   -webkit-font-smoothing: antialiased;
+//   overflow-x: hidden;
+// }
 
-  .govuk-main-wrapper {
-    display: flex;
-    padding: 0 0 50px 0;
-    width: 100%;
+// .hmlr-grid {
+//   display: flex;
+//   padding: 0 0 50px 0;
+//   width: 100%;
 
-    @include govuk-media-query($from: desktop) {
-      padding: 0 0 30px 0;
-    }
-  }
+//   @include govuk-media-query($from: desktop) {
+//     padding: 0 0 30px 0;
+//   }
+// }
 
-  .govuk-width-container {
-    display: flex;
-    flex-direction: row;
-    flex: 1 1 auto;
-    margin: 0;
-    max-width: 100%;
-    padding-bottom: 90px;
-    width: 100%;
-  }
+// .govuk-width-container {
+//   display: flex;
+//   flex-direction: row;
+//   flex: 1 1 auto;
+//   margin: 0;
+//   max-width: 100%;
+//   padding-bottom: 90px;
+//   width: 100%;
+// }
 
-  .hmlr-column--left {
-    min-width: 300px;
-    padding: 30px;
-    width: 300px;
-    box-sizing: border-box;
-    border-right: 1px solid govuk-colour("grey-1");
-    min-height: 100%;
-  }
+// .hmlr-column--left {
+//   min-width: 300px;
+//   padding: 30px;
+//   width: 300px;
+//   box-sizing: border-box;
+//   border-right: 1px solid govuk-colour("grey-1");
+//   min-height: 100%;
+// }
 
-  .hmlr-column--right {
-    min-width: 300px;
-    padding: 30px;
-    width: 300px;
-    box-sizing: border-box;
-    border-left: 1px solid govuk-colour("grey-1");
-    min-height: 100%;
-  }
+// .hmlr-column--right {
+//   min-width: 300px;
+//   padding: 30px;
+//   width: 300px;
+//   box-sizing: border-box;
+//   border-left: 1px solid govuk-colour("grey-1");
+//   min-height: 100%;
+// }
 
-  .hmlr-column--main {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    padding: 15px;
-    width: 100%;
-    box-sizing: border-box;
+// .hmlr-column--main {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100%;
+//   padding: 15px;
+//   width: 100%;
+//   box-sizing: border-box;
 
-    @include govuk-media-query(1024px) {
-      padding: 15px 30px;
-    }
-  }
-}
+//   @include govuk-media-query(1024px) {
+//     padding: 15px 30px;
+//   }
+// }
