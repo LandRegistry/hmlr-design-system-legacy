@@ -1,12 +1,10 @@
-// body.hmlr-theme {
-//   /* TODO: Move to a different class */
-//   display: flex;
-//   flex-direction: column;
-//   position: relative;
-//   min-height: 100vh;
-//   -webkit-font-smoothing: antialiased;
-//   overflow-x: hidden;
-// }
+body.hmlr-full-height {
+  // display: flex;
+  // flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+  // overflow-x: hidden;
+}
 
 .hmlr-grid-row {
   display: flex;

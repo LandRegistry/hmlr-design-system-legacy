@@ -12,10 +12,6 @@
   // right: 0;
 }
 
-.hmlr-footer--static {
-  position: relative;
-}
-
 .hmlr-footer__inner {
   @extend %hexaborder--top;
   padding: govuk-spacing(8) 0;
