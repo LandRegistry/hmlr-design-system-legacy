@@ -1,0 +1,64 @@
+{% from 'components/header/macro.html' import header %}
+{% extends 'app/layout.html' %}
+
+{% set backurl = "/" %}
+
+{% block inner_content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ readme|markdown }}
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-s">Without a homepage link</h2>
+      {{ header({
+        'variant': 'dark',
+        'headerTitle': 'Application Processing'
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-s">With a homepage link</h2>
+      {{ header({
+        'variant': 'dark',
+        'headerTitle': 'Application Processing',
+        'homepageUrl': '/'
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-s">With a logo</h2>
+
+      {{ header({
+        'variant': 'dark',
+        'headerTitle': 'Application Processing',
+        'homepageUrl': '/',
+        'logo': True
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+      <h2 class="govuk-heading-s">As a React component</h2>
+      <div id="demo1"></div>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      <div id="demo2"></div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script>
+      ReactDOM.render(React.createElement(window.Header, {
+        'variant': 'dark',
+        'headerTitle': 'Application Processing',
+        'logo': true
+      }), document.getElementById('demo1'))
+
+      ReactDOM.render(React.createElement(window.Header, {
+        'variant': 'dark',
+        'headerTitle': 'Application Processing'
+      }), document.getElementById('demo2'))
+  </script>
+{% endblock %}
