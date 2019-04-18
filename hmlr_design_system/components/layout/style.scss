@@ -7,7 +7,7 @@ body.hmlr-full-height {
   padding: $hmlr-grid-padding / 2;
 }
 
-@include govuk-media-query(3.33 * $hmlr-grid-column-width) {
+@include govuk-media-query($hmlr-grid-start-breakpoint) {
   .hmlr-grid-row {
     display: flex;
   }

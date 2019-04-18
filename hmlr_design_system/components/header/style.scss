@@ -95,7 +95,10 @@
 .hmlr-header--align-grid {
   .hmlr-header__inner {
     max-width: none;
-    margin: 0;
-    padding-left: $hmlr-grid-column-width + $hmlr-grid-padding;
+
+    @include govuk-media-query($hmlr-grid-start-breakpoint) {
+      margin: 0;
+      padding-left: $hmlr-grid-column-width + $hmlr-grid-padding;
+    }
   }
 }
