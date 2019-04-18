@@ -15,10 +15,6 @@
 
 {% block pageTitle %}{% block title %}{% endblock %}{% if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
 
-{% block beforeContent %}
-
-{% endblock%}
-
 {% block bodyStart %}
   <div class="app-cookie-banner js-cookie-banner">
     <p class="app-cookie-banner__message">HM Land Registry uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies" class="govuk-link">Find out more about cookies</a></p>
@@ -42,35 +38,16 @@
 {% endblock %}
 
 {% block content %}
-  {% if self.left_column() %}
-    <div class="hmlr-column--left">
-      {% block left_column %}
-        {{ nav() }}
-      {% endblock %}
-    </div>
-  {% endif %}
+  {% block back_link%}
+    {% if backurl %}
+      {{ govukBackLink({
+        "text": "Back",
+          "href": backurl
+        }) }}
+    {% endif %}
+  {% endblock %}
 
-  <div class="hmlr-column--main">
-    {% block back_link%}
-      {% if backurl %}
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-full">
-          {{ govukBackLink({
-            "text": "Back",
-              "href": backurl
-            }) }}
-          </div>
-        </div>
-      {% endif %}
-    {% endblock %}
-    {% block inner_content %}{% endblock %}
-  </div>
-
-  {% if self.right_column() %}
-    <div class="hmlr-column--right">
-      {% block right_column %}{% endblock %}
-    </div>
-  {% endif %}
+  {% block inner_content %}{% endblock %}
 {% endblock %}
 
 {% block footer %}

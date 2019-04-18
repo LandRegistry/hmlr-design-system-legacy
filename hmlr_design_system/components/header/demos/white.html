@@ -1,5 +1,6 @@
-{% from 'components/header/macro.html' import header %}
 {% extends 'app/layout.html' %}
+{% from 'components/header/macro.html' import header %}
+{% from "app/macros/nav.html" import nav with context %}
 
 {% set backurl = "/" %}
 
@@ -12,6 +13,9 @@
 
 {% block inner_content %}
   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      {{ nav() }}
+    </div>
     <div class="govuk-grid-column-two-thirds">
       {{ readme|markdown }}
 

@@ -1,50 +1,46 @@
 {% from 'components/header/macro.html' import header %}
-{% extends 'app/layout.html' %}
+{% extends 'app/wide-layout.html' %}
 
 {% set backurl = "/" %}
 
 {% block inner_content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {{ readme|markdown }}
+  {{ readme|markdown }}
 
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-      <h2 class="govuk-heading-s">Without a homepage link</h2>
-      {{ header({
-        'variant': 'dark',
-        'headerTitle': 'Application Processing'
-      }) }}
+  <h2 class="govuk-heading-s">Without a homepage link</h2>
+  {{ header({
+    'variant': 'dark',
+    'headerTitle': 'Application Processing'
+  }) }}
 
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-      <h2 class="govuk-heading-s">With a homepage link</h2>
-      {{ header({
-        'variant': 'dark',
-        'headerTitle': 'Application Processing',
-        'homepageUrl': '/'
-      }) }}
+  <h2 class="govuk-heading-s">With a homepage link</h2>
+  {{ header({
+    'variant': 'dark',
+    'headerTitle': 'Application Processing',
+    'homepageUrl': '/'
+  }) }}
 
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-      <h2 class="govuk-heading-s">With a logo</h2>
+  <h2 class="govuk-heading-s">With a logo</h2>
 
-      {{ header({
-        'variant': 'dark',
-        'headerTitle': 'Application Processing',
-        'homepageUrl': '/',
-        'logo': True
-      }) }}
+  {{ header({
+    'variant': 'dark',
+    'headerTitle': 'Application Processing',
+    'homepageUrl': '/',
+    'logo': True
+  }) }}
 
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
-      <h2 class="govuk-heading-s">As a React component</h2>
-      <div id="demo1"></div>
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-      <div id="demo2"></div>
-    </div>
-  </div>
+  <h2 class="govuk-heading-s">As a React component</h2>
+  <div id="demo1"></div>
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  <div id="demo2"></div>
 {% endblock %}
 
 {% block bodyEnd %}

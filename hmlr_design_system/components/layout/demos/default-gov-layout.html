@@ -1,11 +1,16 @@
 {% extends "app/layout.html" %}
 
+{% from "app/macros/nav.html" import nav with context %}
+
 {% set backurl = "/" %}
 
-{% block left_column %}{% endblock %}
-{% block right_column %}{% endblock %}
-{% block back_link%}{% endblock %}
-
 {% block inner_content %}
-  {{ readme|markdown }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      {{ nav() }}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      {{ readme|markdown }}
+    </div>
+  </div>
 {% endblock %}

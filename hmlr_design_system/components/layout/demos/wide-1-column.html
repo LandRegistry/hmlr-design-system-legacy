@@ -1,0 +1,10 @@
+{% extends "app/wide-layout.html" %}
+
+{% set backurl = "/" %}
+
+{% block left_column %}{% endblock %}
+{% block right_column %}{% endblock %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+{% endblock %}
