@@ -102,3 +102,19 @@
     }
   }
 }
+
+/**
+ * Full width
+ */
+ .hmlr-header--full-width {
+  .hmlr-header__inner {
+    max-width: none;
+    margin-left: $hmlr-grid-padding / 2;
+    margin-right: $hmlr-grid-padding / 2;
+
+    @include govuk-media-query($hmlr-grid-start-breakpoint) {
+      margin-left: $hmlr-grid-padding;
+      margin-right: $hmlr-grid-padding;
+    }
+  }
+}

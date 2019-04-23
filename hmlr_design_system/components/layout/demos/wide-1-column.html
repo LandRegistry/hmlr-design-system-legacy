@@ -5,6 +5,16 @@
 {% block left_column %}{% endblock %}
 {% block right_column %}{% endblock %}
 
+{% block header %}
+  {{ header({
+    'homepageUrl': '/',
+    'headerTitle': 'Design System',
+    'variant': 'dark',
+    'logo': True,
+    'classes': 'hmlr-header--full-width'
+  }) }}
+{% endblock %}
+
 {% block inner_content %}
   {{ readme|markdown }}
 {% endblock %}
