@@ -3,17 +3,47 @@
 
 {% set backurl = "/" %}
 
+{% block footer %}
+  {{ footer({
+    'variant': 'dark',
+    'classes': 'hmlr-footer--full-width',
+    'meta': {
+      'items': [
+        {
+          'text': 'Terms and conditions',
+          'href': '#'
+        },
+        {
+          'text': 'Accessibility statement',
+          'href': '#'
+        },
+        {
+          'text': 'Freedom of information',
+          'href': 'https://www.gov.uk/government/organisations/land-registry#freedom-of-information'
+        },
+        {
+          'text': '&copy; Crown copyright'|safe,
+          'href': 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/'
+        }
+      ],
+    }
+  }) }}
+{% endblock %}
+
 {% block inner_content %}
 {%filter markdown %}
-White footer, suitable for external systems.
+Grey footer with hmlr logo, suitable for non gov.uk systems.
 {% endfilter %}
 
   <h2 class="govuk-heading-s">Empty, no links</h2>
-  {{ footer() }}
+  {{ footer({
+    'variant': 'dark'
+  }) }}
 
   <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
   <h2 class="govuk-heading-s">With commonly used links</h2>
   {{ footer({
+    'variant': 'dark',
     'meta': {
       'items': [
         {
@@ -45,7 +75,7 @@ White footer, suitable for external systems.
 {% block bodyEnd %}
   {{ super() }}
   <script>
-    ReactDOM.render(React.createElement(window.Footer, null,
+    ReactDOM.render(React.createElement(window.Footer, {'variant': 'dark'},
       React.createElement('a', {
         'href': '#'
       }, 'Terms and conditions'),

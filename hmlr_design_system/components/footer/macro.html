@@ -1,6 +1,11 @@
 {% macro footer(params={}) %}
-  <footer class="hmlr-footer {{params.classes}}">
+  <footer class="hmlr-footer {{params.classes}} {% if params.variant %}hmlr-footer--{{params.variant}}{% else %}hmlr-footer--white{% endif %}">
     <div class="hmlr-footer__inner">
+      {% if params.variant == 'dark' %}
+        {% set logo_path = url_for('static', filename='images/hmlr-design-system/footer/logo-greyscale.svg') %}
+        <img class="hmlr-footer__logo" src="{{ logo_path }}" alt="HM Land Registry">
+      {% endif %}
+
       {% if params.meta %}
         {% if params.meta['items'] %}
           <h2 class="govuk-visually-hidden">Support links</h2>
