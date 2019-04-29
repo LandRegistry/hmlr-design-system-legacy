@@ -26,4 +26,8 @@ function Footer(props) {
   </footer>
 }
 
+Footer.defaultProps = {
+  variant: 'white'
+}
+
 export default Footer
