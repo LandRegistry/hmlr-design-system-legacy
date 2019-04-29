@@ -6,9 +6,9 @@ function Header(props) {
   var logo
 
   if (props.variant === 'dark') {
-    logo = <img className='hmlr-header__logo' width='87px' height='29px' src={whiteLogoImage} alt='HM Land Registry' />
+    logo = <img className='hmlr-header__logo' width='103px' height='32px' src={whiteLogoImage} alt='HM Land Registry' />
   } else {
-    logo = <img className='hmlr-header__logo' width='162px' height='50px' src={logoImage} alt='HM Land Registry' />
+    logo = <img className='hmlr-header__logo' width='233px' height='72px' src={logoImage} alt='HM Land Registry' />
   }
 
   const headerTitle = props.headerTitle && <span className="hmlr-header__title">{props.headerTitle}</span>
