@@ -13,7 +13,7 @@ function Header(props) {
     {headerTitle}
   </>
 
-  return <header className={`hmlr-header hmlr-header--${props.variant}`}>
+  return <header className={`hmlr-header hmlr-header--${props.variant} ${props.classes}`}>
     <div className='hmlr-header__inner'>
       {props.homepageUrl
         ? (
