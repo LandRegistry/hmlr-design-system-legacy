@@ -1,6 +1,6 @@
 import React from 'react'
 import logoImage from './logo.svg'
-import whiteLogoImage from './logo-white.svg'
+import whiteLogoImage from './logo-white.png'
 
 function Header(props) {
   const logoPath = props.variant == 'dark' ? whiteLogoImage : logoImage
