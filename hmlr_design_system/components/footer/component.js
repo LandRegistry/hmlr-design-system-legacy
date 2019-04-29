@@ -1,4 +1,5 @@
 import React from 'react'
+import logoDark from './logo-greyscale.svg'
 
 function Footer(props) {
   const links = props.children && <>
@@ -12,8 +13,14 @@ function Footer(props) {
     </ul>
   </>
 
-  return <footer className={`hmlr-footer ${props.classes}`}>
+  var logo
+  if (props.variant === 'dark') {
+    logo = <img class="hmlr-footer__logo" src={logoDark} alt="HM Land Registry" />
+  }
+
+  return <footer className={`hmlr-footer hmlr-footer--${props.variant} ${props.classes}`}>
     <div className='hmlr-footer__inner'>
+      {logo}
       {links}
     </div>
   </footer>
