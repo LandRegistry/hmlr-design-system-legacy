@@ -10,7 +10,7 @@
     @include govuk-clearfix;
     box-sizing: border-box;
     padding: govuk-spacing(5) 0;
-    line-height: 32px;
+    line-height: 29px;  // To match logo height
   }
 
   .hmlr-header__link {
