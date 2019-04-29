@@ -1,9 +1,10 @@
 @import '../../utilities/hexa-border';
 
 /**
- * Base styles
- */
+* Base styles
+*/
 .hmlr-footer {
+  width: 100%;
   @include govuk-width-container;
   @include govuk-typography-common;
   color: $govuk-secondary-text-colour;
@@ -11,7 +12,10 @@
 
 .hmlr-footer__inner {
   padding: govuk-spacing(8) 0;
-  @include govuk-clearfix;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .hmlr-footer__links {
@@ -21,7 +25,7 @@
 
 .hmlr-footer__item {
   list-style: none;
-  margin-bottom: govuk-spacing(4);
+  margin-top: govuk-spacing(4);
 }
 
 .hmlr-footer__link {
@@ -46,6 +50,7 @@
 @include govuk-media-query($from: tablet) {
   .hmlr-footer__links {
     letter-spacing: -4px;
+    margin-right: govuk-spacing(8);
   }
 
   .hmlr-footer__item {
@@ -79,9 +84,9 @@
 }
 
 /**
- * White variant, suitable for Portal
- */
- .hmlr-footer--white {
+* White variant, suitable for Portal
+*/
+.hmlr-footer--white {
   .hmlr-footer__inner {
     @extend %hexaborder--top;
   }
@@ -89,26 +94,28 @@
 
 
 /**
- * Dark variant, to complement the dark variant header
- */
+* Dark variant, to complement the dark variant header
+*/
 .hmlr-footer--dark {
   background: govuk-colour('grey-3');
   border-top: 1px solid #131212;
 
   .hmlr-footer__logo {
-    float: right;
-    margin-left: govuk-spacing(8);
+    margin-top: govuk-spacing(4);
+    display: block;
+    order: 1;
   }
 }
 
 /**
- * Full width
- */
- .hmlr-footer--full-width {
-   max-width: none;
-   margin: 0;
+* Full width
+*/
+.hmlr-footer--full-width,
+%hmlr-footer--full-width {
+  max-width: none;
+  margin: 0;
 
-   .hmlr-footer__inner {
+  .hmlr-footer__inner {
     padding-left: $hmlr-grid-padding / 2;
     padding-right: $hmlr-grid-padding / 2;
 
@@ -120,13 +127,23 @@
 }
 
 /**
- * Sticky footer
- */
-.hmlr-footer--sticky {
-  width: 100%;
-  max-width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+* Sticky footer
+*/
+.hmlr-sticky-footer { /* Apply to the <html> element */
+  height: 100%;
+
+  body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: govuk-colour('white');
+  }
+
+  .hmlr-grid-row {
+    flex: 1 0 auto;
+  }
+
+  .hmlr-footer {
+    flex-shrink: 0;
+  }
 }
