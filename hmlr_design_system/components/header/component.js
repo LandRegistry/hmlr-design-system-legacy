@@ -1,10 +1,15 @@
 import React from 'react'
-import logoImage from './logo.svg'
+import logoImage from './logo.png'
 import whiteLogoImage from './logo-white.png'
 
 function Header(props) {
-  const logoPath = props.variant == 'dark' ? whiteLogoImage : logoImage
-  const logo = <img className='hmlr-header__logo' src={logoPath} alt='HM Land Registry' />
+  var logo
+
+  if (props.variant === 'dark') {
+    logo = <img className='hmlr-header__logo' width='87px' height='29px' src={whiteLogoImage} alt='HM Land Registry' />
+  } else {
+    logo = <img className='hmlr-header__logo' width='162px' height='50px' src={logoImage} alt='HM Land Registry' />
+  }
 
   const headerTitle = props.headerTitle && <span className="hmlr-header__title">{props.headerTitle}</span>
 
