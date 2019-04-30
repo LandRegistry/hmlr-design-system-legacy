@@ -1,4 +1,4 @@
-{% extends 'app/wide-layout.html' %}
+{% extends "app/wide-layout.html" %}
 
 {% set backurl = "/" %}
 
@@ -23,4 +23,12 @@
     <li>item</li>
     <li>item</li>
   </ul>
+{% endblock %}
+
+{% block right_column %}
+  <h2 class="govuk-heading-xl">Extra large heading</h2>
+  <h2 class="govuk-heading-l">Large heading</h2>
+  <h2 class="govuk-heading-m">Medium heading</h2>
+  <h2 class="govuk-heading-s">Small heading</h2>
+  <p class="govuk-body">Paragraph</p>
 {% endblock %}

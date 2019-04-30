@@ -1,60 +1,28 @@
-body.hmlr-theme {
-  /* TODO: Move to a different class */
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+.hmlr-grid-column {
+  padding: $hmlr-grid-padding / 2;
+}
 
-  .govuk-main-wrapper {
+@include govuk-media-query($hmlr-grid-start-breakpoint) {
+  .hmlr-grid-row {
     display: flex;
-    padding: 0 0 50px 0;
-    width: 100%;
+  }
 
-    @include govuk-media-query($from: desktop) {
-      padding: 0 0 30px 0;
+  .hmlr-grid-column {
+    min-width: $hmlr-grid-column-width;
+    width: $hmlr-grid-column-width;
+    box-sizing: border-box;
+    min-height: 100%;
+    padding: $hmlr-grid-padding;
+
+    & + & {
+      border-left: 1px solid govuk-colour("grey-1");
     }
   }
 
-  .govuk-width-container {
-    display: flex;
-    flex-direction: row;
-    flex: 1 1 auto;
-    margin: 0;
-    max-width: 100%;
-    padding-bottom: 90px;
-    width: 100%;
-  }
-
-  .hmlr-column--left {
-    min-width: 300px;
-    padding: 30px;
-    width: 300px;
-    box-sizing: border-box;
-    border-right: 1px solid govuk-colour("grey-1");
-    min-height: 100%;
-  }
-
-  .hmlr-column--right {
-    min-width: 300px;
-    padding: 30px;
-    width: 300px;
-    box-sizing: border-box;
-    border-left: 1px solid govuk-colour("grey-1");
-    min-height: 100%;
-  }
-
-  .hmlr-column--main {
-    display: flex;
+  .hmlr-grid-column--main {
     flex-direction: column;
     min-height: 100%;
-    padding: 15px;
     width: 100%;
     box-sizing: border-box;
-
-    @include govuk-media-query(1024px) {
-      padding: 15px 30px;
-    }
   }
 }

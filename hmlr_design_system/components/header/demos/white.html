@@ -1,38 +1,42 @@
-{% from 'components/header-internal/macro.html' import headerInternal %}
 {% extends 'app/layout.html' %}
+{% from 'components/header/macro.html' import header %}
+{% from "app/macros/nav.html" import nav with context %}
 
 {% set backurl = "/" %}
 
+{% block header %}
+  {{ header({
+    'homepageUrl': '/',
+    'logo': True
+  }) }}
+{% endblock %}
+
 {% block inner_content %}
   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      {{ nav() }}
+    </div>
     <div class="govuk-grid-column-two-thirds">
       {{ readme|markdown }}
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
       <h2 class="govuk-heading-s">Without a homepage link</h2>
-      {{ headerInternal({
-        'headerTitle': 'Application processing',
-        'inner': {
-          'classes': 'left-aligned'
-        }
+      {{ header({
+        'logo': True
       }) }}
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
       <h2 class="govuk-heading-s">With a homepage link</h2>
-      {{ headerInternal({
-        'headerTitle': 'Application processing',
+      {{ header({
         'homepageUrl': '/',
-        'inner': {
-          'classes': 'left-aligned'
-        }
-
+        'logo': True
       }) }}
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-      <h2 class="govuk-heading-s">As a React component with link</h2>
+      <h2 class="govuk-heading-s">As a React component</h2>
       <div id="demo"></div>
     </div>
   </div>
@@ -41,6 +45,8 @@
 {% block bodyEnd %}
   {{ super() }}
   <script>
-    ReactDOM.render(React.createElement(window.HeaderInternal, {headerTitle: 'Application processing', homepageUrl: '/', innerClasses: 'left-aligned'}), document.getElementById('demo'))
+    ReactDOM.render(React.createElement(window.Header, {
+      logo: true
+    }), document.getElementById('demo'))
   </script>
 {% endblock %}

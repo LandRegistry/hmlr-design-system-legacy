@@ -5,18 +5,20 @@
 
 {% block inner_content %}
   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      {{ nav() }}
+    </div>
     <div class="govuk-grid-column-two-thirds">
-      {{ readme|markdown }}
+      {%filter markdown %}
+White footer, suitable for external systems.
+{% endfilter %}
 
       <h2 class="govuk-heading-s">Empty, no links</h2>
-      {{ footer({
-        'classes': 'hmlr-footer--static'
-      }) }}
+      {{ footer() }}
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
       <h2 class="govuk-heading-s">With commonly used links</h2>
       {{ footer({
-        'classes': 'hmlr-footer--static',
         'meta': {
           'items': [
             {
@@ -32,7 +34,7 @@
               'href': 'https://www.gov.uk/government/organisations/land-registry#freedom-of-information'
             },
             {
-              'text': '&copy; Crown copyright',
+              'text': '&copy; Crown copyright'|safe,
               'href': 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/'
             }
           ],
@@ -43,6 +45,7 @@
       <h2 class="govuk-heading-s">As a React component</h2>
 
       <div id="demo"></div>
+
     </div>
   </div>
 {% endblock %}
@@ -50,7 +53,7 @@
 {% block bodyEnd %}
   {{ super() }}
   <script>
-    ReactDOM.render(React.createElement(window.Footer, {classes: 'hmlr-footer--static'},
+    ReactDOM.render(React.createElement(window.Footer, null,
       React.createElement('a', {
         'href': '#'
       }, 'Terms and conditions'),
@@ -65,4 +68,17 @@
       }, '© Crown copyright')
     ), document.getElementById('demo'))
   </script>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    'meta': {
+      'items': [
+        {
+          'text': 'HMLR design system on Github',
+          'href': 'https://github.com/LandRegistry/hmlr-design-system'
+        }
+      ]
+    }
+  }) }}
 {% endblock %}

@@ -1,27 +1,115 @@
 @import '../../utilities/hexa-border';
 
-.hmlr-header {
-  @include govuk-width-container();
 
+/**
+ * Base styles
+ */
+.hmlr-header {
   .hmlr-header__inner {
+    @include govuk-width-container;
     @include govuk-clearfix;
-    @extend %hexaborder;
-    padding: govuk-spacing(5) govuk-spacing(3) govuk-spacing(5) 0;
+    box-sizing: border-box;
+    padding: govuk-spacing(5) 0;
+    line-height: 32px;  // To match logo height
   }
 
   .hmlr-header__link {
     @include govuk-focusable;
-    float: left;
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: middle;
 
     &:focus {
       outline-offset: govuk-spacing(3) - $govuk-focus-width;
     }
+
+    &:hover {
+      .hmlr-header__title {
+        border-bottom: 2px solid currentColor;
+        margin-bottom: -2px;
+      }
+    }
   }
 
   .hmlr-header__logo {
-    width: 225px;
     max-width: 100%;
-    display: block;
+    display: inline-block;
     border: 0;
+    margin-right: 30px;
+    vertical-align: middle;
+  }
+
+  .hmlr-header__title {
+    @extend %govuk-heading-l;
+    font-size: 20px;
+    color: govuk-colour("black");
+    margin-bottom: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+/**
+ * White with green hexagon logo
+ */
+.hmlr-header--white {
+  .hmlr-header__inner {
+    @extend %hexaborder;
+  }
+}
+
+/**
+ * Dark variant
+ * No logo by default
+ */
+.hmlr-header--dark {
+  background-color: govuk-colour("black");
+  color:  govuk-colour("white");
+  border-bottom: 10px solid $hmlr-green-3;
+
+  .hmlr-header__inner {
+    padding: govuk-spacing(2) 0;
+  }
+
+  .hmlr-header__title {
+    color: govuk-colour("white");
+  }
+
+  .hmlr-header__link {
+    color: govuk-colour("white");
+
+    &:focus {
+      outline-offset: govuk-spacing(2) - $govuk-focus-width;
+    }
+  }
+}
+
+/**
+ * Variant aligned to the custom hmlr 3 column grid
+ */
+.hmlr-header--align-grid {
+  .hmlr-header__inner {
+    max-width: none;
+
+    @include govuk-media-query($hmlr-grid-start-breakpoint) {
+      margin: 0;
+      padding-left: $hmlr-grid-column-width + $hmlr-grid-padding;
+    }
+  }
+}
+
+/**
+ * Full width
+ */
+ .hmlr-header--full-width {
+  .hmlr-header__inner {
+    max-width: none;
+    margin-left: $hmlr-grid-padding / 2;
+    margin-right: $hmlr-grid-padding / 2;
+
+    @include govuk-media-query($hmlr-grid-start-breakpoint) {
+      margin-left: $hmlr-grid-padding;
+      margin-right: $hmlr-grid-padding;
+    }
   }
 }
