@@ -7,7 +7,7 @@
 
 ## Contribution process
 
-Broadly propose that we follow a similar process to https://hmlr-design-system.service.gov.uk/community/propose-a-component-or-pattern/
+Broadly propose that we follow a similar process to https://design-system.service.gov.uk/community/propose-a-component-or-pattern/
 
 - Initial idea
 - Prototype
