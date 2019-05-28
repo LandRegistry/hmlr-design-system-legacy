@@ -135,9 +135,12 @@
 
   body {
     min-height: 100%;
+  }
+
+  .hmlr-layout-wrapper {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: govuk-colour('white');
   }
 
   .hmlr-grid-row {

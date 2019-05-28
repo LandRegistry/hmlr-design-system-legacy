@@ -16,9 +16,17 @@
 {% block pageTitle %}{% block title %}{% endblock %}{% if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
 
 {% block bodyStart %}
-  <div class="app-cookie-banner js-cookie-banner">
-    <p class="app-cookie-banner__message">HM Land Registry uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies" class="govuk-link">Find out more about cookies</a></p>
+  <div id="root" class="hmlr-layout-wrapper"> <!-- To mimic the React root container, making sure layout works within it -->
+    <div class="app-cookie-banner js-cookie-banner">
+      <p class="app-cookie-banner__message">HM Land Registry uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies" class="govuk-link">Find out more about cookies</a></p>
+    </div>
+{% endblock %}
+
+{% block bodyEnd %}
   </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/react-components.js') }}"></script>
 {% endblock %}
 
 {% block skipLink %}
@@ -63,9 +71,4 @@
       ]
     }
   }) }}
-{% endblock %}
-
-{% block bodyEnd %}
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/react-components.js') }}"></script>
 {% endblock %}
