@@ -1,0 +1,12 @@
+@import '../../settings/variables';
+
+.hmlr-theme {
+  .govuk-back-link {
+    font-size: $font-size--meta;
+
+    &:hover {
+      color: $govuk-secondary-text-colour;
+      border-color: $govuk-secondary-text-colour;
+    }
+  }
+}

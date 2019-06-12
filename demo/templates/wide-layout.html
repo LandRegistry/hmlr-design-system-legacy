@@ -1,0 +1,51 @@
+{% extends "app/layout.html" %}
+
+{% from "app/macros/nav.html" import nav with context %}
+{% from "components/header/macro.html" import header %}
+
+{% block header %}
+  {{ header({
+    'homepageUrl': '/',
+    'headerTitle': 'Design System',
+    'variant': 'dark',
+    'logo': True,
+    'classes': 'hmlr-header--align-grid'
+  }) }}
+{% endblock %}
+
+{% set htmlClasses='hmlr-sticky-footer' %}
+
+{% block main %}
+  <main class="hmlr-grid-row" id="main-content" role="main">
+    {% block content %}
+      {% if self.left_column() %}
+        <div class="hmlr-grid-column">
+          {% block left_column %}
+            {{ nav() }}
+          {% endblock %}
+        </div>
+      {% endif %}
+
+      <div class="hmlr-grid-column hmlr-grid-column--main">
+        {% block beforeContent %}{% endblock %}
+
+        {% block back_link%}
+          {% if backurl %}
+            {{ govukBackLink({
+              "text": "Back",
+                "href": backurl
+              }) }}
+          {% endif %}
+        {% endblock %}
+
+        {% block inner_content %}{% endblock %}
+      </div>
+
+      {% if self.right_column() %}
+        <div class="hmlr-grid-column">
+          {% block right_column %}{% endblock %}
+        </div>
+      {% endif %}
+    {% endblock %}
+  </main>
+{% endblock %}

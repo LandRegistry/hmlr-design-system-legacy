@@ -1,0 +1,13 @@
+{% from "app/vendor/.govuk-frontend/components/back-link/macro.html" import govukBackLink %}
+{% extends 'app/wide-layout.html' %}
+
+{% set backurl = "/" %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
+  {{ govukBackLink({
+    "text": "Back",
+      "href": "/"
+    }) }}
+{% endblock %}

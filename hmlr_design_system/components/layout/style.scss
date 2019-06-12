@@ -1,0 +1,28 @@
+.hmlr-grid-column {
+  padding: $hmlr-grid-padding / 2;
+}
+
+@include govuk-media-query($hmlr-grid-start-breakpoint) {
+  .hmlr-grid-row {
+    display: flex;
+  }
+
+  .hmlr-grid-column {
+    min-width: $hmlr-grid-column-width;
+    width: $hmlr-grid-column-width;
+    box-sizing: border-box;
+    min-height: 100%;
+    padding: $hmlr-grid-padding;
+
+    & + & {
+      border-left: 1px solid govuk-colour("grey-1");
+    }
+  }
+
+  .hmlr-grid-column--main {
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,10 @@
+@import '../../settings/variables';
+
+.hmlr-theme {
+  .govuk-input {
+    font-size: $font-size;
+    height: 26px;
+    padding: 14px 3px;
+    line-height: 20px;
+  }
+}

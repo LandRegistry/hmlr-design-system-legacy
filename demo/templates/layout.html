@@ -1,28 +1,32 @@
+{% from "app/vendor/.govuk-frontend/components/back-link/macro.html" import govukBackLink %}
 {% from "app/vendor/.govuk-frontend/components/skip-link/macro.html" import govukSkipLink %}
+{% from "app/macros/nav.html" import nav with context %}
 {% from "components/header/macro.html" import header %}
 {% from "components/footer/macro.html" import footer %}
 
 {% extends "app/vendor/.govuk-frontend/template.html" %}
 
 {% set assetPath = url_for('static', filename='.govuk-frontend').rstrip('/') %}
-
+{% set bodyClasses = "hmlr-theme " + (bodyClasses if bodyClasses else '') %}
 {% block head %}
-  <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main.css') }}" /><!--<![endif]-->
-  <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main-ie8.css') }}" /><![endif]-->
+  <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" /><!--<![endif]-->
+  <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main-ie8.css') }}" /><![endif]-->
 {% endblock %}
 
-{% block pageTitle %}{% block title %}{% endblock %}{%if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
-
-{% block bodyEnd %}
-  <!--[if gt IE 8]><!-->
-  <script src="{{ url_for('static', filename='javascripts/main.js') }}"> </script>
-  <!--<![endif]-->
-{% endblock %}
+{% block pageTitle %}{% block title %}{% endblock %}{% if self.title() %} - {% endif %}{{ service_name }}{% endblock %}
 
 {% block bodyStart %}
-  <div class="app-cookie-banner js-cookie-banner">
-    <p class="app-cookie-banner__message">HM Land Registry uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies" class="govuk-link">Find out more about cookies</a></p>
+  <div id="root" class="hmlr-layout-wrapper"> <!-- To mimic the React root container, making sure layout works within it -->
+    <div class="app-cookie-banner js-cookie-banner">
+      <p class="app-cookie-banner__message">HM Land Registry uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies" class="govuk-link">Find out more about cookies</a></p>
+    </div>
+{% endblock %}
+
+{% block bodyEnd %}
   </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/react-components.js') }}"></script>
 {% endblock %}
 
 {% block skipLink %}
@@ -34,31 +38,37 @@
 
 {% block header %}
   {{ header({
-    'homepageUrl': '/'
+    'homepageUrl': '/',
+    'headerTitle': 'Design System',
+    'variant': 'dark',
+    'logo': True
   }) }}
 {% endblock %}
 
 {% block content %}
+  {% block back_link%}
+    {% if backurl %}
+      {{ govukBackLink({
+        "text": "Back",
+          "href": backurl
+        }) }}
+    {% endif %}
+  {% endblock %}
+
   {% block inner_content %}{% endblock %}
 {% endblock %}
 
 {% block footer %}
   {{ footer({
+    'variant': 'dark',
+    'classes': 'hmlr-footer--full-width',
     'meta': {
       'items': [
         {
-          'text': 'Terms and conditions',
-          'href': '#'
-        },
-        {
-          'text': 'Freedom of information',
-          'href': 'https://www.gov.uk/government/organisations/land-registry#freedom-of-information'
-        },
-        {
-          'text': '© Crown copyright',
-          'href': 'https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/'
+          'href': 'https://github.com/LandRegistry/hmlr-design-system',
+          'text': 'HMLR design system on Github'
         }
-      ],
+      ]
     }
   }) }}
 {% endblock %}

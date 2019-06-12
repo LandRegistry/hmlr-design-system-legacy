@@ -1,8 +1,17 @@
 {% macro header(params={}) %}
-  <header class="hmlr-header">
+  <header class="hmlr-header {{params.classes}} {% if params.variant %}hmlr-header--{{params.variant}}{% else %}hmlr-header--white{% endif %}">
     <div class="hmlr-header__inner">
       {% if params.homepageUrl %}<a href="{{ params.homepageUrl }}" class="hmlr-header__link">{% endif %}
-        <img class="hmlr-header__logo" src="{{ url_for('static', filename='images/hmlr-hmlr-design-system/header/logo.svg') }}" alt="HM Land Registry">
+
+        {% if params.logo %}
+          {% if params.variant == 'dark' %}
+            <img class="hmlr-header__logo" width="103px" height="32px" src="{{ url_for('static', filename='images/hmlr-design-system/header/logo-white.png') }}" alt="HM Land Registry">
+          {% else %}
+            <img class="hmlr-header__logo" width="233px" height="72px" src="{{ url_for('static', filename='images/hmlr-design-system/header/logo.png') }}" alt="HM Land Registry">
+          {% endif %}
+        {% endif %}
+
+        <span class="hmlr-header__title">{{params.headerTitle}}</span>
       {% if params.homepageUrl %}</a>{% endif %}
     </div>
   </header>

@@ -1,5 +1,18 @@
 # Header
 
-**TODOs**:
+## Todos:
+- Tweak React component to accept Router links instead of just string hrefs for the homepage URL
 
-- SVG fallback for IE8?
+## Jinja invocation
+
+    {% from 'components/header/macro.html' import header %}
+    
+    {{ header({
+      'homepageUrl': '/'
+    }) }}
+
+
+## React invocation
+
+    <Header homepageUrl='/' />
+
