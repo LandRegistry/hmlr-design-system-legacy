@@ -18,7 +18,7 @@ def parse_log_output(capmanager):
     # Try and parse it as json
     try:
         return json.loads(out)
-    except ValueError as e:
+    except ValueError:
         # If we can't parse it, print a useful err to allow people to debug it.
         # The default ValueError is particularly unhelpful in actually diagnosing the problem
         # Re-print the stdout and stderr because capturing it above suppresses it

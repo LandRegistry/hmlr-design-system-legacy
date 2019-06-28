@@ -1,0 +1,83 @@
+image: hmlandregistry/dev_base_python_flask:5
+
+######## VARIABLES ########
+# Now some global variables for use in the jobs
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/pip-cache"
+
+######## CACHE ########
+.pip_cache: &pip_cache
+  cache:
+    paths:
+      - "$CI_PROJECT_DIR/pip-cache"
+    # key: "pip-$CI_PROJECT_NAME-$CI_PIPELINE_ID"
+
+
+######## PIPELINE ########
+# Here we define the full pipeline - a list of stages that get executed in order.
+stages:
+  - checks
+  - package
+  - publish
+
+
+######## JOBS ########
+# Now we define the jobs that go into the various stages of the pipeline.
+
+code-lint:
+  stage: checks
+  allow_failure: true
+  <<: *pip_cache
+  before_script:
+    - pip3 install flake8
+  script:
+    - flake8
+  tags:
+    - docker/hmlandregistry/*
+
+check-tag:
+  stage: checks
+  only:
+    - tags
+  script:
+    - >
+      grep "\"version\": \"${CI_COMMIT_REF_NAME}\"" package.json && echo "Tag matches package.json" || (echo "Specified tag in Git does not match that defined in package.json. Aborting..." && exit 1)
+  tags:
+    - docker/hmlandregistry/*
+
+
+build:
+  stage: package
+  <<: *pip_cache
+  before_script:
+    - pip3 install setuptools wheel
+  script:
+    - python3 setup.py sdist bdist_wheel
+  # only:
+  #   - tags
+  artifacts:
+    name: "${CI_PROJECT_NAME}-${CI_COMMIT_REF_NAME}"
+    paths:
+      - dist
+    expire_in: 5 days
+  tags:
+    - docker/hmlandregistry/*
+
+publish:
+  stage: publish
+  <<: *pip_cache
+  before_script:
+    - pip3 install twine
+  only:
+    - tags
+  script:
+    - python3 -m twine upload dist/*
+  tags:
+    - docker/hmlandregistry/*
+
+
+# TODO: Separate out requirements that are actually required to install this package, and those that are just for the demo
+# TODO: nodejs in pipeline
+# TODO: npm package
+# TODO: Lock down the github repo and set up mirroring from gitlab
+# TODO: Make sure React components accept `to` props for React Router links

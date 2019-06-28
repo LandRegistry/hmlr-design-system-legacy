@@ -11,7 +11,6 @@
     left: 0;
     right: 0;
     height: 7px;
-    background-color: $hmlr-green-1;
     background: $hmlr-green-1 linear-gradient(-60deg, $hmlr-green-1 0%, $hmlr-green-1 50%, $hmlr-green-2 50%, $hmlr-green-2 100%);
   }
 }
@@ -19,7 +18,7 @@
 %hexaborder--top {
   @extend %hexaborder;
 
-  &:before {
+  &::before {
     bottom: auto;
     top: 0;
   }
