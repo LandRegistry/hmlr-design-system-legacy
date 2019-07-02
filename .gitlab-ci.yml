@@ -4,26 +4,30 @@ image: hmlandregistry/dev_base_python_flask:5
 # Now some global variables for use in the jobs
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/pip-cache"
+  NPM_CACHE_DIR: "$CI_PROJECT_DIR/npm-cache"
 
-
-.node_js_required: &node_js_required
-  before_script:
-    curl -SLO "https://nodejs.org/dist/v10.16.0/node-v11.10.0-linux-x64.tar.xz" && \
-    tar -xJf "node-v10.16.0-linux-x64.tar.xz" -C /usr/local --strip-components=1 && \
-    ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
-    rm "node-v10.16.0-linux-x64.tar.xz"
 
 ######## CACHE ########
 .pip_cache: &pip_cache
   cache:
     paths:
-      - "$CI_PROJECT_DIR/pip-cache"
+      - "$PIP_CACHE_DIR"
     # key: "pip-$CI_PROJECT_NAME-$CI_PIPELINE_ID"
+
+.npm: &npm
+  image: hmlandregistry/dev_base_nodejs:1-10
+  cache:
+    paths:
+    - "$NPM_CACHE_DIR"
+  before_script:
+    - source scl_source enable rh-nodejs10
+    - npm config set cache "$NPM_CACHE_DIR"
 
 
 ######## PIPELINE ########
 # Here we define the full pipeline - a list of stages that get executed in order.
 stages:
+  - install
   - checks
   - package
   - publish
@@ -31,6 +35,13 @@ stages:
 
 ######## JOBS ########
 # Now we define the jobs that go into the various stages of the pipeline.
+node_modules:
+  stage: install
+  <<: *npm
+  script:
+    - npm install
+  tags:
+    - docker/hmlandregistry/*
 
 flake8:
   stage: checks
@@ -44,7 +55,7 @@ flake8:
 
 js:
   stage: checks
-  <<: *node_js_required
+  <<: *npm
   script:
     - npm run lint-js
   tags:
@@ -52,7 +63,7 @@ js:
 
 scss:
   stage: checks
-  <<: *node_js_required
+  <<: *npm
   script:
     - npm run lint-scss
   tags:
@@ -104,3 +115,5 @@ publish:
 # TODO: npm package
 # TODO: Lock down the github repo and set up mirroring from gitlab
 # TODO: Make sure React components accept `to` props for React Router links
+# TODO: Cache npm packages
+# TODO: Use base image with node already in it
