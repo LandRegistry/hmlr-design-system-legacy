@@ -24,7 +24,7 @@ RUN mkdir -p /supporting-files && \
     -out ssl.cert
 
 RUN cd /supporting-files && curl -SLO "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" && \
-tar -xJf "node-v11.10.0-linux-x64.tar.xz" -C /usr/local --strip-components=1 && \
+tar -xJf "node-v10.16.0-linux-x64.tar.xz" -C /usr/local --strip-components=1 && \
 ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
 rm "node-v11.10.0-linux-x64.tar.xz"
 

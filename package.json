@@ -11,7 +11,9 @@
     "prestart": "npm run installGovukFrontend",
     "pretest": "npm run check-node-version --silent && npm run installGovukFrontend",
     "prebuild": "npm run check-node-version --silent && npm run installGovukFrontend",
-    "lint": "eslint hmlr_design_system && stylelint hmlr_design_system/**/*.scss"
+    "lint": "npm run lint-js && npm run lint-scss",
+    "lint-js": "eslint hmlr_design_system",
+    "lint-scss": "stylelint hmlr_design_system/**/*.scss"
   },
   "engines": {
     "npm": "6.x",
