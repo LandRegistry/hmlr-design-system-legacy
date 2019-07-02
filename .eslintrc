@@ -17,7 +17,11 @@
       "react/require-default-props": "off",
       "jsx-a11y/no-redundant-roles": "off",
       "prefer-destructuring": "off",
-      "import/no-extraneous-dependencies": "off"
+      "import/no-extraneous-dependencies": "off",
+      "object-curly-spacing": ["error", "never"],
+      "array-bracket-spacing": ["error", "never"],
+      "react/jsx-curly-spacing": ["error", {"when": "never", "children": true}],
+      "react/self-closing-comp": ["error", {"html": false}]
     },
     "settings": {
       "react": {
@@ -30,3 +34,4 @@
       }
     }
   }
+}
