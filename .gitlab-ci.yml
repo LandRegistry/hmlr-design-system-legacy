@@ -1,28 +1,18 @@
 image: hmlandregistry/dev_base_python_flask:5
 
-######## VARIABLES ########
-# Now some global variables for use in the jobs
-variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/pip-cache"
-  NPM_CACHE_DIR: "$CI_PROJECT_DIR/npm-cache"
-
 
 ######## CACHE ########
-.pip_cache: &pip_cache
-  cache:
-    paths:
-      - "$PIP_CACHE_DIR"
-    # key: "pip-$CI_PROJECT_NAME-$CI_PIPELINE_ID"
+cache:
+  untracked: true
+  key: "$CI_PROJECT_NAME-$CI_PIPELINE_ID"
 
 .npm: &npm
   image: hmlandregistry/dev_base_nodejs:1-10
-  cache:
-    paths:
-    - "$NPM_CACHE_DIR"
   before_script:
     - source scl_source enable rh-nodejs10
-    - npm config set cache "$NPM_CACHE_DIR"
-
+    - npm config set unsafe-perm true # Because docker runners are root
+    - npm install
+    - npm run installGovukFrontend
 
 ######## PIPELINE ########
 # Here we define the full pipeline - a list of stages that get executed in order.
@@ -35,17 +25,19 @@ stages:
 
 ######## JOBS ########
 # Now we define the jobs that go into the various stages of the pipeline.
-node_modules:
-  stage: install
-  <<: *npm
-  script:
-    - npm install
-  tags:
-    - docker/hmlandregistry/*
+# node_modules:
+#   stage: install
+#   <<: *npm
+#   script:
+#     - npm install
+#     - npm run installGovukFrontend
+#   after_script:
+#     - npm ls
+#   tags:
+#     - docker/hmlandregistry/*
 
 flake8:
   stage: checks
-  <<: *pip_cache
   before_script:
     - pip3 install flake8
   script:
@@ -82,7 +74,6 @@ check-tag:
 
 build:
   stage: package
-  <<: *pip_cache
   before_script:
     - pip3 install setuptools wheel
   script:
@@ -97,15 +88,24 @@ build:
   tags:
     - docker/hmlandregistry/*
 
-publish:
+publish_python:
   stage: publish
-  <<: *pip_cache
   before_script:
     - pip3 install twine
   only:
     - tags
   script:
     - python3 -m twine upload dist/*
+  tags:
+    - docker/hmlandregistry/*
+
+publish_node:
+  stage: publish
+  <<: *npm
+  # only:
+  #   - tags
+  script:
+    - npm publish --dry-run
   tags:
     - docker/hmlandregistry/*
 
