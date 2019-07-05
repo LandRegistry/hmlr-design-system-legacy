@@ -7,7 +7,7 @@ function Footer(props) {
     <h2 className="govuk-visually-hidden">Support links</h2>
     <ul className="hmlr-footer__links">
       {React.Children.map(props.children, (item, index) => (
-        <li className="hmlr-footer__item" key={item.reactListKey}>
+        <li className="hmlr-footer__item" key={item.reactListKey || index}>
           {React.cloneElement(item, {className: 'hmlr-footer__link'})}
         </li>
       ))}
