@@ -5,7 +5,7 @@ const packageJson = require('./package.json')
 // Check if we've got govuk-frontend installed and install it if not
 try {
   require.resolve('govuk-frontend')
-} catch {
+} catch(e) {
   console.log('govuk-frontend not found, installing...')
   exec('npm install --no-save govuk-frontend@' + packageJson.peerDependencies['govuk-frontend'])
 }

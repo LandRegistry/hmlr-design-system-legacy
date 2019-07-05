@@ -1,52 +1,51 @@
 image: hmlandregistry/dev_base_python_flask:5
 
-
-######## CACHE ########
-cache:
-  untracked: true
-  key: "$CI_PROJECT_NAME-$CI_PIPELINE_ID"
-
 .npm: &npm
   image: hmlandregistry/dev_base_nodejs:1-10
   before_script:
     - source scl_source enable rh-nodejs10
-    - npm config set unsafe-perm true # Because docker runners are root
-    - npm install
-    - npm run installGovukFrontend
 
 ######## PIPELINE ########
 # Here we define the full pipeline - a list of stages that get executed in order.
 stages:
   - install
-  - checks
+  - check
   - package
   - publish
 
 
 ######## JOBS ########
 # Now we define the jobs that go into the various stages of the pipeline.
-# node_modules:
-#   stage: install
-#   <<: *npm
-#   script:
-#     - npm install
-#     - npm run installGovukFrontend
-#   after_script:
-#     - npm ls
-#   tags:
-#     - docker/hmlandregistry/*
+node_modules:
+  stage: install
+  <<: *npm
+  script:
+    - npm -v
+    - node -v
+    - npm ci
+    - npm run installGovukFrontend
+  after_script:
+    - npm ls
+  tags:
+    - docker/hmlandregistry/*
+  artifacts:
+    # Have to use artifacts instead of cache, since cache is only based on a "best effort"
+    # to cache items, and cannot be relied upon.
+    paths:
+      - node_modules
+    expire_in: 1 hour
 
 flake8:
-  stage: checks
+  stage: check
   before_script:
     - pip3 install flake8
   script:
-    - flake8
+    - flake8 --exclude=node_modules
   tags:
     - docker/hmlandregistry/*
 
 js:
-  stage: checks
+  stage: check
   <<: *npm
   script:
     - npm run lint-js
@@ -54,7 +53,7 @@ js:
     - docker/hmlandregistry/*
 
 scss:
-  stage: checks
+  stage: check
   <<: *npm
   script:
     - npm run lint-scss
@@ -62,7 +61,7 @@ scss:
     - docker/hmlandregistry/*
 
 check-tag:
-  stage: checks
+  stage: check
   only:
     - tags
   script:
@@ -72,7 +71,7 @@ check-tag:
     - docker/hmlandregistry/*
 
 
-build:
+build_python:
   stage: package
   before_script:
     - pip3 install setuptools wheel
@@ -102,18 +101,30 @@ publish_python:
 publish_node:
   stage: publish
   <<: *npm
-  # only:
-  #   - tags
+  only:
+    - tags
   script:
-    - npm publish --dry-run
+    - shopt -s globstar
+
+    # Put together a distributable package containing a subset of the files
+    - mkdir node_dist
+    - cp -r hmlr_design_system node_dist
+    - cp package* node_dist
+    - find node_dist -name '*.py' -delete
+    - find node_dist -name '*.html' -delete
+    - find node_dist -name 'README.md' -delete
+    - rm -rf node_dist/**/demos
+
+    - npm config set _auth $NPM_TOKEN
+    - npm config set registry $NPM_REGISTRY
+    - npm config set email=$NPM_EMAIL
+
+    # Publish the package
+    - npm publish node_dist
   tags:
     - docker/hmlandregistry/*
 
 
-# TODO: Separate out requirements that are actually required to install this package, and those that are just for the demo
-# TODO: nodejs in pipeline
 # TODO: npm package
 # TODO: Lock down the github repo and set up mirroring from gitlab
 # TODO: Make sure React components accept `to` props for React Router links
-# TODO: Cache npm packages
-# TODO: Use base image with node already in it
