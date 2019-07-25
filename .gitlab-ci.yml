@@ -108,7 +108,7 @@ publish_node:
 
     # Put together a distributable package containing a subset of the files
     - mkdir node_dist
-    - cp -r hmlr_design_system node_dist
+    - cp -r hmlr_design_system/* node_dist
     - cp package* node_dist
     - find node_dist -name '*.py' -delete
     - find node_dist -name '*.html' -delete
