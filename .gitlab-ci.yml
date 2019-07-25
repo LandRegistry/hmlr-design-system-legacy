@@ -123,8 +123,3 @@ publish_node:
     - npm publish node_dist
   tags:
     - docker/hmlandregistry/*
-
-
-# TODO: npm package
-# TODO: Lock down the github repo and set up mirroring from gitlab
-# TODO: Make sure React components accept `to` props for React Router links
