@@ -11,7 +11,9 @@
           {% endif %}
         {% endif %}
 
-        <span class="hmlr-header__title">{{params.headerTitle}}</span>
+        {% if params.headerTitle %}
+          <span class="hmlr-header__title">{{params.headerTitle}}</span>
+        {% endif %}
       {% if params.homepageUrl %}</a>{% endif %}
     </div>
   </header>
