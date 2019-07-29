@@ -1,12 +1,12 @@
 from hmlr_design_system.custom_extensions.wtforms_helpers.wtforms_widgets import (GovCheckboxesInput,
-                                                                                 GovCheckboxInput,
-                                                                                 GovFileInput,
-                                                                                 GovPasswordInput,
-                                                                                 GovRadioInput,
-                                                                                 GovSelect,
-                                                                                 GovSubmitInput,
-                                                                                 GovTextArea,
-                                                                                 GovTextInput)
+                                                                                  GovCheckboxInput,
+                                                                                  GovFileInput,
+                                                                                  GovPasswordInput,
+                                                                                  GovRadioInput,
+                                                                                  GovSelect,
+                                                                                  GovSubmitInput,
+                                                                                  GovTextArea,
+                                                                                  GovTextInput)
 from flask_wtf import FlaskForm
 from wtforms.fields import (BooleanField, DecimalField, FileField, FloatField,
                             IntegerField, MultipleFileField, PasswordField,

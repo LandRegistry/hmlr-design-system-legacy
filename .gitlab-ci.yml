@@ -1,0 +1,125 @@
+image: hmlandregistry/dev_base_python_flask:5
+
+.npm: &npm
+  image: hmlandregistry/dev_base_nodejs:1-10
+  before_script:
+    - source scl_source enable rh-nodejs10
+
+######## PIPELINE ########
+# Here we define the full pipeline - a list of stages that get executed in order.
+stages:
+  - install
+  - check
+  - package
+  - publish
+
+
+######## JOBS ########
+# Now we define the jobs that go into the various stages of the pipeline.
+node_modules:
+  stage: install
+  <<: *npm
+  script:
+    - npm -v
+    - node -v
+    - npm ci
+    - npm run installGovukFrontend
+  after_script:
+    - npm ls
+  tags:
+    - docker/hmlandregistry/*
+  artifacts:
+    # Have to use artifacts instead of cache, since cache is only based on a "best effort"
+    # to cache items, and cannot be relied upon.
+    paths:
+      - node_modules
+    expire_in: 1 hour
+
+flake8:
+  stage: check
+  before_script:
+    - pip3 install flake8
+  script:
+    - flake8 --exclude=node_modules
+  tags:
+    - docker/hmlandregistry/*
+
+js:
+  stage: check
+  <<: *npm
+  script:
+    - npm run lint-js
+  tags:
+    - docker/hmlandregistry/*
+
+scss:
+  stage: check
+  <<: *npm
+  script:
+    - npm run lint-scss
+  tags:
+    - docker/hmlandregistry/*
+
+check-tag:
+  stage: check
+  only:
+    - tags
+  script:
+    - >
+      grep "\"version\": \"${CI_COMMIT_REF_NAME}\"" package.json && echo "Tag matches package.json" || (echo "Specified tag in Git does not match that defined in package.json. Aborting..." && exit 1)
+  tags:
+    - docker/hmlandregistry/*
+
+
+build_python:
+  stage: package
+  before_script:
+    - pip3 install setuptools wheel
+  script:
+    - python3 setup.py sdist bdist_wheel
+  # only:
+  #   - tags
+  artifacts:
+    name: "${CI_PROJECT_NAME}-${CI_COMMIT_REF_NAME}"
+    paths:
+      - dist
+    expire_in: 5 days
+  tags:
+    - docker/hmlandregistry/*
+
+publish_python:
+  stage: publish
+  before_script:
+    - pip3 install twine
+  only:
+    - tags
+  script:
+    - python3 -m twine upload dist/*
+  tags:
+    - docker/hmlandregistry/*
+
+publish_node:
+  stage: publish
+  <<: *npm
+  only:
+    - tags
+  script:
+    - shopt -s globstar
+
+    # Put together a distributable package containing a subset of the files
+    - mkdir node_dist
+    - cp -r hmlr_design_system/* node_dist
+    - cp package* node_dist
+    - find node_dist -name '*.py' -delete
+    - find node_dist -name '*.html' -delete
+    - find node_dist -name 'README.md' -delete
+    - rm -rf node_dist/**/demos
+
+    - npm config set _auth $NPM_TOKEN
+    - npm config set registry $NPM_REGISTRY
+    - npm config set email=$NPM_EMAIL
+
+    # Publish the package
+    - npm publish node_dist
+  tags:
+    - docker/hmlandregistry/*
