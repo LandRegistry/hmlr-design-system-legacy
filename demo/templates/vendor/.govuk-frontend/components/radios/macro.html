@@ -30,7 +30,7 @@
     'attributes': params.hint.attributes,
     'html': params.hint.html,
     'text': params.hint.text
-  }) }}
+  }) | trim }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = idPrefix + '-error' %}
@@ -42,49 +42,61 @@
     'html': params.errorMessage.html,
     'text': params.errorMessage.text,
     'visuallyHiddenText': params.errorMessage.visuallyHiddenText
-  }) }}
+  }) | trim }}
 {% endif %}
   <div class="govuk-radios {%- if params.classes %} {{ params.classes }}{% endif %}{%- if isConditional %} govuk-radios--conditional{% endif -%}"
     {%- for attribute, value in (params.attributes.items() if params.attributes else {}.items()) %} {{ attribute }}="{{ value }}"{% endfor %}
-    {%- if isConditional %} data-module="radios"{% endif -%}>
+    {%- if isConditional %} data-module="govuk-radios"{% endif -%}>
     {% for item in params['items'] %}
-    {% set id = item.id if item.id else idPrefix + "-" ~ loop.index %}
-    {% set conditionalId = "conditional-" + id %}
-    {%- if item.divider %}
-    <div class="govuk-radios__divider">{{ item.divider }}</div>
-    {%- else %}
-    {% set hasHint = True if (item.hint.text if item.hint and item.hint.text) or (item.hint.html if item.hint and item.hint.html) %}
-    {% set itemHintId = id + '-item-hint' %}
-    <div class="govuk-radios__item">
-      <input class="govuk-radios__input" id="{{ id }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
-      {{-" checked" if item.checked }}
-      {{-" disabled" if item.disabled }}
-      {%- if item.conditional %} data-aria-controls="{{ conditionalId }}"{% endif -%}
-      {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
-      {%- for attribute, value in (item.attributes.items() if item.attributes else {}.items()) %} {{ attribute }}="{{ value }}"{% endfor -%}>
-      {{ govukLabel({
-        'html': item.html,
-        'text': item.text,
-        'classes': 'govuk-radios__label' + (' ' + item.label.classes if item.classes and item.label.classes else ''),
-        'attributes': (item.label.attributes if item.label and item.label.attributes),
-        'for': id
-      }) }}
-      {%- if hasHint %}
-      {{ govukHint({
-        'id': itemHintId,
-        'classes': 'govuk-radios__hint',
-        'attributes': item.hint.attributes,
-        'html': item.hint.html,
-        'text': item.hint.text
-      }) }}
-      {%- endif %}
-    </div>
-    {% if item.conditional %}
-      <div class="govuk-radios__conditional{% if not item.checked %} govuk-radios__conditional--hidden{% endif %}" id="{{ conditionalId }}">
-        {{ item.conditional.html | safe }}
-      </div>
-    {% endif %}
-    {% endif %}
+      {% if item %}
+        {#- If the user explicitly sets an id, use this instead of the regular idPrefix -#}
+        {%- if item.id -%}
+          {%- set id = item.id -%}
+        {%- else -%}
+          {#- The first id should not have a number suffix so it's easy to link to from the error summary component -#}
+          {%- if loop.first -%}
+            {%- set id = idPrefix %}
+          {% else %}
+            {%- set id = idPrefix + "-" ~ loop.index -%}
+          {%- endif -%}
+        {%- endif -%}
+        {% set conditionalId = "conditional-" + id %}
+        {%- if item.divider %}
+        <div class="govuk-radios__divider">{{ item.divider }}</div>
+        {%- else %}
+        {% set hasHint = True if (item.hint.text if item.hint and item.hint.text) or (item.hint.html if item.hint and item.hint.html) %}
+        {% set itemHintId = id + '-item-hint' %}
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="{{ id }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
+          {{-" checked" if item.checked }}
+          {{-" disabled" if item.disabled }}
+          {%- if item.conditional %} data-aria-controls="{{ conditionalId }}"{% endif -%}
+          {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
+          {%- for attribute, value in (item.attributes.items() if item.attributes else {}.items()) %} {{ attribute }}="{{ value }}"{% endfor -%}>
+          {{ govukLabel({
+            'html': item.html,
+            'text': item.text,
+            'classes': 'govuk-radios__label' + (' ' + item.label.classes if item.classes and item.label.classes else ''),
+            'attributes': (item.label.attributes if item.label and item.label.attributes),
+            'for': id
+          }) | trim }}
+          {% if hasHint %}
+          {{ govukHint({
+            'id': itemHintId,
+            'classes': 'govuk-radios__hint',
+            'attributes': item.hint.attributes,
+            'html': item.hint.html,
+            'text': item.hint.text
+          }) | trim }}
+          {% endif %}
+        </div>
+        {% if item.conditional %}
+          <div class="govuk-radios__conditional{% if not item.checked %} govuk-radios__conditional--hidden{% endif %}" id="{{ conditionalId }}">
+            {{ item.conditional.html | safe }}
+          </div>
+        {% endif %}
+        {% endif %}
+      {% endif %}
     {% endfor %}
   </div>
 {% endset -%}
@@ -97,10 +109,10 @@
     'attributes': params.fieldset.attributes,
     'legend': params.fieldset.legend
   }) %}
-  {{ innerHtml | safe }}
+  {{ innerHtml | trim | safe }}
   {% endcall %}
 {% else %}
-  {{ innerHtml | safe }}
+  {{ innerHtml | trim | safe }}
 {% endif %}
 </div>
 

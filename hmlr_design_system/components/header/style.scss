@@ -14,12 +14,12 @@
   }
 
   .hmlr-header__link {
-    @include govuk-focusable;
     display: inline-block;
     text-decoration: none;
     vertical-align: middle;
 
     &:focus {
+      outline: $govuk-focus-width solid $govuk-focus-colour;
       outline-offset: govuk-spacing(3) - $govuk-focus-width;
     }
 

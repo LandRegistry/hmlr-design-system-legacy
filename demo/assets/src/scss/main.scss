@@ -5,7 +5,7 @@ $govuk-font-family: "Arial", sans-serif;
 
 @import '../../../../hmlr_design_system/settings/variables';
 
-@import 'govuk-frontend/all';  // Feel free to be more selective than this
+@import 'govuk-frontend/govuk/all';  // Feel free to be more selective than this
 
 // Design system components
 @import '../../../../hmlr_design_system/components/layout/style';

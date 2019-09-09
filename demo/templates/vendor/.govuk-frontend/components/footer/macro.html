@@ -13,7 +13,7 @@
                   govuk-footer__list--columns-{{ nav.columns }}
                 {% endif %}
               {% endset %}
-              <ul class="govuk-footer__list {{ listClasses }}">
+              <ul class="govuk-footer__list {{ listClasses | trim }}">
                 {% for item in nav['items'] %}
                   {% if item.href and item.text %}
                     <li class="govuk-footer__list-item">
@@ -33,8 +33,8 @@
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         {% if params.meta %}
+          <h2 class="govuk-visually-hidden">{{ params.meta.visuallyHiddenTitle | default("Support links") }}</h2>
           {% if params.meta['items'] %}
-            <h2 class="govuk-visually-hidden">Support links</h2>
             <ul class="govuk-footer__inline-list">
               {% for item in params.meta['items'] %}
                 <li class="govuk-footer__inline-list-item">

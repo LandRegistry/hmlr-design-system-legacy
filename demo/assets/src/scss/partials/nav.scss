@@ -11,7 +11,7 @@
   }
 
   &:focus {
-    outline: 3px solid #ffbf47;
+    outline: $govuk-focus-width solid $govuk-focus-colour;
     outline-offset: 0;
   }
 }
