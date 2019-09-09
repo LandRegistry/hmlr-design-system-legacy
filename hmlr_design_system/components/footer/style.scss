@@ -30,7 +30,7 @@
 }
 
 .hmlr-footer__link {
-  @include govuk-focusable-fill;
+
 
   &:link,
   &:visited {
@@ -43,6 +43,9 @@
   }
 
   &:focus {
+    outline: $govuk-focus-width solid $govuk-focus-colour;
+    outline-offset: 0;
+    background-color: $govuk-focus-colour;
     color: $govuk-focus-text-colour;
   }
 }
@@ -98,7 +101,7 @@
 * Dark variant, to complement the dark variant header
 */
 .hmlr-footer--dark {
-  background: govuk-colour('grey-3');
+  background: govuk-colour('light-grey');
   border-top: 1px solid #131212;
 
   .hmlr-footer__logo {

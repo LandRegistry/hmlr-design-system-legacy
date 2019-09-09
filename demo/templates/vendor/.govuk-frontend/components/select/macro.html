@@ -14,7 +14,7 @@
     'isPageHeading': params.label.isPageHeading,
     'attributes': params.label.attributes,
     'for': params.id
-  }) }}
+  }) | trim }}
 {% if params.hint %}
   {% set hintId = params.id + '-hint' %}
   {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
@@ -24,7 +24,7 @@
     'attributes': params.hint.attributes,
     'html': params.hint.html,
     'text': params.hint.text
-  }) }}
+  }) | trim }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = params.id + '-error' %}
@@ -36,15 +36,17 @@
     'html': params.errorMessage.html,
     'text': params.errorMessage.text,
     'visuallyHiddenText': params.errorMessage.visuallyHiddenText
-  }) }}
+  }) | trim }}
 {% endif %}
   <select class="govuk-select
     {%- if params.classes %} {{ params.classes }}{% endif %}{%- if params.errorMessage %} govuk-select--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %} {%- for attribute, value in (params.attributes.items() if params.attributes else {}.items()) %} {{ attribute }}="{{ value }}"{% endfor %}>
   {% for item in params['items'] %}
-    <option value="{{ item.value }}"
-      {{-" selected" if item.selected }}
-      {{-" disabled" if item.disabled }}
-      {%- for attribute, value in (item.attributes.items() if item.attributes else {}.items()) %} {{ attribute }}="{{ value }}"{% endfor -%}>{{ item.text }}</option>
+    {% if item %}
+      <option value="{{ item.value }}"
+        {{-" selected" if item.selected }}
+        {{-" disabled" if item.disabled }}
+        {%- for attribute, value in (item.attributes.items() if item.attributes else {}.items()) %} {{ attribute }}="{{ value }}"{% endfor -%}>{{ item.text }}</option>
+    {% endif %}
   {% endfor %}
   </select>
 </div>

@@ -14,7 +14,7 @@
     'isPageHeading': params.label.isPageHeading,
     'attributes': params.label.attributes,
     'for': params.id
-  }) }}
+  }) | trim }}
 {% if params.hint %}
   {% set hintId = params.id + '-hint' %}
   {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
@@ -24,7 +24,7 @@
     'attributes': params.hint.attributes,
     'html': params.hint.html,
     'text': params.hint.text
-  }) }}
+  }) | trim }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = params.id + '-error' %}
@@ -36,7 +36,7 @@
     'html': params.errorMessage.html,
     'text': params.errorMessage.text,
     'visuallyHiddenText': params.errorMessage.visuallyHiddenText
-  }) }}
+  }) | trim }}
 {% endif %}
   <textarea class="govuk-textarea {{- ' govuk-textarea--error' if params.errorMessage else '' }} {{- ' ' + params.classes if params.classes else ''}}" id="{{ params.id }}" name="{{ params.name }}" rows="{%if params.rows %} {{- params.rows -}} {% else %}5{%endif %}"
   {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}

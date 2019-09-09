@@ -15,7 +15,7 @@
     padding: $hmlr-grid-padding;
 
     & + & {
-      border-left: 1px solid govuk-colour("grey-1");
+      border-left: 1px solid govuk-colour("dark-grey");
     }
   }
 

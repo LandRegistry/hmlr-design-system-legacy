@@ -30,6 +30,7 @@ module.exports = (gulp, config) => {
 
         // Rename file
         file.path = file.path.replace('.njk', '.html')
+        file.path = file.path.replace('/govuk/', '/')
 
         // Simple conversions from nunjucks/js to jinja/python
         contents = contents.replace(/true/g, 'True')
@@ -56,8 +57,7 @@ module.exports = (gulp, config) => {
         // Remove all indentation and trimming which causes problems in jinja whereby the
         // indent filter fails to mark stuff as safe, and instead escapes the html special characters
         // In addition, this kind of formatting is not necessary in production code and is an unnecessary overhead
-        contents = contents.replace(/\s?\|\s?trim/g, '', contents)
-        contents = contents.replace(/\s?\|\s?indent(?:[(\d)]*)/g, '', contents)
+        contents = contents.replace(/\s?\|\s?indent(?:.*\))/g, '', contents)
 
         // Additional code needed for looping over dicts in python
         // Adds in the .items() suffix, but also guards against iterating over empty dicts which is something
@@ -94,7 +94,7 @@ module.exports = (gulp, config) => {
 
   gulp.task('copyGovAssets', () =>
     gulp
-      .src(path.join(govukTemplatePath, 'assets/**/*.*'))
+      .src(path.join(govukTemplatePath, 'govuk/assets/**/*.*'))
       .pipe(gulp.dest(path.join(config.destinationPath, '.govuk-frontend')))
   )
 
