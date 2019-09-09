@@ -14,7 +14,7 @@
     'isPageHeading': params.label.isPageHeading,
     'attributes': params.label.attributes,
     'for': params.id
-  }) }}
+  }) | trim }}
 {% if params.hint %}
   {% set hintId = params.id + '-hint' %}
   {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
@@ -24,7 +24,7 @@
     'attributes': params.hint.attributes,
     'html': params.hint.html,
     'text': params.hint.text
-  }) }}
+  }) | trim }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = params.id + '-error' %}
@@ -36,7 +36,7 @@
     'html': params.errorMessage.html,
     'text': params.errorMessage.text,
     'visuallyHiddenText': params.errorMessage.visuallyHiddenText
-  }) }}
+  }) | trim }}
 {% endif %}
   <input class="govuk-file-upload {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} govuk-file-upload--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="file"
   {%- if params.value %} value="{{ params.value }}"{% endif %}

@@ -1,7 +1,7 @@
 {% macro govukCharacterCount(params) %}
   {% from "app/vendor/.govuk-frontend/components/textarea/macro.html" import govukTextarea %}
 
-<div class="govuk-character-count" data-module="character-count"
+<div class="govuk-character-count" data-module="govuk-character-count"
 {%- if params.maxlength %} data-maxlength="{{ params.maxlength }}"{% endif %}
 {%- if params.threshold %} data-threshold="{{ params.threshold }}"{% endif %}
 {%- if params.maxwords %} data-maxwords="{{ params.maxwords }}"{% endif %}>
@@ -11,7 +11,7 @@
     'describedBy': params.id + '-info',
     'rows': params.rows,
     'value': params.value,
-    'classes': 'js-character-count ' + (' govuk-textarea--error' if params.errorMessage else '') + (params.classes if params.classes else ''),
+    'classes': 'govuk-js-character-count ' + (' govuk-textarea--error' if params.errorMessage else '') + (params.classes if params.classes else ''),
     'label': {
       'html': params.label.html,
       'text': params.label.text,

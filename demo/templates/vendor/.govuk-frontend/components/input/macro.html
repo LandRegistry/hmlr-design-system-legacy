@@ -14,7 +14,7 @@
     'isPageHeading': params.label.isPageHeading,
     'attributes': params.label.attributes,
     'for': params.id
-  }) }}
+  }) | trim }}
 {% if params.hint %}
   {% set hintId = params.id + '-hint' %}
   {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
@@ -24,7 +24,7 @@
     'attributes': params.hint.attributes,
     'html': params.hint.html,
     'text': params.hint.text
-  }) }}
+  }) | trim }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = params.id + '-error' %}
@@ -36,13 +36,14 @@
     'html': params.errorMessage.html,
     'text': params.errorMessage.text,
     'visuallyHiddenText': params.errorMessage.visuallyHiddenText
-  }) }}
+  }) | trim }}
 {% endif %}
   <input class="govuk-input {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} govuk-input--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
   {%- if params.value %} value="{{ params.value}}"{% endif %}
   {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
   {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
   {%- if params.pattern %} pattern="{{ params.pattern }}"{% endif %}
+  {%- if params.inputmode %} inputmode="{{ params.inputmode }}"{% endif %}
   {%- for attribute, value in (params.attributes.items() if params.attributes else {}.items()) %} {{ attribute }}="{{ value }}"{% endfor -%}>
 </div>
 

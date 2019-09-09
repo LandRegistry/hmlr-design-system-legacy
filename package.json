@@ -1,16 +1,15 @@
 {
   "name": "@hmlr/design-system",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "",
   "scripts": {
     "installGovukFrontend": "node install-govuk-frontend.js",
-    "check-node-version": "node check-node-version.js",
     "test": "gulp test",
     "build": "gulp build && webpack",
     "dev": "npm run build && webpack --watch -d",
     "prestart": "npm run installGovukFrontend",
-    "pretest": "npm run check-node-version --silent && npm run installGovukFrontend",
-    "prebuild": "npm run check-node-version --silent && npm run installGovukFrontend",
+    "pretest": "npm run installGovukFrontend",
+    "prebuild": "npm run installGovukFrontend",
     "lint": "npm run lint-js && npm run lint-scss",
     "lint-js": "eslint hmlr_design_system",
     "lint-scss": "stylelint hmlr_design_system/**/*.scss"
@@ -24,7 +23,10 @@
     "url": "git@github.com:LandRegistry/hmlr-design-system.git"
   },
   "peerDependencies": {
-    "govuk-frontend": "2.12.0"
+    "govuk-frontend": "^3.0.0"
+  },
+  "config": {
+    "govuk-frontend-version": "3.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.5.0",
