@@ -1,0 +1,151 @@
+$govuk-cookie-banner-text-green: #00823b;
+
+.js-enabled {
+  .hmlr-cookie-banner {
+    display: none; // shown with JS, always on for non-JS
+  }
+}
+
+.hmlr-cookie-banner {
+  @include govuk-font($size: 19);
+  padding: govuk-spacing(2) 0;
+  background-color: govuk-colour("white");
+  border: 2px solid govuk-colour("black");
+  background-color: govuk-colour("white");
+  padding: govuk-spacing(4) 0;
+
+}
+
+.hmlr-cookie-banner__message {
+  display: inline-block;
+  margin: 0;
+  padding-right: govuk-spacing(4);
+  padding-bottom: govuk-spacing(2);
+  color: $govuk-cookie-banner-text-green;
+}
+
+.hmlr-cookie-banner__buttons {
+  @include govuk-clearfix;
+  vertical-align: middle;
+
+  @include govuk-media-query($from: desktop) {
+    display: inline-block;
+  }
+}
+
+.hmlr-cookie-banner .govuk-button {
+  display: inline-block;
+  width: 100%;
+  padding: (govuk-spacing(2) - $govuk-border-width-form-element) govuk-spacing(2);
+  border-color: $govuk-cookie-banner-text-green;
+  color: $govuk-cookie-banner-text-green;
+  background-color: govuk-colour("white");
+  box-shadow: none;
+  margin-bottom: 0;
+  @include govuk-font($size: 19, $line-height: 19px);
+
+  &:link,
+  &:visited,
+  &:active {
+    color: $govuk-cookie-banner-text-green;
+    background-color: govuk-colour("white");
+    text-decoration: none;
+  }
+
+  &:hover {
+    border-color: darken($govuk-cookie-banner-text-green, 5%);
+    color: darken($govuk-cookie-banner-text-green, 5%);
+    background-color: govuk-colour("light-grey");
+    text-decoration: none;
+  }
+
+  &:before {
+    content: none;
+  }
+
+  @include govuk-media-query($from: mobile, $until: desktop) {
+    &:first-child {
+      float: left;
+      width: 49%;
+    }
+
+    &:last-child {
+      .js-enabled & {
+        float: right;
+        width: 49%;
+      }
+    }
+  }
+
+  @include govuk-media-query($from: desktop) {
+    width: auto;
+  }
+
+  @include govuk-media-query($until: 455px) {
+    width: 100%;
+  }
+}
+
+.hmlr-cookie-banner__button-accept {
+  display: none;
+
+  .js-enabled & {
+    display: inline-block;
+  }
+}
+
+.hmlr-cookie-banner__confirmation {
+  display: none;
+  position: relative;
+  padding: govuk-spacing(1);
+
+
+  // This element is focused using JavaScript so that it's being read out by screen readers
+  // for this reason we don't want to show the default outline or emphasise it visually using `govuk-focused-text`
+  &:focus {
+    outline: none;
+  }
+}
+
+.hmlr-cookie-banner__confirmation-message,
+.hmlr-cookie-banner__hide-button {
+  display: block;
+
+  @include govuk-media-query($from: desktop) {
+    display: inline-block;
+  }
+}
+
+.hmlr-cookie-banner__confirmation-message {
+  margin-right: govuk-spacing(4);
+
+  @include govuk-media-query($from: desktop) {
+    max-width: 90%;
+  }
+}
+
+.hmlr-cookie-banner__hide-button {
+  @include govuk-font($size: 19);
+  outline: 0;
+  border: 0;
+  background: none;
+  text-decoration: underline;
+  color: $govuk-link-colour;
+  padding: govuk-spacing(0);
+  margin-top: govuk-spacing(2);
+
+  &:hover {
+    color: $govuk-link-hover-colour;
+    cursor: pointer;
+  }
+
+  &:focus {
+    @include govuk-focused-text;
+  }
+
+  @include govuk-media-query($from: desktop) {
+    margin-top: govuk-spacing(0);
+    position: absolute;
+    right: govuk-spacing(1);
+  }
+}
