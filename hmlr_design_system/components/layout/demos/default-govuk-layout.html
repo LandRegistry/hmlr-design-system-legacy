@@ -1,8 +1,17 @@
 {% extends "app/layout.html" %}
-
 {% from "app/macros/nav.html" import nav with context %}
 
 {% set backurl = "/" %}
+
+{% block header %}
+  {{ header({
+    'homepageUrl': '/',
+    'headerTitle': 'Design System',
+    'variant': 'dark',
+    'logo': True,
+    'classes': 'hmlr-header--full-width'
+  }) }}
+{% endblock %}
 
 {% block inner_content %}
   <div class="govuk-grid-row">
@@ -10,7 +19,7 @@
       {{ nav() }}
     </div>
     <div class="govuk-grid-column-two-thirds">
-      {{ readme|markdown }}
+       {{ readme|markdown }}
     </div>
-  </div>
+  <div>
 {% endblock %}

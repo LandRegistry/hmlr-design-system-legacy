@@ -1,3 +1,6 @@
 {% extends "app/wide-layout.html" %}
+{% from "app/macros/nav.html" import nav with context %}
 
-{% block inner_content %}{% endblock %}
+{% block inner_content %}
+  {{ nav() }}
+{% endblock %}

@@ -1,13 +1,18 @@
 {% from "app/vendor/.govuk-frontend/components/back-link/macro.html" import govukBackLink %}
 {% extends 'app/wide-layout.html' %}
+{% from "app/macros/nav.html" import nav with context %}
 
 {% set backurl = "/" %}
+
+{% block left_column_200 %}
+  {{ nav() }}
+{% endblock %}
 
 {% block inner_content %}
   {{ readme|markdown }}
 
   {{ govukBackLink({
     "text": "Back",
-      "href": "/"
-    }) }}
+    "href": "/"
+  }) }}
 {% endblock %}

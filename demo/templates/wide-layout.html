@@ -9,7 +9,8 @@
     'headerTitle': 'Design System',
     'variant': 'dark',
     'logo': True,
-    'classes': 'hmlr-header--align-grid'
+    'classes': 'hmlr-header--align-grid',
+    'inner_size': 200
   }) }}
 {% endblock %}
 
@@ -18,11 +19,17 @@
 {% block main %}
   <main class="hmlr-grid-row" id="main-content" role="main">
     {% block content %}
-      {% if self.left_column() %}
-        <div class="hmlr-grid-column">
-          {% block left_column %}
-            {{ nav() }}
-          {% endblock %}
+      {% if self.left_column_200() %}
+        <div class="hmlr-grid-column hmlr-grid-column--200">
+          {% block left_column_200 %}{% endblock %}
+        </div>
+      {% elif self.left_column_250() %}
+        <div class="hmlr-grid-column hmlr-grid-column--250">
+          {% block left_column_250 %}{% endblock %}
+        </div>
+      {% elif self.left_column_300() %}
+        <div class="hmlr-grid-column hmlr-grid-column--300">
+          {% block left_column_300 %}{% endblock %}
         </div>
       {% endif %}
 
@@ -41,9 +48,17 @@
         {% block inner_content %}{% endblock %}
       </div>
 
-      {% if self.right_column() %}
-        <div class="hmlr-grid-column">
-          {% block right_column %}{% endblock %}
+      {% if self.right_column_200() %}
+        <div class="hmlr-grid-column hmlr-grid-column--200">
+          {% block right_column_200 %}{% endblock %}
+        </div>
+      {% elif self.right_column_250() %}
+        <div class="hmlr-grid-column hmlr-grid-column--250">
+          {% block right_column_250 %}{% endblock %}
+        </div>
+      {% elif self.right_column_300() %}
+        <div class="hmlr-grid-column hmlr-grid-column--300">
+          {% block right_column_300 %}{% endblock %}
         </div>
       {% endif %}
     {% endblock %}

@@ -2,6 +2,10 @@
 
 {% set backurl = "/" %}
 
+{% block left_column_200 %}
+  {{ nav() }}
+{% endblock %}
+
 {% block inner_content %}
   {{ readme|markdown }}
   <h2 class="govuk-heading-xl">Extra large heading</h2>
@@ -25,7 +29,7 @@
   </ul>
 {% endblock %}
 
-{% block right_column %}
+{% block right_column_200 %}
   <h2 class="govuk-heading-xl">Extra large heading</h2>
   <h2 class="govuk-heading-l">Large heading</h2>
   <h2 class="govuk-heading-m">Medium heading</h2>

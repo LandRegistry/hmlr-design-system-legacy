@@ -1,28 +1,96 @@
-.hmlr-grid-column {
-  padding: $hmlr-grid-padding / 2;
-}
+.hmlr-theme {
+  color: $black;
 
-@include govuk-media-query($hmlr-grid-start-breakpoint) {
-  .hmlr-grid-row {
+  .wrapper {
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    height: auto;
   }
 
-  .hmlr-grid-column {
-    min-width: $hmlr-grid-column-width;
-    width: $hmlr-grid-column-width;
-    box-sizing: border-box;
-    min-height: 100%;
-    padding: $hmlr-grid-padding;
-
-    & + & {
-      border-left: 1px solid govuk-colour("dark-grey");
+  @media all and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .wrapper {
+      height: 1px;
     }
   }
 
-  .hmlr-grid-column--main {
-    flex-direction: column;
-    min-height: 100%;
+  .govuk-width-container {
+    flex: 1 1 0;
     width: 100%;
-    box-sizing: border-box;
+  }
+
+  .hmlr-grid-column {
+    padding: 30px;
+  }
+
+  .hmlr-grid-column--200 {
+    width: 100%;
+    background-color: $column-background;
+    padding: 15px;
+
+    @media screen and (min-width: $tablet) {
+        width: 150px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: 200px;
+        min-width: 200px;
+    }
+  }
+
+  .hmlr-grid-column--250 {
+    width: 250px;
+    min-width: 250px;
+  }
+
+  .hmlr-grid-column--main {
+    width: 100%;
+    background-color: #fff;
+  }
+
+  .hmlr-footer__inner {
+    padding: 20px 30px;
+  }
+
+  .flex-column-left {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .hmlr-header__inner {
+
+  @media screen and (min-width: $desktop){
+    margin-left: 260px;
+  }
+
+    &.header-width--200 {
+      text-align: left;
+      padding-left: 200px;
+    }
+  }
+
+  .hmlr-header--align-grid--250 {
+
+    .hmlr-header__inner {
+      padding-left: 290px;
+      margin: 0;
+    }
+  }
+
+  .hmlr-footer__logo {
+    margin-top: 0;
+  }
+
+  @media screen and (min-width: $tablet){
+    .hmlr-grid-column+.hmlr-grid-column {
+      border-left: 1px solid $column-border;
+    }
+  }
+
+  @media all and (min-width: $tablet) {
+    .hmlr-grid-row {
+      display: flex;
+    }
   }
 }

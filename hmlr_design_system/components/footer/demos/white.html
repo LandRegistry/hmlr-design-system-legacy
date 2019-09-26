@@ -3,15 +3,23 @@
 
 {% set backurl = "/" %}
 
+{% block header %}
+  {{ header({
+    'homepageUrl': '/',
+    'logo': True
+  }) }}
+{% endblock %}
+
 {% block inner_content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
       {{ nav() }}
     </div>
     <div class="govuk-grid-column-two-thirds">
-      {%filter markdown %}
-White footer, suitable for external systems.
-{% endfilter %}
+    {% set backurl = "/" %}
+      {% filter markdown %}
+        White footer, suitable for external systems.
+    {% endfilter %}
 
       <h2 class="govuk-heading-s">Empty, no links</h2>
       {{ footer() }}
@@ -43,9 +51,7 @@ White footer, suitable for external systems.
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
       <h2 class="govuk-heading-s">As a React component</h2>
-
       <div id="demo"></div>
-
     </div>
   </div>
 {% endblock %}

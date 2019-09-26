@@ -1,10 +1,19 @@
 $hmlr-green-1: #b4d307;
 $hmlr-green-2: #d7e900;
 $hmlr-green-3: #87c426;
+$column-border: #6f777b;
+$column-background: #e7e8e7;
+$black: #0b0c0c;
 
 $hmlr-grid-padding: 40px;
-$hmlr-grid-column-width: 300px;
+$hmlr-grid-column-width: 200px;
 $hmlr-grid-start-breakpoint: 3.33 * $hmlr-grid-column-width;
+
 
 $font-size: 16px;
 $font-size--meta: 14px;
+
+//breakpoints
+$tablet: 641px;
+$desktop: 999px;
+

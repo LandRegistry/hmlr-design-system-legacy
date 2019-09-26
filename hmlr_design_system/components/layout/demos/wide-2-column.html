@@ -13,6 +13,10 @@
   }) }}
 {% endblock %}
 
+{% block left_column_200 %}
+  {{ nav() }}
+{% endblock %}
+
 {% block inner_content %}
   {{ readme|markdown }}
 {% endblock %}
