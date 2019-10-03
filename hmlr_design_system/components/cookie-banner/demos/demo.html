@@ -1,10 +1,14 @@
 {% from 'components/cookie-banner/macro.html' import cookie_banner %}
+{% from 'app/macros/code-demo.html' import code_demo with context %}
+
 {% extends 'app/wide-layout.html' %}
 
 {% set backurl = "/" %}
 
 {% block header %}
-  {{ cookie_banner() }}
+  {{ cookie_banner({
+    'service_name': 'HMLR design system'
+  }) }}
 
   {{ super() }}
 {% endblock %}
@@ -16,6 +20,21 @@
 
   <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
+  {% call code_demo(title='Specify your service name') %}
+    {% raw %}{{ cookie_banner({
+      'service_name': 'HMLR design system'
+    }) }}{% endraw %}
+  {% endcall %}
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+  {% call code_demo(title='Example with a completely customised message', code=jinja) %}
+    {% raw %}{{ cookie_banner({
+      'cookie_message': 'Example with a completely customised message'
+    }) }}{% endraw %}
+  {% endcall %}
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
   <h2 class="govuk-heading-s">As a React component</h2>
   <div id="demo1"></div>
