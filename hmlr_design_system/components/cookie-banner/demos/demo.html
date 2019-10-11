@@ -1,0 +1,46 @@
+{% from 'components/cookie-banner/macro.html' import cookie_banner %}
+{% from 'app/macros/code-demo.html' import code_demo with context %}
+
+{% extends 'app/wide-layout.html' %}
+
+{% set backurl = "/" %}
+
+{% block header %}
+  {{ cookie_banner({
+    'service_name': 'HMLR design system'
+  }) }}
+
+  {{ super() }}
+{% endblock %}
+
+{% block inner_content %}
+  {{ readme|markdown }}
+
+  <p class="govuk-body">See top of page for demo in context.</p>
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+  {% call code_demo(title='Specify your service name') %}
+    {% raw %}{{ cookie_banner({
+      'service_name': 'HMLR design system'
+    }) }}{% endraw %}
+  {% endcall %}
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+  {% call code_demo(title='Example with a completely customised message', code=jinja) %}
+    {% raw %}{{ cookie_banner({
+      'cookie_message': 'Example with a completely customised message'
+    }) }}{% endraw %}
+  {% endcall %}
+{% endblock %}
+
+{% block head %}
+  {{ super() }}
+
+  <style type="text/css">
+    .hmlr-cookie-banner {
+      display: block!important; /* Force cookie banner demos to display instead of following it's normal behaviour */
+    }
+  </style>
+{% endblock %}
