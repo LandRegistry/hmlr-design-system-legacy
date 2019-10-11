@@ -1,0 +1,20 @@
+{% macro cookie_banner(params={}) %}
+<div class="hmlr-cookie-banner" role="region" aria-label="Cookie banner">
+  <div class="hmlr-cookie-banner__wrapper govuk-width-container">
+    {% set default_cookie_message %}{{ params.service_name or '[name of service]' }} uses essential cookies for functions such as keeping you logged in. We also use non-essential cookies to help us improve our service. All of the data we collect is anonymous. By continuing to use this site you consent to our use of cookies.{% endset %}
+    <p class="hmlr-cookie-banner__message">{{ params.cookie_message or default_cookie_message }}</p>
+
+    <div class="hmlr-cookie-banner__buttons">
+      <button class="govuk-button hmlr-cookie-banner__button-accept" type="submit">Accept cookies</button>
+      <a class="govuk-button" role="button" href="/help/cookies">Cookie settings</a>
+    </div>
+  </div>
+
+  <div class="hmlr-cookie-banner__confirmation govuk-width-container" tabindex="-1">
+    <p class="hmlr-cookie-banner__message hmlr-cookie-banner__message--confirmation">
+      You’ve accepted all cookies. You can <a class="govuk-link" href="/help/cookies">change your cookie settings</a> at any time.
+    </p>
+    <button class="hmlr-cookie-banner__hide-button">Hide</button>
+  </div>
+</div>
+{% endmacro %}

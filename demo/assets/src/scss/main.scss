@@ -16,9 +16,9 @@ $govuk-font-family: "Arial", sans-serif;
 @import '../../../../hmlr_design_system/components/text-input/style';
 @import '../../../../hmlr_design_system/components/typography/style';
 @import '../../../../hmlr_design_system/components/footer/style';
+@import '../../../../hmlr_design_system/components/cookie-banner/style';
 
 
 // App specific code
-@import 'partials/cookie-banner';
 @import 'partials/code-blocks';
 @import 'partials/nav';

@@ -1,0 +1,30 @@
+{% from 'app/vendor/.govuk-frontend/components/tabs/macro.html' import govukTabs %}
+
+{% macro code_demo(title, code) %}
+  <h2 class="govuk-heading-s">{{ title }}</h2>
+
+  {% set code = caller() %}
+
+  {{ code|dangerous_eval }}
+
+  {{ govukTabs({
+    'classes': 'govuk-!-margin-top-6',
+    'items': [
+      {
+        'label': "Jinja",
+        'id': "jinja"|unique_id,
+        'panel': {
+          'html': '<pre><code>'|safe ~ code ~ '</code></pre>'|safe
+        }
+      },
+      {
+        'label': "HTML",
+        'id': "html"|unique_id,
+        'panel': {
+          'html': '<pre><code>'|safe ~ code|dangerous_eval|safe|forceescape ~ '</code></pre>'|safe
+        }
+      }
+    ]
+  }) }}
+
+{% endmacro %}
