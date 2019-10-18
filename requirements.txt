@@ -25,6 +25,6 @@ misaka==2.1.0
 pycparser==2.19           # via cffi
 pyyaml==3.13              # via logconfig
 requests==2.20.1
-urllib3==1.24.1           # via requests
+urllib3==1.24.2           # via requests
 werkzeug==0.14.1          # via flask
 wtforms==2.2.1            # via flask-wtf
