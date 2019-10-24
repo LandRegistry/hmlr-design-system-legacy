@@ -1,7 +1,7 @@
 {% macro cookie_banner(params={}) %}
 <div class="hmlr-cookie-banner" role="region" aria-label="Cookie banner">
   <div class="hmlr-cookie-banner__wrapper govuk-width-container">
-    {% set default_cookie_message %}{{ params.service_name or '[name of service]' }} uses essential cookies for functions such as keeping you logged in. We also use non-essential cookies to help us improve our service. All of the data we collect is anonymous. By continuing to use this site you consent to our use of cookies.{% endset %}
+    {% set default_cookie_message %}{{ params.service_name or '[name of service]' }} uses essential cookies for functions such as keeping you logged in. We also use non-essential cookies to help us improve our service. All of the data we collect is anonymous.{% endset %}
     <p class="hmlr-cookie-banner__message">{{ params.cookie_message or default_cookie_message }}</p>
 
     <div class="hmlr-cookie-banner__buttons">
