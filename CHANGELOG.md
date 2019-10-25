@@ -4,6 +4,7 @@ Note that requirements updates are not listed here unless they result in more ch
 
 | Date | Summary | Comparison to previous |
 |---|---|---|
+| 2019-10-25 | Add class for hiding the cookie banner | [Here](https://github.com/LandRegistry/hmlr-design-system/pull/61)|
 | 2019-10-24 | Tweak wording on cookie banner to remove last sentence | [Here](https://github.com/LandRegistry/hmlr-design-system/pull/59)|
 | 2019-10-11 | Added cookie banner component | [Here](https://github.com/LandRegistry/hmlr-design-system/pull/52)|
 | 2019-09-09 | Update to govuk frontend 3 | [Here](https://github.com/LandRegistry/hmlr-design-system/pull/50) |
