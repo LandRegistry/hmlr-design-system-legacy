@@ -3,5 +3,5 @@ pytest-cov==2.3.1
 coverage==4.2
 pip-tools==1.9.0
 freezegun==0.3.9
-pyyaml==3.13
+pyyaml==5.1
 flake8==3.7.7
