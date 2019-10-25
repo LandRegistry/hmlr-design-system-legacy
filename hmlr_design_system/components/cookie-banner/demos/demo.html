@@ -33,14 +33,28 @@
       'cookie_message': 'Example with a completely customised message'
     }) }}{% endraw %}
   {% endcall %}
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+  {% call code_demo(title='Cookie banner in accepted state!', code=jinja) %}
+    {% raw %}{{ cookie_banner({
+      'cookie_message': 'Example with a completely customised message',
+      'accepted': True
+    }) }}{% endraw %}
+  {% endcall %}
 {% endblock %}
 
 {% block head %}
   {{ super() }}
 
   <style type="text/css">
+    /* Force cookie banner demos to display instead of following it's normal behaviour */
     .hmlr-cookie-banner {
-      display: block!important; /* Force cookie banner demos to display instead of following it's normal behaviour */
+      display: block!important;
+    }
+
+    .hmlr-cookie-banner--accepted {
+      display: none!important;
     }
   </style>
 {% endblock %}

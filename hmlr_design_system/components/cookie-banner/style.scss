@@ -15,6 +15,10 @@ $govuk-cookie-banner-text-green: #00823b;
   padding: govuk-spacing(4) 0;
 }
 
+.hmlr-cookie-banner--accepted {
+  display: none;
+}
+
 .hmlr-cookie-banner__message {
   display: inline-block;
   margin: 0;
@@ -86,7 +90,7 @@ $govuk-cookie-banner-text-green: #00823b;
   }
 }
 
-.hmlr-cookie-banner__button-accept {
+.hmlr-cookie-banner .hmlr-cookie-banner__button-accept {
   display: none;
 
   .js-enabled & {
