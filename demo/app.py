@@ -1,8 +1,9 @@
 from demo.landregistry_flask import LandRegistryFlask
-from jinja2 import PackageLoader, FileSystemLoader, PrefixLoader
+from jinja2 import PackageLoader, FileSystemLoader, PrefixLoader, contextfilter, Template
 from flask import url_for
 from glob import glob
 from os import path
+from markupsafe import Markup
 
 
 app = LandRegistryFlask(__name__,
@@ -43,3 +44,20 @@ def inject_global_values():
         service_name='HMLR Design System',
         demos=parsed_demos
     )
+
+
+@contextfilter
+@app.template_filter()
+def dangerous_eval(context, value):
+    return Markup(Template(value).render(context))
+
+
+unique_id_counter = 0
+
+
+@contextfilter
+@app.template_filter('unique_id')
+def unique_id(context, value):
+    global unique_id_counter
+    unique_id_counter += 1
+    return value + str(unique_id_counter)

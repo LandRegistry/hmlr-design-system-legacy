@@ -1,6 +1,6 @@
 {
   "name": "@hmlr/design-system",
-  "version": "3.0.0",
+  "version": "3.1.2",
   "description": "",
   "scripts": {
     "installGovukFrontend": "node install-govuk-frontend.js",
@@ -23,7 +23,7 @@
     "url": "git@github.com:LandRegistry/hmlr-design-system.git"
   },
   "peerDependencies": {
-    "govuk-frontend": "3.2.0"
+    "govuk-frontend": "^3.0.0"
   },
   "config": {
     "govuk-frontend-version": "3.2.0"
