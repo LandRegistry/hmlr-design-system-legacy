@@ -71,12 +71,14 @@ $govuk-cookie-banner-text-green: #00823b;
     &:first-child {
       float: left;
       width: 49%;
+      margin-right: 0px;
     }
 
     &:last-child {
       .js-enabled & {
         float: right;
         width: 49%;
+        margin-right: 0px;
       }
     }
   }
