@@ -17,12 +17,11 @@ Alternatively, you can use `npm run dev` if you are going to be working on the C
 At the time of writing, the build does not run in the pipeline and must be run inside the Docker container on the developer's laptop. This means that the build artefacts need to be committed into the repository. The following files would need to be committed in, but _should not be manually modified_
 
 - `application/assets/dist/**/*.*`
-- `application/templates/vendor/.govuk-frontend/template.html` (This file is copied from the `govuk-frontend` module in `node_modules`. It is checked into the repository, but should not be modified manually.)
 
 Application specific frontend code is held in `application/assets/src` - this is the only place you should be manually editing files.
 
-
 ### `node_modules`
+
 The build tasks are written in Nodejs, and as such the repository contains a package.json which is where dependencies are configured. _Normally_, you would then run `npm install` and these dependencies would be downloaded and put in a `node_modules` folder in the repository root. However, the Dockerfile is configured to install these for you and they are installed to a slightly different location inside the Docker container (See the NODE_PATH environment variable). In order to work with this, the following guidelines should be followed:
 
 1) Don't run `npm install` to install all the packages. You should `rebuild` your docker container and they will be installed for you.
