@@ -7,7 +7,7 @@ components = Blueprint('components', __name__)
 
 @components.route("/")
 def index():
-    return render_template('app/index.html')
+    return render_template('index.html')
 
 
 @components.route('/<component_name>/<demo_name>')

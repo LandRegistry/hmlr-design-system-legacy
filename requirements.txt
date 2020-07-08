@@ -16,6 +16,7 @@ flask-logconfig==0.4.2    # via -r requirements.in
 flask-script==2.0.6       # via -r requirements.in
 flask-wtf==0.14.3         # via -r requirements.in
 flask==1.1.2              # via -r requirements.in, flask-compress, flask-logconfig, flask-script, flask-wtf
+govuk-frontend-jinja==0.2.1  # via -r requirements.in
 gunicorn==19.10.0         # via -r requirements.in
 idna==2.10                # via requests
 itsdangerous==1.1.0       # via flask, flask-wtf

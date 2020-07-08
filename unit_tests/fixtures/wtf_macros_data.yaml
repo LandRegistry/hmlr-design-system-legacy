@@ -533,7 +533,7 @@ TestPasswordField:
 
 TestErrorSummary:
     template: >
-                {% from 'app/vendor/.govuk-frontend/components/error-summary/macro.html' import govukErrorSummary %}
+                {% from 'govuk_frontend_jinja/components/error-summary/macro.html' import govukErrorSummary %}
                 {% if form and form.errors %}
                   {{ govukErrorSummary(wtforms_errors(form)) }}
                 {% endif %}

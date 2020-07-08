@@ -1,10 +1,10 @@
-{% from "app/vendor/.govuk-frontend/components/back-link/macro.html" import govukBackLink %}
-{% from "app/vendor/.govuk-frontend/components/skip-link/macro.html" import govukSkipLink %}
-{% from "app/macros/nav.html" import nav with context %}
+{% from "govuk_frontend_jinja/components/back-link/macro.html" import govukBackLink %}
+{% from "govuk_frontend_jinja/components/skip-link/macro.html" import govukSkipLink %}
+{% from "macros/nav.html" import nav with context %}
 {% from "components/header/macro.html" import header %}
 {% from "components/footer/macro.html" import footer %}
 
-{% extends "app/vendor/.govuk-frontend/template.html" %}
+{% extends "govuk_frontend_jinja/template.html" %}
 
 {% set assetPath = url_for('static', filename='.govuk-frontend').rstrip('/') %}
 {% set bodyClasses = "hmlr-theme " + (bodyClasses if bodyClasses else '') %}

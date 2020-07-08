@@ -1,10 +1,12 @@
-from demo.landregistry_flask import LandRegistryFlask
-from jinja2 import PackageLoader, FileSystemLoader, PrefixLoader, contextfilter, Template
-from flask import url_for
 from glob import glob
 from os import path
+
+from flask import url_for
+from jinja2 import (ChoiceLoader, FileSystemLoader, PackageLoader,
+                    PrefixLoader, Template, contextfilter)
 from markupsafe import Markup
 
+from demo.landregistry_flask import LandRegistryFlask
 
 app = LandRegistryFlask(__name__,
                         template_folder='templates',
@@ -14,11 +16,14 @@ app = LandRegistryFlask(__name__,
 
 
 # Set Jinja up to be able to load templates from packages (See gadget-govuk-ui for a full example)
-app.jinja_loader = PrefixLoader({
-    'app': PackageLoader('demo'),
-    'components': FileSystemLoader('hmlr_design_system/components'),
-    'wtforms_gov': PackageLoader('demo.custom_extensions.wtforms_helpers')
-})
+app.jinja_loader = ChoiceLoader([
+    PackageLoader('demo'),
+    PrefixLoader({
+        'components': FileSystemLoader('hmlr_design_system/components'),
+        'govuk_frontend_jinja': PackageLoader('govuk_frontend_jinja'),
+        'wtforms_gov': PackageLoader('demo.custom_extensions.wtforms_helpers')
+    })
+])
 
 app.config.from_pyfile("config.py")
 
