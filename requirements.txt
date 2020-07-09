@@ -11,6 +11,8 @@ cffi==1.14.0              # via misaka
 chardet==3.0.4            # via requests
 click==7.1.2              # via flask
 deepmerge==0.1.0          # via -r requirements.in
+dnspython==1.16.0         # via email-validator
+email_validator==1.1.1    # via -r requirements.in
 flask-compress==1.5.0     # via -r requirements.in
 flask-logconfig==0.4.2    # via -r requirements.in
 flask-script==2.0.6       # via -r requirements.in
@@ -18,7 +20,7 @@ flask-wtf==0.14.3         # via -r requirements.in
 flask==1.1.2              # via -r requirements.in, flask-compress, flask-logconfig, flask-script, flask-wtf
 govuk-frontend-jinja==0.2.1  # via -r requirements.in
 gunicorn==19.10.0         # via -r requirements.in
-idna==2.10                # via requests
+idna==2.10                # via email-validator, requests
 itsdangerous==1.1.0       # via flask, flask-wtf
 jinja2==2.11.2            # via flask
 logconfig==0.4.0          # via flask-logconfig

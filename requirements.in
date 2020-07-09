@@ -1,5 +1,6 @@
 cachelib==0.1.1
 deepmerge==0.1.0
+email_validator==1.1.1
 flask-compress==1.5.0
 flask-logconfig==0.4.2
 flask-script==2.0.6
