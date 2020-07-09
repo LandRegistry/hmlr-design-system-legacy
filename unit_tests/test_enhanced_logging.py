@@ -1,10 +1,12 @@
-from unittest import mock
-import logging
 import json
+import logging
+from unittest import mock
+
+from werkzeug.datastructures import Headers
+
+from demo.custom_extensions.enhanced_logging.main import EnhancedLogging
+from demo.main import app
 from freezegun import freeze_time
-from hmlr_design_system.main import app
-from hmlr_design_system.custom_extensions.enhanced_logging.main import EnhancedLogging
-from werkzeug import Headers
 
 logger = logging.getLogger('hmlr-design-system')
 client = app.test_client()
@@ -93,7 +95,7 @@ def test_exc_info_in_log_entries_when_passed(pytestconfig):
     assert 'Exception: Hello' in ' '.join(record['exception'])
 
 
-@mock.patch('hmlr_design_system.custom_extensions.enhanced_logging.main.EnhancedLogging.init_app')
+@mock.patch('demo.custom_extensions.enhanced_logging.main.EnhancedLogging.init_app')
 def test_extension_alternative_init(mock_init_app):
     EnhancedLogging('foo')
     mock_init_app.assert_called_once_with('foo')

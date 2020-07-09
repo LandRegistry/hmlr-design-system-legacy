@@ -1,12 +1,13 @@
+import os
 import unittest
 from unittest import mock
-import os
-from freezegun import freeze_time
 
-from hmlr_design_system.main import app
 from flask import render_template_string
-from hmlr_design_system.custom_extensions.cachebust_static_assets.main import md5_for_file
-from hmlr_design_system.custom_extensions.cachebust_static_assets.main import CachebustStaticAssets
+
+from demo.custom_extensions.cachebust_static_assets.main import (
+    CachebustStaticAssets, md5_for_file)
+from demo.main import app
+from freezegun import freeze_time
 
 
 class TestCachebustStaticAssets(unittest.TestCase):
@@ -14,7 +15,7 @@ class TestCachebustStaticAssets(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
 
-    @mock.patch('hmlr_design_system.custom_extensions.cachebust_static_assets.main.CachebustStaticAssets.init_app')
+    @mock.patch('demo.custom_extensions.cachebust_static_assets.main.CachebustStaticAssets.init_app')
     def test_extension_alternative_init(self, mock_init_app):
         CachebustStaticAssets('foo')
         mock_init_app.assert_called_once_with('foo')
@@ -46,7 +47,7 @@ class TestCachebustStaticAssets(unittest.TestCase):
         os.remove(filename)
 
     def test_url_for_adds_cache_query_string(self):
-        filename = 'hmlr_design_system/assets/dist/test.txt'
+        filename = 'demo/assets/dist/test.txt'
         with open(filename, 'w+') as file:
             file.write('Hello')
 
@@ -59,9 +60,9 @@ class TestCachebustStaticAssets(unittest.TestCase):
 
         os.remove(filename)
 
-    @mock.patch('hmlr_design_system.custom_extensions.cachebust_static_assets.main.md5_for_file', wraps=md5_for_file)
+    @mock.patch('demo.custom_extensions.cachebust_static_assets.main.md5_for_file', wraps=md5_for_file)
     def test_repeated_url_for_calls_hits_cache_not_disk(self, mock_md5_for_file):
-        filename = 'hmlr_design_system/assets/dist/test.txt'
+        filename = 'demo/assets/dist/test.txt'
         with open(filename, 'w+') as file:
             file.write('Hello')
 
@@ -85,7 +86,7 @@ class TestCachebustStaticAssets(unittest.TestCase):
 
     @freeze_time("2017-01-18")
     def test_far_future_expiry_headers_for_css_file(self):
-        filename = 'hmlr_design_system/assets/dist/test.css'
+        filename = 'demo/assets/dist/test.css'
         with open(filename, 'w+') as file:
             file.write('Hello')
 
@@ -100,7 +101,7 @@ class TestCachebustStaticAssets(unittest.TestCase):
 
     @freeze_time("2017-01-18")
     def test_far_future_expiry_headers_for_txt_file(self):
-        filename = 'hmlr_design_system/assets/dist/test.txt'
+        filename = 'demo/assets/dist/test.txt'
         with open(filename, 'w+') as file:
             file.write('Hello')
 

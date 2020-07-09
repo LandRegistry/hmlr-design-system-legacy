@@ -1,7 +1,8 @@
 import unittest
 from unittest import mock
-from hmlr_design_system.main import app
-from hmlr_design_system.custom_extensions.security_headers.main import SecurityHeaders
+
+from demo.custom_extensions.security_headers.main import SecurityHeaders
+from demo.main import app
 
 
 class TestSecurityHeaders(unittest.TestCase):
@@ -9,7 +10,7 @@ class TestSecurityHeaders(unittest.TestCase):
     def setup_method(self, method):
         self.app = app.test_client()
 
-    @mock.patch('hmlr_design_system.custom_extensions.security_headers.main.SecurityHeaders.init_app')
+    @mock.patch('demo.custom_extensions.security_headers.main.SecurityHeaders.init_app')
     def test_extension_alternative_init(self, mock_init_app):
         SecurityHeaders('foo')
         mock_init_app.assert_called_once_with('foo')

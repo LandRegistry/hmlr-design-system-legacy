@@ -1,8 +1,11 @@
 import unittest
 from unittest import mock
-from hmlr_design_system.main import app
+
 from flask import render_template_string
-from hmlr_design_system.custom_extensions.jinja_markdown_filter.main import JinjaMarkdownFilter
+
+from demo.custom_extensions.jinja_markdown_filter.main import \
+    JinjaMarkdownFilter
+from demo.main import app
 
 
 class TestJinjaMarkdownFilter(unittest.TestCase):
@@ -16,7 +19,7 @@ class TestJinjaMarkdownFilter(unittest.TestCase):
                 assert render_template_string('{{contents|markdown}}',
                                               contents=markdown).strip() == markdown_to_html.get(markdown)
 
-    @mock.patch('hmlr_design_system.custom_extensions.jinja_markdown_filter.main.JinjaMarkdownFilter.init_app')
+    @mock.patch('demo.custom_extensions.jinja_markdown_filter.main.JinjaMarkdownFilter.init_app')
     def test_extension_alternative_init(self, mock_init_app):
         JinjaMarkdownFilter('foo')
         mock_init_app.assert_called_once_with('foo')

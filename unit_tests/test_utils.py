@@ -1,6 +1,7 @@
-from hmlr_design_system.main import app
-from hmlr_design_system.utils.content_negotiation_utils import request_wants_json
 import unittest
+
+from demo.main import app
+from demo.utils.content_negotiation_utils import request_wants_json
 
 
 class TestContentNegotiationUtil(unittest.TestCase):
