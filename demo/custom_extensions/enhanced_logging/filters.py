@@ -1,6 +1,6 @@
-from flask import ctx
-from flask import g
 import logging
+
+from flask import ctx, g
 
 
 class ContextualFilter(logging.Filter):
@@ -12,5 +12,5 @@ class ContextualFilter(logging.Filter):
         if ctx.has_request_context():
             log_record.trace_id = g.trace_id
         else:
-            log_record.trace_id = 'N/A'
+            log_record.trace_id = "N/A"
         return True

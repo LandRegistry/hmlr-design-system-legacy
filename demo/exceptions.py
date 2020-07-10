@@ -18,6 +18,7 @@ class ApplicationError(Exception):
     Example:
         raise ApplicationError('Friendly message here', 'E102', 400)
     """
+
     def __init__(self, message, code=None, http_code=500, force_logging=False):
         """Create an instance of the error.
 
@@ -45,7 +46,7 @@ def unhandled_exception(e):
     no opportunity for cleanup or error handling in the processing code, this should be a never-event!
     """
 
-    current_app.logger.exception('Unhandled Exception: %s', repr(e))
+    current_app.logger.exception("Unhandled Exception: %s", repr(e))
 
     http_code = 500
 
@@ -54,16 +55,17 @@ def unhandled_exception(e):
         if request_wants_json():
             return jsonify({}), http_code
         else:
-            return render_template('errors/unhandled.html',
-                                   http_code=http_code,
-                                   ), http_code
+            return (
+                render_template("errors/unhandled.html", http_code=http_code,),
+                http_code,
+            )
     except Exception:
         # Ultimate fallback handler, such as if jinja templates are missing
-        return 'Internal server error', 500
+        return "Internal server error", 500
 
 
 def http_exception(e):
-    current_app.logger.exception('HTTP Exception at %s:  %s', request.full_path, repr(e))
+    current_app.logger.exception("HTTP Exception at %s:  %s", request.full_path, repr(e))
 
     # Restrict error codes to a subset so that we don't inadvertently expose
     # internal system information via error codes
@@ -76,9 +78,7 @@ def http_exception(e):
     if request_wants_json():
         return jsonify({}), http_code
     else:
-        return render_template('errors/unhandled.html',
-                               http_code=http_code,
-                               ), http_code
+        return render_template("errors/unhandled.html", http_code=http_code,), http_code
 
 
 def application_error(e):
@@ -87,13 +87,17 @@ def application_error(e):
     # Determine whether to log at info|error, when the http code being returned is not 500
     # (500s are always considered live-log worthy, at error level)
     if e.http_code == 500:
-        current_app.logger.exception('Application Exception (message: %s, code: %s): %s', e.message, e.code, repr(e))
+        current_app.logger.exception(
+            "Application Exception (message: %s, code: %s): %s", e.message, e.code, repr(e),
+        )
     elif e.force_logging:
-        current_app.logger.info('Application Exception (message: %s, code: %s): %s', e.message, e.code, repr(e),
-                                exc_info=True)
+        current_app.logger.info(
+            "Application Exception (message: %s, code: %s): %s", e.message, e.code, repr(e), exc_info=True,
+        )
     else:
-        current_app.logger.debug('Application Exception (message: %s, code: %s): %s', e.message, e.code, repr(e),
-                                 exc_info=True)
+        current_app.logger.debug(
+            "Application Exception (message: %s, code: %s): %s", e.message, e.code, repr(e), exc_info=True,
+        )
 
     # ApplicationError allows developers to specify an HTTP code.
     # This will be written to the logs correctly, but we don't want to allow
@@ -105,24 +109,24 @@ def application_error(e):
         http_code = 500
 
     if request_wants_json():
-        return jsonify({
-                       'message': e.message,
-                       'code': e.code
-                       }), http_code
+        return jsonify({"message": e.message, "code": e.code}), http_code
     else:
         try:
-            return render_template('errors/application/{}.html'.format(e.code),
-                                   description=e.message,
-                                   code=e.code,
-                                   http_code=http_code,
-                                   e=e,
-                                   ), http_code
+            return (
+                render_template(
+                    "errors/application/{}.html".format(e.code),
+                    description=e.message,
+                    code=e.code,
+                    http_code=http_code,
+                    e=e,
+                ),
+                http_code,
+            )
         except TemplateNotFound:
-            return render_template('errors/application.html',
-                                   description=e.message,
-                                   code=e.code,
-                                   http_code=http_code
-                                   ), http_code
+            return (
+                render_template("errors/application.html", description=e.message, code=e.code, http_code=http_code,),
+                http_code,
+            )
 
 
 def register_exception_handlers(app):
@@ -133,4 +137,4 @@ def register_exception_handlers(app):
     for exception in default_exceptions:
         app.register_error_handler(exception, http_exception)
 
-    app.logger.info('Exception handlers registered')
+    app.logger.info("Exception handlers registered")

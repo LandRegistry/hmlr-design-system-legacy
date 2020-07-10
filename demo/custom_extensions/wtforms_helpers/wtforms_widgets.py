@@ -1,8 +1,6 @@
-from demo.custom_extensions.wtforms_helpers.gov_form_base import (GovFormBase,
-                                                                  GovIterableBase)
+from demo.custom_extensions.wtforms_helpers.gov_form_base import GovFormBase, GovIterableBase
 from demo.exceptions import ApplicationError
-from wtforms.widgets.core import (FileInput, Input, PasswordInput, Select,
-                                  SubmitInput, TextArea, TextInput)
+from wtforms.widgets.core import FileInput, Input, PasswordInput, Select, SubmitInput, TextArea, TextInput
 
 
 """Lifted from WTForms and modified to generate GOV.UK markup
@@ -21,7 +19,8 @@ class GovInput(GovFormBase, Input):
     By default, the `_value()` method will be called upon the associated field
     to provide the ``value=`` HTML attribute.
     """
-    template = 'wtforms_gov/input.html'
+
+    template = "wtforms_gov/input.html"
 
     def __call__(self, field, **kwargs):
         kwargs.setdefault("id", field.id)
@@ -38,6 +37,7 @@ class GovTextInput(GovInput, TextInput):
     """
     Render a single-line text input.
     """
+
     input_type = "text"
 
 
@@ -49,6 +49,7 @@ class GovPasswordInput(GovInput, PasswordInput):
     submit by default. To have the value filled in, set `hide_value` to
     `False`.
     """
+
     def __call__(self, field, **kwargs):
         if self.hide_value:
             kwargs["value"] = ""
@@ -64,12 +65,13 @@ class GovCheckboxesInput(GovIterableBase):
     a list of smaller widgets - multiple checkboxes are a single
     construct of their own."""
 
-    template = 'wtforms_gov/checkboxes.html'
-    input_type = 'checkbox'
+    template = "wtforms_gov/checkboxes.html"
+    input_type = "checkbox"
 
 
 class GovCheckboxInput(GovCheckboxesInput):
     """Render a single checkbox (i.e. a WTForms BooleanField)."""
+
     def __call__(self, field, **kwargs):
         # We are subclassing GovCheckboxesInput which expects
         # the field to be an iterable yielding each checkbox "subfield"
@@ -102,8 +104,8 @@ class GovCheckboxInput(GovCheckboxesInput):
 
 
 class GovRadioInput(GovIterableBase):
-    template = 'wtforms_gov/radios.html'
-    input_type = 'radio'
+    template = "wtforms_gov/radios.html"
+    input_type = "radio"
 
 
 class GovFileInput(GovInput, FileInput):
@@ -111,7 +113,8 @@ class GovFileInput(GovInput, FileInput):
 
     :param multiple: allow choosing multiple files
     """
-    template = 'wtforms_gov/file-upload.html'
+
+    template = "wtforms_gov/file-upload.html"
 
     def __call__(self, field, **kwargs):
         # browser ignores value of file input for security
@@ -130,7 +133,8 @@ class GovSubmitInput(GovInput, SubmitInput):
     The field's label is used as the text of the submit button instead of the
     data on the field.
     """
-    template = 'wtforms_gov/button.html'
+
+    template = "wtforms_gov/button.html"
 
     def __call__(self, field, **kwargs):
         return super().__call__(field, **kwargs)
@@ -138,8 +142,8 @@ class GovSubmitInput(GovInput, SubmitInput):
     def map_gov_params(self, field, **kwargs):
         params = super().map_gov_params(field, **kwargs)
 
-        params.setdefault('text', field.label.text)
-        params.setdefault('element', 'button')
+        params.setdefault("text", field.label.text)
+        params.setdefault("element", "button")
 
         return params
 
@@ -150,7 +154,8 @@ class GovTextArea(GovFormBase, TextArea):
 
     `rows` and `cols` ought to be passed as keyword args when rendering.
     """
-    template = 'wtforms_gov/textarea.html'
+
+    template = "wtforms_gov/textarea.html"
 
     def __call__(self, field, **kwargs):
         kwargs.setdefault("id", field.id)
@@ -172,30 +177,29 @@ class GovSelect(GovFormBase, Select):
     call on rendering; this method must yield tuples of
     `(value, label, selected)`.
     """
-    template = 'wtforms_gov/select.html'
+
+    template = "wtforms_gov/select.html"
 
     def __call__(self, field, **kwargs):
         if self.multiple:
-            raise ApplicationError('Please do not render mutliselect elements as a select box'
-                                   ' - you should use checkboxes instead in order to comply with'
-                                   ' the GOV.UK service manual')
+            raise ApplicationError(
+                "Please do not render mutliselect elements as a select box"
+                " - you should use checkboxes instead in order to comply with"
+                " the GOV.UK service manual"
+            )
 
         kwargs.setdefault("id", field.id)
 
         if "required" not in kwargs and "required" in getattr(field, "flags", []):
             kwargs["required"] = True
 
-        kwargs['items'] = []
+        kwargs["items"] = []
 
         # Construct select box choices
         for val, label, selected in field.iter_choices():
-            item = {
-                'text': label,
-                'value': val,
-                'selected': selected
-            }
+            item = {"text": label, "value": val, "selected": selected}
 
-            kwargs['items'].append(item)
+            kwargs["items"].append(item)
 
         return super().__call__(field, **kwargs)
 
@@ -203,6 +207,6 @@ class GovSelect(GovFormBase, Select):
 
         params = super().map_gov_params(field, **kwargs)
 
-        params['items'] = kwargs['items']
+        params["items"] = kwargs["items"]
 
         return params

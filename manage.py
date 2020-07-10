@@ -1,7 +1,7 @@
-from flask_script import Manager
-from demo.main import app
 import os
 
+from demo.main import app
+from flask_script import Manager
 
 manager = Manager(app)
 
@@ -14,7 +14,9 @@ def runserver(port=9996):
     os.environ["LOG_LEVEL"] = "DEBUG"
     os.environ["COMMIT"] = "LOCAL"
 
-    app.run(port=int(port), ssl_context=('/supporting-files/ssl.cert', '/supporting-files/ssl.key'))
+    app.run(
+        port=int(port), ssl_context=("/supporting-files/ssl.cert", "/supporting-files/ssl.key"),
+    )
 
 
 if __name__ == "__main__":

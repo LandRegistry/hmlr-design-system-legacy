@@ -1,13 +1,12 @@
 from demo import config
 from demo.custom_extensions.cachebust_static_assets.main import CachebustStaticAssets
+from demo.custom_extensions.content_security_policy.main import ContentSecurityPolicy
+from demo.custom_extensions.csrf.main import CSRF
 from demo.custom_extensions.enhanced_logging.main import EnhancedLogging
 from demo.custom_extensions.gzip_static_assets.main import GzipStaticAssets
-from demo.custom_extensions.security_headers.main import SecurityHeaders
 from demo.custom_extensions.jinja_markdown_filter.main import JinjaMarkdownFilter
-from demo.custom_extensions.csrf.main import CSRF
-from demo.custom_extensions.content_security_policy.main import ContentSecurityPolicy
+from demo.custom_extensions.security_headers.main import SecurityHeaders
 from demo.custom_extensions.wtforms_helpers.main import WTFormsHelpers
-
 
 # Create empty extension objects here
 cachebust_static_assets = CachebustStaticAssets()
@@ -29,7 +28,7 @@ def register_extensions(app):
     # content_security_policy.init_app(app)
     wtforms_helpers.init_app(app)
 
-    if config.STATIC_ASSETS_MODE == 'production':
+    if config.STATIC_ASSETS_MODE == "production":
         cachebust_static_assets.init_app(app)
         gzip_static_assets.init_app(app)
 

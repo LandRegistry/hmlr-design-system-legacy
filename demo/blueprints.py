@@ -1,6 +1,5 @@
 # Import every blueprint file
-from demo.views import general
-from demo.views import components
+from demo.views import components, general
 
 
 def register_blueprints(app):
