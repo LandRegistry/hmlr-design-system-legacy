@@ -11,8 +11,7 @@ see if any modifications need to be brought in
 
 
 class GovInput(GovFormBase, Input):
-    """
-    Render a basic ``<input>`` field.
+    """Render a basic ``<input>`` field.
 
     This is used as the basis for most of the other input fields.
 
@@ -34,16 +33,13 @@ class GovInput(GovFormBase, Input):
 
 
 class GovTextInput(GovInput, TextInput):
-    """
-    Render a single-line text input.
-    """
+    """Render a single-line text input."""
 
     input_type = "text"
 
 
 class GovPasswordInput(GovInput, PasswordInput):
-    """
-    Render a password input.
+    """Render a password input.
 
     For security purposes, this field will not reproduce the value on a form
     submit by default. To have the value filled in, set `hide_value` to
@@ -63,7 +59,8 @@ class GovCheckboxesInput(GovIterableBase):
     there is to use a combination of the list and checkbox widgets.
     However in the GOV.UK macros this type of field is not simply
     a list of smaller widgets - multiple checkboxes are a single
-    construct of their own."""
+    construct of their own.
+    """
 
     template = "wtforms_gov/checkboxes.html"
     input_type = "checkbox"
@@ -127,8 +124,7 @@ class GovFileInput(GovInput, FileInput):
 
 
 class GovSubmitInput(GovInput, SubmitInput):
-    """
-    Renders a submit button.
+    """Renders a submit button.
 
     The field's label is used as the text of the submit button instead of the
     data on the field.
@@ -149,8 +145,7 @@ class GovSubmitInput(GovInput, SubmitInput):
 
 
 class GovTextArea(GovFormBase, TextArea):
-    """
-    Renders a multi-line text area.
+    """Renders a multi-line text area.
 
     `rows` and `cols` ought to be passed as keyword args when rendering.
     """
@@ -167,8 +162,7 @@ class GovTextArea(GovFormBase, TextArea):
 
 
 class GovSelect(GovFormBase, Select):
-    """
-    Renders a select field.
+    """Renders a select field.
 
     If `multiple` is True, then the `size` property should be specified on
     rendering to make the field useful.

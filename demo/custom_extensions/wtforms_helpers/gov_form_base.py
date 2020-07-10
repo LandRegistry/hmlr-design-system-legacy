@@ -94,7 +94,8 @@ class GovIterableBase(GovFormBase):
 
         It bears little resemblance to that of a normal field
         because these fields are effectively collections of
-        fields wrapped in an iterable"""
+        fields wrapped in an iterable
+        """
 
         params = {"name": field.name, "items": kwargs["items"]}
 

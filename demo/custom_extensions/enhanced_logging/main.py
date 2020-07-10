@@ -58,7 +58,7 @@ class EnhancedLogging(object):
                 },
             },
             "loggers": {
-                app.logger.name: {"handlers": ["console"], "level": app.config["FLASK_LOG_LEVEL"],},
+                app.logger.name: {"handlers": ["console"], "level": app.config["FLASK_LOG_LEVEL"], },
                 "content_security_policy": {
                     "handlers": ["content_security_policy"],
                     "level": app.config["FLASK_LOG_LEVEL"],

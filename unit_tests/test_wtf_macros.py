@@ -12,7 +12,8 @@ class FlaskWtfMacroTestBase(unittest.TestCase):
 
     Test the output of passing flask-wtf form elements
     through the custom govuk macros, ensuring we get
-    correctly formed responses."""
+    correctly formed responses.
+    """
 
     def setup_method(self, method):
         self.app = app.test_client()

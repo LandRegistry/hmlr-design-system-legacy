@@ -18,25 +18,25 @@ class WTFormsHelpers(object):
 
 
 def wtforms_errors(form, params={}):
-    wtforms_params = {"titleText": "There is a problem", "errorList": []}
+    wtforms_params = {"titleText": "There is a problem", "error_list": []}
 
-    wtforms_params["errorList"] = flatten_errors(form.errors)
+    wtforms_params["error_list"] = flatten_errors(form.errors)
 
     return merger.merge(wtforms_params, params)
 
 
 def flatten_errors(errors, prefix=""):
-    errorList = []
+    error_list = []
 
     for key, value in errors.items():
 
         if isinstance(value, dict):
             # Recurse to handle subforms
-            errorList += flatten_errors(value, prefix=prefix + key + "-")
+            error_list += flatten_errors(value, prefix=prefix + key + "-")
         else:
-            errorList.append({"text": value[0], "href": "#{}{}-error".format(prefix, key)})
+            error_list.append({"text": value[0], "href": "#{}{}-error".format(prefix, key)})
 
-    return errorList
+    return error_list
 
 
 merger = Merger(
