@@ -14,7 +14,7 @@ def check_status():
             {
                 "app": current_app.config["APP_NAME"],
                 "status": "OK",
-                "headers": request.headers.to_list(),
+                "headers": request.headers.to_wsgi_list(),
                 "commit": current_app.config["COMMIT"],
             }
         ),
@@ -118,7 +118,7 @@ def cascade_health(str_depth):
         "server_timestamp": str(datetime.datetime.now()),
         "app": current_app.config.get("APP_NAME"),
         "status": "UNKNOWN",
-        "headers": request.headers.to_list(),
+        "headers": request.headers.to_wsgi_list(),
         "commit": current_app.config.get("COMMIT"),
         "db": dbs,
         "services": services,
@@ -127,4 +127,4 @@ def cascade_health(str_depth):
         response_json["status"] = "BAD"
     else:
         response_json["status"] = "OK"
-    return Response(response=json.dumps(response_json), mimetype="application/json", status=overall_status,)
+    return Response(response=json.dumps(response_json), mimetype="application/json", status=overall_status)
