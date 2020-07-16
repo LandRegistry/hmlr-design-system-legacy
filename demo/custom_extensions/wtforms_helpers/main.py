@@ -18,9 +18,9 @@ class WTFormsHelpers(object):
 
 
 def wtforms_errors(form, params={}):
-    wtforms_params = {"titleText": "There is a problem", "error_list": []}
+    wtforms_params = {"titleText": "There is a problem", "errorList": []}
 
-    wtforms_params["error_list"] = flatten_errors(form.errors)
+    wtforms_params["errorList"] = flatten_errors(form.errors)
 
     return merger.merge(wtforms_params, params)
 

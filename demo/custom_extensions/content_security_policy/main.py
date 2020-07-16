@@ -24,8 +24,8 @@ class ContentSecurityPolicy(object):
         # Build up the content security policy header
         self.csp = (
             "default-src 'self';"
-            "script-src 'self' www.google-analytics.com %(govuk_script_hashes)s;"
-            "connect-src 'self' www.google-analytics.com;"
+            "script-src 'self' www.google-analytics.com www.googletagmanager.com %(approved_script_hashes)s;"
+            "connect-src 'self' www.google-analytics.com www.googletagmanager.com;"
             "img-src 'self' www.google-analytics.com;"
             "font-src 'self' data:;"  # GOV.UK template loads it's fonts with a data URI
             "block-all-mixed-content;"
@@ -37,9 +37,10 @@ class ContentSecurityPolicy(object):
         # If the script blocks in the govuk template are changed, these will
         # need to be updated. Easiest way is to delete these hashes, and then
         # pull the new ones from Chrome's dev console (It calculates them for you)
-        govuk_script_hashes = [
+        approved_script_hashes = [
             "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",
             "'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g='",
+            "'sha256-cl2QRSoYUeszO98VLlxSOD9YleEFNbw4vz9QAaZFrT0='",  # Google analytics
         ]
 
         # Register a blueprint containing a simple route to log CSP violations
@@ -61,7 +62,7 @@ class ContentSecurityPolicy(object):
 
             csp = self.csp % {
                 "report_uri": url_for("reporting.report", trace_id=g.trace_id),
-                "govuk_script_hashes": " ".join(govuk_script_hashes),
+                "approved_script_hashes": " ".join(approved_script_hashes),
             }
 
             if app.config["CONTENT_SECURITY_POLICY_MODE"] == "report-only":

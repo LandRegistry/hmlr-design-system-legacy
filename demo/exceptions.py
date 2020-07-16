@@ -55,10 +55,7 @@ def unhandled_exception(e):
         if request_wants_json():
             return jsonify({}), http_code
         else:
-            return (
-                render_template("errors/unhandled.html", http_code=http_code,),
-                http_code,
-            )
+            return render_template("errors/unhandled.html", http_code=http_code,), http_code
     except Exception:
         # Ultimate fallback handler, such as if jinja templates are missing
         return "Internal server error", 500
@@ -87,16 +84,14 @@ def application_error(e):
     # Determine whether to log at info|error, when the http code being returned is not 500
     # (500s are always considered live-log worthy, at error level)
     if e.http_code == 500:
-        current_app.logger.exception(
-            "Application Exception (message: %s, code: %s): %s", e.message, e.code, repr(e),
-        )
+        current_app.logger.exception("Application Exception (message: %s, code: %s): %s", e.message, e.code, repr(e))
     elif e.force_logging:
         current_app.logger.info(
-            "Application Exception (message: %s, code: %s): %s", e.message, e.code, repr(e), exc_info=True,
+            "Application Exception (message: %s, code: %s): %s", e.message, e.code, repr(e), exc_info=True
         )
     else:
         current_app.logger.debug(
-            "Application Exception (message: %s, code: %s): %s", e.message, e.code, repr(e), exc_info=True,
+            "Application Exception (message: %s, code: %s): %s", e.message, e.code, repr(e), exc_info=True
         )
 
     # ApplicationError allows developers to specify an HTTP code.
@@ -124,7 +119,7 @@ def application_error(e):
             )
         except TemplateNotFound:
             return (
-                render_template("errors/application.html", description=e.message, code=e.code, http_code=http_code,),
+                render_template("errors/application.html", description=e.message, code=e.code, http_code=http_code),
                 http_code,
             )
 
