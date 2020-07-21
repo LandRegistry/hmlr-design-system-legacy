@@ -18,45 +18,36 @@ class WTFormsHelpers(object):
 
 
 def wtforms_errors(form, params={}):
-    wtforms_params = {
-        'titleText': 'There is a problem',
-        'errorList': []
-    }
+    wtforms_params = {"titleText": "There is a problem", "errorList": []}
 
-    wtforms_params['errorList'] = flatten_errors(form.errors)
+    wtforms_params["errorList"] = flatten_errors(form.errors)
 
     return merger.merge(wtforms_params, params)
 
 
-def flatten_errors(errors, prefix=''):
-    errorList = []
+def flatten_errors(errors, prefix=""):
+    error_list = []
 
     for key, value in errors.items():
 
         if isinstance(value, dict):
             # Recurse to handle subforms
-            errorList += flatten_errors(value, prefix=prefix + key + '-')
+            error_list += flatten_errors(value, prefix=prefix + key + "-")
         else:
-            errorList.append({
-                'text': value[0],
-                'href': '#{}{}-error'.format(prefix, key)
-            })
+            error_list.append({"text": value[0], "href": "#{}{}-error".format(prefix, key)})
 
-    return errorList
+    return error_list
 
 
 merger = Merger(
     # pass in a list of tuple, with the
     # strategies you are looking to apply
     # to each type.
-    [
-        (list, ["append"]),
-        (dict, ["merge"])
-    ],
+    [(list, ["append"]), (dict, ["merge"])],
     # next, choose the fallback strategies,
     # applied to all other types:
     ["override"],
     # finally, choose the strategies in
     # the case where the types conflict:
-    ["override"]
+    ["override"],
 )

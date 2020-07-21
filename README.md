@@ -1,4 +1,4 @@
-# hmlr-design-system
+# HMLR Design System
 
 ## Approach to common patterns
 
@@ -7,7 +7,7 @@
 
 ## Contribution process
 
-Broadly propose that we follow a similar process to https://design-system.service.gov.uk/community/propose-a-component-or-pattern/
+Broadly propose that we follow a similar process to the [GOV.UK Design System community proposals](https://design-system.service.gov.uk/community/propose-a-component-or-pattern/)
 
 - Initial idea
 - Prototype
@@ -15,7 +15,6 @@ Broadly propose that we follow a similar process to https://design-system.servic
 - Creation of production ready version
 - Create demos and documentation on the design system homepage
 - Schedule a post implementation review - how's it going 6 months later?
-
 
 ## Technical approach
 
