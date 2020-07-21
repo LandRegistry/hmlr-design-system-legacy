@@ -2,7 +2,7 @@
 
 [Flask-WTF](https://flask-wtf.readthedocs.io/) is used for building HTML forms, making things like form validation and rendering of errors much easier than having to build this yourself. The [Flask-WTF documentation](https://flask-wtf.readthedocs.io/) covers the standard use cases and you should refer to this.
 
-In addition to the standard use case however, hmlr-design-system includes custom widgets that can be used to render Flask-WTF forms in the GOV.​UK style. These widgets automatically render error messages in the appropriate places as well as showing an error summary at the top of the page in a fully GOV.​UK compliant manner.
+In addition to the standard use case however, demo includes custom widgets that can be used to render Flask-WTF forms in the GOV.​UK style. These widgets automatically render error messages in the appropriate places as well as showing an error summary at the top of the page in a fully GOV.​UK compliant manner.
 
 ## Defining a GOV.​UK style form
 
@@ -43,7 +43,7 @@ Where this then deviates from Flask-WTF is the ability to pass additional parame
 }) }}
 ```
 
-By passing a dict in via the `params` argument, this will be passed along to the underlying GOV.​UK macro in order to customize the output. More information about these params can be found in the [design system](https://hmlr-design-system.service.gov.uk/) or if it suits you better, by [reading the source code of the templates themselves](https://github.com/alphagov/govuk-frontend/tree/master/src/components) (Highly recommended as this will always be the most authoritative).
+By passing a dict in via the `params` argument, this will be passed along to the underlying GOV.​UK macro in order to customize the output. More information about these params can be found in the [design system](https://design-system.service.gov.uk/) or if it suits you better, by [reading the source code of the templates themselves](https://github.com/alphagov/govuk-frontend/tree/master/src/components) (Highly recommended as this will always be the most authoritative).
 
 The available widgets and their corresponding Flask-WTF field types are as follows:
 

@@ -1,4 +1,5 @@
 from flask import flash, redirect, request
+
 from flask_wtf.csrf import CSRFError, CSRFProtect
 
 csrf = CSRFProtect()
@@ -19,7 +20,7 @@ class CSRF(object):
     def init_app(self, app):
         # Default to only expiring the token when the user's session expires
         # rather than 1 hour which is the default from flask-wtf
-        app.config.setdefault('WTF_CSRF_TIME_LIMIT', None)
+        app.config.setdefault("WTF_CSRF_TIME_LIMIT", None)
 
         global csrf
         csrf.init_app(app)
@@ -28,5 +29,5 @@ class CSRF(object):
 
 
 def handle_csrf_error(e):
-    flash('The form you were submitting has expired. Please try again.', 'error')
+    flash("The form you were submitting has expired. Please try again.", "error")
     return redirect(request.path)

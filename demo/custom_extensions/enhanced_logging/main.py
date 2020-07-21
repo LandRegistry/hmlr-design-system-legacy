@@ -1,24 +1,36 @@
-from flask import g
-from flask import request
-from flask_logconfig import LogConfig
+import uuid
 from pathlib import Path
 
 import requests
-import uuid
+from flask import current_app, g, request
+
+from flask_logconfig import LogConfig
+
+
+class RequestsSessionTimeout(requests.Session):
+    """Custom requests session class to set some defaults on g.requests"""
+
+    def request(self, *args, **kwargs):
+        # Set a default timeout for the request.
+        # Can be overridden in the same way that you would normally set a timeout
+        # i.e. g.requests.get(timeout=5)
+        if not kwargs.get("timeout"):
+            kwargs["timeout"] = current_app.config["DEFAULT_TIMEOUT"]
+
+        return super(RequestsSessionTimeout, self).request(*args, **kwargs)
 
 
 def before_request():
     # Sets the transaction trace id on the global object if provided in the HTTP header from the caller.
     # Generate a new one if it has not. We will use this in log messages.
-    g.trace_id = request.headers.get('X-Trace-ID', uuid.uuid4().hex)
+    g.trace_id = request.headers.get("X-Trace-ID", uuid.uuid4().hex)
     # We also create a session-level requests object for the app to use with the header pre-set, so other APIs
     # will receive it. These lines can be removed if the app will not make requests to other LR APIs!
-    g.requests = requests.Session()
-    g.requests.headers.update({'X-Trace-ID': g.trace_id})
+    g.requests = RequestsSessionTimeout()
+    g.requests.headers.update({"X-Trace-ID": g.trace_id})
 
 
 class EnhancedLogging(object):
-
     def __init__(self, app=None):
         self.app = app
         if app is not None:
@@ -32,47 +44,39 @@ class EnhancedLogging(object):
         app_module_name = Path(__file__).resolve().parents[2].parts[-1]
 
         logconfig = {
-            'version': 1,
-            'disable_existing_loggers': False,
-            'formatters': {
-                'simple': {
-                    '()': app_module_name + '.custom_extensions.enhanced_logging.formatters.JsonFormatter'
+            "version": 1,
+            "disable_existing_loggers": False,
+            "formatters": {
+                "simple": {"()": app_module_name + ".custom_extensions.enhanced_logging.formatters.JsonFormatter"},
+                "content_security_policy": {
+                    "()": app_module_name + ".custom_extensions.enhanced_logging"
+                    ".formatters.ContentSecurityPolicyFormatter"
                 },
-                'content_security_policy': {
-                    '()': app_module_name + '.custom_extensions.enhanced_logging'
-                                            '.formatters.ContentSecurityPolicyFormatter'
-                }
             },
-            'filters': {
-                'contextual': {
-                    '()': app_module_name + '.custom_extensions.enhanced_logging.filters.ContextualFilter'
-                }
+            "filters": {
+                "contextual": {"()": app_module_name + ".custom_extensions.enhanced_logging.filters.ContextualFilter"}
             },
-            'handlers': {
-                'console': {
-                    'class': 'logging.StreamHandler',
-                    'formatter': 'simple',
-                    'filters': ['contextual'],
-                    'stream': 'ext://sys.stdout'
+            "handlers": {
+                "console": {
+                    "class": "logging.StreamHandler",
+                    "formatter": "simple",
+                    "filters": ["contextual"],
+                    "stream": "ext://sys.stdout",
                 },
-                'content_security_policy': {
-                    'class': 'logging.StreamHandler',
-                    'formatter': 'content_security_policy',
-                    'filters': ['contextual'],
-                    'stream': 'ext://sys.stdout'
-                }
-            },
-            'loggers': {
-                app.logger.name: {
-                    'handlers': ['console'],
-                    'level': app.config['FLASK_LOG_LEVEL']
+                "content_security_policy": {
+                    "class": "logging.StreamHandler",
+                    "formatter": "content_security_policy",
+                    "filters": ["contextual"],
+                    "stream": "ext://sys.stdout",
                 },
-                'content_security_policy': {
-                    'handlers': ['content_security_policy'],
-                    'level': app.config['FLASK_LOG_LEVEL']
-                }
-
-            }
+            },
+            "loggers": {
+                app.logger.name: {"handlers": ["console"], "level": app.config["FLASK_LOG_LEVEL"]},
+                "content_security_policy": {
+                    "handlers": ["content_security_policy"],
+                    "level": app.config["FLASK_LOG_LEVEL"],
+                },
+            },
         }
 
         app.config.update(LOGCONFIG=logconfig)
