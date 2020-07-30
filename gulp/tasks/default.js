@@ -1,6 +1,5 @@
 module.exports = (gulp, config) => {
   gulp.task('copy', gulp.parallel([
-    'copyGov',
     'images'
   ]))
 
