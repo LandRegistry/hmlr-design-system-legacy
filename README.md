@@ -26,8 +26,8 @@ Broadly propose that we follow a similar process to the [GOV.UK Design System co
 
 Releases are pushed to internally hosted versions of PyPi and npm on the Nexus repository manager. The process is as follows:
 
-- Get master to the desired state wish to release
-- Ensure package.json contains the version number for the tag you are about to release (Following semver principles)
+- Get `main` to the desired state wish to release
+- Ensure `package.json` contains the version number for the tag you are about to release (Following semver principles)
 - Set up an additional upstream remote to the version on GitLab (In the common group). Don't replace the main GitHub remote - you want to end up with two remotes.
 - Push the code to Gitlab (Something along the lines of `git push gitlab` assuming you called the remote that)
 - Go to GitLab and tag the branch. This will cause the pipeline to run and push the npm and PyPi packages to Nexus
