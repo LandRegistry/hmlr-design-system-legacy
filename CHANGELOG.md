@@ -4,7 +4,7 @@ Note that requirements updates are not listed here unless they result in more ch
 
 | Date | Summary | Comparison to previous |
 |---|---|---|
-| 2020-08-25 | Update to govuk frontend 3.8.1 | [Here](https://github.com/LandRegistry/hmlr-design-system/pull/66) |
+| 2021-01-11 | Update to govuk frontend 3.10.2 | [Here](https://github.com/LandRegistry/hmlr-design-system/pull/66) |
 | 2020-07-21 | Update to govuk frontend 3.7.0. Use govuk-frontend-jinja for template macros. Updated Docker base image. Code formatting and linting improvements | [Here](https://github.com/LandRegistry/hmlr-design-system/pull/63) |
 | 2019-10-25 | Add class for hiding the cookie banner | [Here](https://github.com/LandRegistry/hmlr-design-system/pull/61) |
 | 2019-10-24 | Tweak wording on cookie banner to remove last sentence | [Here](https://github.com/LandRegistry/hmlr-design-system/pull/59) |
