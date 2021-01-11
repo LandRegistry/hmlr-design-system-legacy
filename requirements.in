@@ -1,14 +1,14 @@
 cachelib==0.1.1
-deepmerge==0.1.0
-email_validator==1.1.1
-flask-compress==1.5.0
+deepmerge==0.1.1
+email_validator==1.1.2
+flask-compress==1.8.0
 flask-logconfig==0.4.2
 flask-script==2.0.6
 flask-wtf==0.14.3
 flask==1.1.2
-govuk-frontend-jinja==1.0.0
+govuk-frontend-jinja==1.1.0
 gunicorn==19.10.0  # Latest 20.0.4
 misaka==2.1.1
-requests==2.24.0
+requests==2.25.1
 # Generated with piprot 0.9.10
 # Your requirements are 3 days out of date
