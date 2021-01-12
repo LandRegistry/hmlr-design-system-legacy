@@ -24,10 +24,10 @@ RUN mkdir -p /supporting-files && \
     -out ssl.cert
 
 # Install nodejs
-RUN cd /supporting-files && curl -SLO "https://nodejs.org/dist/v12.20.0/node-v12.20.0-linux-x64.tar.xz" && \
-tar -xJf "node-v12.20.0-linux-x64.tar.xz" -C /usr/local --strip-components=1 && \
+RUN cd /supporting-files && curl -SLO "https://nodejs.org/dist/v10.23.1/node-v10.23.1-linux-x64.tar.xz" && \
+tar -xJf "node-v10.23.1-linux-x64.tar.xz" -C /usr/local --strip-components=1 && \
 ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
-rm "node-v12.20.0-linux-x64.tar.xz"
+rm "node-v10.23.1-linux-x64.tar.xz"
 
 # Install node modules
 # These are installed outside of the mounted volume and nodejs is instructed to look for them by setting NODE_PATH / PATH
