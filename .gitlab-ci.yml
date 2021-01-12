@@ -1,4 +1,4 @@
-image: hmlandregistry/dev_base_python_flask:5
+image: hmlandregistry/dev_base_python_flask:5-3.6
 
 .npm: &npm
   image: hmlandregistry/dev_base_nodejs:1-10
