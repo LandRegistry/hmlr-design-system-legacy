@@ -21,7 +21,8 @@ function Header(props) {
 
   return <header className={`hmlr-header hmlr-header--${props.variant} ${props.classes}`}>
     <div className="hmlr-header__inner">
-      {props.homepageUrl
+      {
+      props.homepageUrl
         ? (
           <a href={props.homepageUrl} className="hmlr-header__link">
             contents

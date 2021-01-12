@@ -21,7 +21,8 @@
     "object-curly-spacing": ["error", "never"],
     "array-bracket-spacing": ["error", "never"],
     "react/jsx-curly-spacing": ["error", {"when": "never", "children": true}],
-    "react/self-closing-comp": ["error", {"html": false}]
+    "react/self-closing-comp": ["error", {"html": false}],
+    "react/jsx-fragments": [1, "syntax"]
   },
   "settings": {
     "react": {
