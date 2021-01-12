@@ -4,21 +4,21 @@
 #
 #    pip-compile
 #
-brotli==1.0.7             # via flask-compress
+brotli==1.0.9             # via flask-compress
 cachelib==0.1.1           # via -r requirements.in
-certifi==2020.6.20        # via requests
-cffi==1.14.0              # via misaka
-chardet==3.0.4            # via requests
+certifi==2020.12.5        # via requests
+cffi==1.14.4              # via misaka
+chardet==4.0.0            # via requests
 click==7.1.2              # via flask
-deepmerge==0.1.0          # via -r requirements.in
-dnspython==1.16.0         # via email-validator
-email_validator==1.1.1    # via -r requirements.in
-flask-compress==1.5.0     # via -r requirements.in
+deepmerge==0.1.1          # via -r requirements.in
+dnspython==2.1.0          # via email-validator
+email_validator==1.1.2    # via -r requirements.in
+flask-compress==1.8.0     # via -r requirements.in
 flask-logconfig==0.4.2    # via -r requirements.in
 flask-script==2.0.6       # via -r requirements.in
 flask-wtf==0.14.3         # via -r requirements.in
 flask==1.1.2              # via -r requirements.in, flask-compress, flask-logconfig, flask-script, flask-wtf
-govuk-frontend-jinja==0.2.1  # via -r requirements.in
+govuk-frontend-jinja==1.1.0  # via -r requirements.in
 gunicorn==19.10.0         # via -r requirements.in
 idna==2.10                # via email-validator, requests
 itsdangerous==1.1.0       # via flask, flask-wtf
@@ -29,7 +29,7 @@ markupsafe==1.1.1         # via jinja2, wtforms
 misaka==2.1.1             # via -r requirements.in
 pycparser==2.20           # via cffi
 pyyaml==5.3.1             # via logconfig
-requests==2.24.0          # via -r requirements.in
-urllib3==1.25.9           # via requests
+requests==2.25.1          # via -r requirements.in
+urllib3==1.26.2           # via requests
 werkzeug==1.0.1           # via flask
-wtforms==2.3.1            # via flask-wtf
+wtforms==2.3.3            # via flask-wtf
