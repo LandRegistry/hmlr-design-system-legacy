@@ -1,18 +1,6 @@
 @import '../../settings/variables';
 
 .hmlr-theme {
-  .govuk-heading-xl {
-    margin: 32px 0;
-  }
-
-  .govuk-heading-l {
-    margin-bottom: 24px;
-
-    @include govuk-media-query($from: desktop) {
-      margin-bottom: 28px;
-    }
-  }
-
   .hmlr-meta {
     @include govuk-font($size: 16);
     color: $govuk-secondary-text-colour;
