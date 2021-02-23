@@ -1,13 +1,14 @@
-// GOV.UK design system
+// GOV.UK Design System
 $govuk-images-path: '/ui/.govuk-frontend/images/';
 $govuk-fonts-path: '/ui/.govuk-frontend/fonts/';
 $govuk-font-family: "Arial", sans-serif;
+$govuk-root-font-size: 19px;
 
+@import 'govuk-frontend/govuk/all';
+
+// HMLR Design System
 @import '../../../../hmlr_design_system/settings/variables';
 
-@import 'govuk-frontend/govuk/all';  // Feel free to be more selective than this
-
-// Design system components
 @import '../../../../hmlr_design_system/components/layout/style';
 @import '../../../../hmlr_design_system/components/header/style';
 @import '../../../../hmlr_design_system/components/back-link/style';
@@ -17,7 +18,6 @@ $govuk-font-family: "Arial", sans-serif;
 @import '../../../../hmlr_design_system/components/typography/style';
 @import '../../../../hmlr_design_system/components/footer/style';
 @import '../../../../hmlr_design_system/components/cookie-banner/style';
-
 
 // App specific code
 @import 'partials/code-blocks';

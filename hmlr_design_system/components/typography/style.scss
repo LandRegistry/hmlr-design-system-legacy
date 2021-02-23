@@ -26,25 +26,16 @@
     margin-bottom: 19px;
   }
 
-  .govuk-body {
-    font-size: $font-size;
-  }
-
   .govuk-fieldset__heading {
     font-size: 28px;
   }
 
-  .govuk-hint {
-    font-size: $font-size;
-  }
-
   .hmlr-meta {
-    font-size: $font-size--meta;
+    @include govuk-font($size: 16);
     color: $govuk-secondary-text-colour;
   }
 
   .govuk-list {
-    font-size: $font-size;
     list-style-position: inside;
     margin: 0;
     padding: 0;
@@ -67,13 +58,5 @@
   .govuk-fieldset__legend--s {
     font-size: 19px;
     font-weight: 600;
-  }
-
-  .govuk-label {
-    font-size: $font-size;
-  }
-
-  .govuk-error-message {
-    font-size: $font-size;
   }
 }
