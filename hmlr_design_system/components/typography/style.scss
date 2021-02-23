@@ -2,32 +2,15 @@
 
 .hmlr-theme {
   .govuk-heading-xl {
-    font-size: 32px;
     margin: 32px 0;
   }
 
   .govuk-heading-l {
-    font-size: 24px;
     margin-bottom: 24px;
 
     @include govuk-media-query($from: desktop) {
-      font-size: 28px;
       margin-bottom: 28px;
     }
-  }
-
-  .govuk-heading-m{
-    font-size: 24px;
-    margin-bottom: 24px;
-  }
-
-  .govuk-heading-s {
-    font-size: 19px;
-    margin-bottom: 19px;
-  }
-
-  .govuk-fieldset__heading {
-    font-size: 28px;
   }
 
   .hmlr-meta {
@@ -39,24 +22,5 @@
     list-style-position: inside;
     margin: 0;
     padding: 0;
-  }
-
-  .govuk-fieldset__heading {
-    font-size: 28px;
-  }
-
-  .govuk-fieldset__legend--l {
-    font-size: 28px;
-    font-weight: 600;
-  }
-
-  .govuk-fieldset__legend--m {
-    font-size: 24px;
-    font-weight: 600;
-  }
-
-  .govuk-fieldset__legend--s {
-    font-size: 19px;
-    font-weight: 600;
   }
 }

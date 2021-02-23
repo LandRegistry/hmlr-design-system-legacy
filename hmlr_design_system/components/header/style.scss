@@ -41,8 +41,7 @@
 
   .hmlr-header__title {
     @extend %govuk-heading-l;
-    font-size: 20px;
-    color: govuk-colour("black");
+    color: $govuk-text-colour;
     margin-bottom: 0;
     display: inline-block;
     vertical-align: middle;
