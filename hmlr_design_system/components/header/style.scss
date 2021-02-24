@@ -40,7 +40,7 @@
   }
 
   .hmlr-header__title {
-    @extend %govuk-heading-l;
+    @include govuk-font($size: 24, $weight: bold, $line-height: 1);
     color: $govuk-text-colour;
     margin-bottom: 0;
     display: inline-block;
