@@ -1,15 +1,13 @@
 black==20.8b1
-coverage==5.3.1
+coverage==5.4
 flake8==3.8.4
-freezegun==1.0.0
+freezegun==1.1.0
 hacking==4.0.0
 pep8-naming==0.11.1
-pip-tools==5.4.0  # Latest 5.5.0
+pip-tools==5.5.0
 piprot==0.9.11
-pytest-cov==2.10.1
+pytest-cov==2.11.1
 pytest-html==3.1.1
-pytest==6.2.1
-pyyaml==5.3.1
-safety==1.10.2
-# Generated with piprot 0.9.10
-# Your requirements are 39 days out of date
+pytest==6.2.2
+pyyaml==5.4.1
+safety==1.10.3
