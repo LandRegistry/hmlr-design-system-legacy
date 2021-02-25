@@ -1,7 +1,8 @@
 import os
 
-from demo.main import app
 from flask_script import Manager
+
+from demo.main import app
 
 manager = Manager(app)
 
@@ -15,7 +16,8 @@ def runserver(port=9996):
     os.environ["COMMIT"] = "LOCAL"
 
     app.run(
-        port=int(port), ssl_context=("/supporting-files/ssl.cert", "/supporting-files/ssl.key"),
+        port=int(port),
+        ssl_context=("/supporting-files/ssl.cert", "/supporting-files/ssl.key"),
     )
 
 

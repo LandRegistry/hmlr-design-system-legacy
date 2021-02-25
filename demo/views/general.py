@@ -29,9 +29,7 @@ def cascade_health(str_depth):
 
     if (depth < 0) or (depth > int(current_app.config.get("MAX_HEALTH_CASCADE"))):
         current_app.logger.error(
-            "Cascade depth {} out of allowed range (0 - {})".format(
-                depth, current_app.config.get("MAX_HEALTH_CASCADE")
-            )
+            "Cascade depth {} out of allowed range (0 - {})".format(depth, current_app.config.get("MAX_HEALTH_CASCADE"))
         )
         return Response(
             response=json.dumps(

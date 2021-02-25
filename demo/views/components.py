@@ -14,4 +14,7 @@ def component_demo(component_name, demo_name):
 
     readme = open("hmlr_design_system/components/{}/README.md".format(component_name))
 
-    return render_template("components/{}/demos/{}.html".format(component_name, demo_name), readme=readme.read(),)
+    return render_template(
+        "components/{}/demos/{}.html".format(component_name, demo_name),
+        readme=readme.read(),
+    )

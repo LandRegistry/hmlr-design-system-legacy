@@ -55,7 +55,13 @@ def unhandled_exception(e):
         if request_wants_json():
             return jsonify({}), http_code
         else:
-            return render_template("errors/unhandled.html", http_code=http_code,), http_code
+            return (
+                render_template(
+                    "errors/unhandled.html",
+                    http_code=http_code,
+                ),
+                http_code,
+            )
     except Exception:
         # Ultimate fallback handler, such as if jinja templates are missing
         return "Internal server error", 500
@@ -75,7 +81,13 @@ def http_exception(e):
     if request_wants_json():
         return jsonify({}), http_code
     else:
-        return render_template("errors/unhandled.html", http_code=http_code,), http_code
+        return (
+            render_template(
+                "errors/unhandled.html",
+                http_code=http_code,
+            ),
+            http_code,
+        )
 
 
 def application_error(e):
