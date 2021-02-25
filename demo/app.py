@@ -2,7 +2,8 @@ from glob import glob
 from os import path
 
 from flask import url_for
-from jinja2 import ChoiceLoader, FileSystemLoader, PackageLoader, PrefixLoader, Template, contextfilter
+from jinja2 import (ChoiceLoader, FileSystemLoader, PackageLoader,
+                    PrefixLoader, Template, contextfilter)
 from markupsafe import Markup
 
 from demo.landregistry_flask import LandRegistryFlask
@@ -18,7 +19,7 @@ app.jinja_loader = ChoiceLoader(
             {
                 "components": FileSystemLoader("hmlr_design_system/components"),
                 "govuk_frontend_jinja": PackageLoader("govuk_frontend_jinja"),
-                "wtforms_gov": PackageLoader("demo.custom_extensions.wtforms_helpers"),
+                "govuk_frontend_wtf": PackageLoader("govuk_frontend_wtf"),
             }
         ),
     ]
