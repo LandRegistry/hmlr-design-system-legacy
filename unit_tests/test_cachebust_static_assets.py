@@ -3,10 +3,10 @@ import unittest
 from unittest import mock
 
 from flask import render_template_string
+from freezegun import freeze_time
 
 from demo.custom_extensions.cachebust_static_assets.main import CachebustStaticAssets, md5_for_file
 from demo.main import app
-from freezegun import freeze_time
 
 
 class TestCachebustStaticAssets(unittest.TestCase):
@@ -61,7 +61,8 @@ class TestCachebustStaticAssets(unittest.TestCase):
         os.remove(filename)
 
     @mock.patch(
-        "demo.custom_extensions.cachebust_static_assets.main.md5_for_file", wraps=md5_for_file,
+        "demo.custom_extensions.cachebust_static_assets.main.md5_for_file",
+        wraps=md5_for_file,
     )
     def test_repeated_url_for_calls_hits_cache_not_disk(self, mock_md5_for_file):
         filename = "demo/assets/dist/test.txt"

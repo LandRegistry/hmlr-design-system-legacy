@@ -7,7 +7,12 @@ from markupsafe import Markup
 
 from demo.landregistry_flask import LandRegistryFlask
 
-app = LandRegistryFlask(__name__, template_folder="templates", static_folder="assets/dist", static_url_path="/ui",)
+app = LandRegistryFlask(
+    __name__,
+    template_folder="templates",
+    static_folder="assets/dist",
+    static_url_path="/ui",
+)
 
 
 # Set Jinja up to be able to load templates from packages (See gadget-govuk-ui for a full example)
@@ -18,7 +23,7 @@ app.jinja_loader = ChoiceLoader(
             {
                 "components": FileSystemLoader("hmlr_design_system/components"),
                 "govuk_frontend_jinja": PackageLoader("govuk_frontend_jinja"),
-                "wtforms_gov": PackageLoader("demo.custom_extensions.wtforms_helpers"),
+                "govuk_frontend_wtf": PackageLoader("govuk_frontend_wtf"),
             }
         ),
     ]
@@ -30,7 +35,11 @@ app.config.from_pyfile("config.py")
 def parse_path(demo_path):
     demo_path = path.relpath(demo_path, "hmlr_design_system/components").replace("/demos", "").replace(".html", "")
     path_parts = demo_path.split("/")
-    return url_for("components.component_demo", component_name=path_parts[0], demo_name=path_parts[1],)
+    return url_for(
+        "components.component_demo",
+        component_name=path_parts[0],
+        demo_name=path_parts[1],
+    )
 
 
 @app.context_processor

@@ -7,29 +7,30 @@
 brotli==1.0.9             # via flask-compress
 cachelib==0.1.1           # via -r requirements.in
 certifi==2020.12.5        # via requests
-cffi==1.14.4              # via misaka
+cffi==1.14.5              # via misaka
 chardet==4.0.0            # via requests
 click==7.1.2              # via flask
-deepmerge==0.1.1          # via -r requirements.in
+deepmerge==0.1.1          # via govuk-frontend-wtf
 dnspython==2.1.0          # via email-validator
 email_validator==1.1.2    # via -r requirements.in
-flask-compress==1.8.0     # via -r requirements.in
+flask-compress==1.9.0     # via -r requirements.in
 flask-logconfig==0.4.2    # via -r requirements.in
 flask-script==2.0.6       # via -r requirements.in
-flask-wtf==0.14.3         # via -r requirements.in
-flask==1.1.2              # via -r requirements.in, flask-compress, flask-logconfig, flask-script, flask-wtf
-govuk-frontend-jinja==1.1.0  # via -r requirements.in
+flask-wtf==0.14.3         # via -r requirements.in, govuk-frontend-wtf
+flask==1.1.2              # via -r requirements.in, flask-compress, flask-logconfig, flask-script, flask-wtf, govuk-frontend-wtf
+govuk-frontend-jinja==1.2.0  # via -r requirements.in, govuk-frontend-wtf
+govuk-frontend-wtf==0.1.0  # via -r requirements.in
 gunicorn==19.10.0         # via -r requirements.in
 idna==2.10                # via email-validator, requests
 itsdangerous==1.1.0       # via flask, flask-wtf
-jinja2==2.11.2            # via flask
+jinja2==2.11.3            # via flask, govuk-frontend-jinja, govuk-frontend-wtf
 logconfig==0.4.0          # via flask-logconfig
 logutils==0.3.5           # via logconfig
 markupsafe==1.1.1         # via jinja2, wtforms
 misaka==2.1.1             # via -r requirements.in
 pycparser==2.20           # via cffi
-pyyaml==5.3.1             # via logconfig
+pyyaml==5.4.1             # via logconfig
 requests==2.25.1          # via -r requirements.in
-urllib3==1.26.2           # via requests
+urllib3==1.26.3           # via requests
 werkzeug==1.0.1           # via flask
-wtforms==2.3.3            # via flask-wtf
+wtforms==2.3.3            # via flask-wtf, govuk-frontend-wtf
