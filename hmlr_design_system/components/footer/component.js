@@ -16,7 +16,7 @@ function Footer(props) {
 
   let logo
   if (props.variant === 'dark') {
-    logo = <img className="hmlr-footer__logo" width="172px" height="55px" src={logoDark} alt="HM Land Registry" />
+    logo = <img className="hmlr-footer__logo" width="172" height="55" src={logoDark} alt="HM Land Registry" />
   }
 
   return <footer className={`hmlr-footer hmlr-footer--${props.variant} ${props.classes}`}>
