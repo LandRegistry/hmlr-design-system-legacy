@@ -1,49 +1,49 @@
 {
   "name": "@hmlr/design-system",
-  "version": "3.3.1",
+  "version": "4.0.0",
   "description": "",
   "scripts": {
-    "installGovukFrontend": "node install-govuk-frontend.js",
-    "test": "gulp test",
     "build": "gulp build && webpack",
     "dev": "npm run build && webpack --watch -d",
+    "installGovukFrontend": "node install-govuk-frontend.js",
+    "lint-js": "eslint hmlr_design_system",
+    "lint-scss": "stylelint hmlr_design_system/**/*.scss",
+    "lint": "npm run lint-js && npm run lint-scss",
+    "prebuild": "npm run installGovukFrontend",
     "prestart": "npm run installGovukFrontend",
     "pretest": "npm run installGovukFrontend",
-    "prebuild": "npm run installGovukFrontend",
-    "lint": "npm run lint-js && npm run lint-scss",
-    "lint-js": "eslint hmlr_design_system",
-    "lint-scss": "stylelint hmlr_design_system/**/*.scss"
+    "test": "gulp test"
   },
   "engines": {
-    "npm": "6.x",
-    "node": "10.x"
+    "npm": "8.x",
+    "node": "16.x"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:LandRegistry/hmlr-design-system.git"
   },
   "peerDependencies": {
-    "govuk-frontend": "^3.11.0"
+    "govuk-frontend": "^4.0.1"
   },
   "config": {
-    "govuk-frontend-version": "3.11.0"
+    "govuk-frontend-version": "4.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.13.1",
-    "@babel/preset-env": "7.13.5",
-    "@babel/preset-react": "7.12.13",
-    "autoprefixer": "9.8.6",
+    "@babel/core": "7.17.5",
+    "@babel/preset-env": "7.16.11",
+    "@babel/preset-react": "7.16.7",
+    "autoprefixer": "9.8.8",
     "babel-eslint": "10.1.0",
-    "babel-loader": "8.2.2",
+    "babel-loader": "8.2.3",
     "css-loader": "4.3.0",
-    "cssnano": "4.1.10",
+    "cssnano": "4.1.11",
     "del": "5.1.0",
-    "eslint": "7.20.0",
+    "eslint": "7.32.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-loader": "4.0.2",
-    "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-react": "7.22.0",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-react": "7.28.0",
     "event-stream": "4.0.1",
     "expose-loader": "1.0.3",
     "extend": "3.0.2",
@@ -56,14 +56,14 @@
     "mini-css-extract-plugin": "0.12.0",
     "node-sass": "4.14.1",
     "postcss-loader": "3.0.0",
-    "postcss-preset-env": "6.7.0",
+    "postcss-preset-env": "6.7.1",
     "react": "16.14.0",
     "react-dom": "16.14.0",
-    "sass-loader": "10.1.1",
-    "semver": "7.3.4",
-    "stylelint": "13.11.0",
-    "stylelint-config-recommended-scss": "4.2.0",
-    "stylelint-scss": "3.19.0",
+    "sass-loader": "10.2.1",
+    "semver": "7.3.5",
+    "stylelint": "13.13.1",
+    "stylelint-config-recommended-scss": "4.3.0",
+    "stylelint-scss": "3.21.0",
     "webpack": "4.46.0",
     "webpack-cli": "3.3.12"
   }

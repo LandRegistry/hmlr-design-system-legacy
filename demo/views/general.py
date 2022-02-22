@@ -125,4 +125,8 @@ def cascade_health(str_depth):
         response_json["status"] = "BAD"
     else:
         response_json["status"] = "OK"
-    return Response(response=json.dumps(response_json), mimetype="application/json", status=overall_status)
+    return Response(
+        response=json.dumps(response_json),
+        mimetype="application/json",
+        status=overall_status,
+    )

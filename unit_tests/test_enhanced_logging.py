@@ -2,11 +2,11 @@ import json
 import logging
 from unittest import mock
 
+from freezegun import freeze_time
 from werkzeug.datastructures import Headers
 
 from demo.custom_extensions.enhanced_logging.main import EnhancedLogging
 from demo.main import app
-from freezegun import freeze_time
 
 logger = logging.getLogger("hmlr-design-system")
 client = app.test_client()

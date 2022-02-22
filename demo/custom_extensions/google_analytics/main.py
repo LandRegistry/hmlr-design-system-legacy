@@ -34,6 +34,11 @@ def build_form_errors(data):
             sub_data = build_form_errors(value)
 
             for item in sub_data:
-                ret.append({"name": "{}-{}".format(key, item["name"]), "errors": item["errors"]})
+                ret.append(
+                    {
+                        "name": "{}-{}".format(key, item["name"]),
+                        "errors": item["errors"],
+                    }
+                )
 
     return ret
