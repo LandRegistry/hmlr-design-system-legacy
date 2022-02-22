@@ -3,11 +3,11 @@ import os
 import unittest
 from unittest import mock
 
+from flask_compress import Compress
 from werkzeug.datastructures import Headers
 
 from demo.custom_extensions.gzip_static_assets.main import GzipStaticAssets, gzip_cache, gzip_cache_key
 from demo.main import app
-from flask_compress import Compress
 
 
 class TestGzipStaticAssets(unittest.TestCase):

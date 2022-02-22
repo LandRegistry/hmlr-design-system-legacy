@@ -1,6 +1,6 @@
+import misaka
 from jinja2 import Markup
 
-import misaka
 from demo.custom_extensions.jinja_markdown_filter.gov_renderer import GovRenderer
 
 

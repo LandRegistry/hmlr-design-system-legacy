@@ -1,6 +1,5 @@
-from flask import request
-
 from cachelib import FileSystemCache
+from flask import request
 from flask_compress import Compress
 
 compress = Compress()

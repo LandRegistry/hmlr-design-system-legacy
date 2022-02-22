@@ -1,5 +1,4 @@
 from flask import flash, redirect, request
-
 from flask_wtf.csrf import CSRFError, CSRFProtect
 
 csrf = CSRFProtect()

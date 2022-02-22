@@ -34,7 +34,10 @@ class ContentSecurityPolicyFormatter(logging.Formatter):
                 ("level", record.levelname),
                 ("traceid", record.trace_id),
                 ("message", record.msg % record.args),
-                ("content_security_policy_report", record.content_security_policy_report),
+                (
+                    "content_security_policy_report",
+                    record.content_security_policy_report,
+                ),
             ]
         )
 

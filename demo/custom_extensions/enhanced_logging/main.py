@@ -3,7 +3,6 @@ from pathlib import Path
 
 import requests
 from flask import current_app, g, request
-
 from flask_logconfig import LogConfig
 
 
@@ -71,7 +70,10 @@ class EnhancedLogging(object):
                 },
             },
             "loggers": {
-                app.logger.name: {"handlers": ["console"], "level": app.config["FLASK_LOG_LEVEL"]},
+                app.logger.name: {
+                    "handlers": ["console"],
+                    "level": app.config["FLASK_LOG_LEVEL"],
+                },
                 "content_security_policy": {
                     "handlers": ["content_security_policy"],
                     "level": app.config["FLASK_LOG_LEVEL"],
